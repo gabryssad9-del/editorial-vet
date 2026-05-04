@@ -47,6 +47,7 @@ export const metadata: Metadata = {
 
 import SmoothScroll from "@/components/SmoothScroll";
 import { GlobalLoadingScreen } from "@/components/GlobalLoadingScreen";
+import { MotionProvider } from "@/components/MotionProvider";
 
 export default function RootLayout({
   children,
@@ -106,12 +107,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <GlobalLoadingScreen />
-        <SmoothScroll>
-          <div className="fixed inset-0 bg-background -z-20" />
-          <div className="fixed inset-0 opacity-10 paw-pattern-bg -z-10" />
-          {children}
-        </SmoothScroll>
+        <MotionProvider>
+          <GlobalLoadingScreen />
+          <SmoothScroll>
+            <div className="fixed inset-0 bg-background -z-20" />
+            <div className="fixed inset-0 opacity-10 paw-pattern-bg -z-10" />
+            {children}
+          </SmoothScroll>
+        </MotionProvider>
       </body>
     </html>
   );

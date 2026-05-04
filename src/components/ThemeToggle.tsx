@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 
 export const ThemeToggle = () => {
@@ -31,7 +31,7 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <motion.button
+    <m.button
       onClick={toggleTheme}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
@@ -39,6 +39,6 @@ export const ThemeToggle = () => {
       aria-label="Przełącz motyw"
     >
       {isDark ? <Sun size={20} /> : <Moon size={20} />}
-    </motion.button>
+    </m.button>
   );
 };

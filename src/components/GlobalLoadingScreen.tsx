@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Heart } from 'lucide-react';
 
 export const GlobalLoadingScreen = () => {
@@ -75,7 +75,7 @@ export const GlobalLoadingScreen = () => {
   return (
     <AnimatePresence>
       {isLoading && (
-        <motion.div
+        <m.div
           initial={{ opacity: 1 }}
           exit={{ 
             opacity: 0, 
@@ -92,7 +92,7 @@ export const GlobalLoadingScreen = () => {
           </div>
 
           <div className="relative z-10 flex flex-col items-center gap-8 w-full max-w-md px-10">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -106,22 +106,22 @@ export const GlobalLoadingScreen = () => {
                 VET<span className="text-accent italic">MED</span>
               </div>
               <p className="text-[10px] font-black text-accent uppercase tracking-[0.6em] mt-4 ml-2 opacity-80">Premium Veterinary Care</p>
-            </motion.div>
+            </m.div>
 
             <div className="w-full space-y-5">
               <div className="flex justify-between items-end">
-                <motion.p 
+                <m.p 
                   key={loadingText}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   className="text-[11px] font-black text-white/40 uppercase tracking-widest min-w-[200px]"
                 >
                   {loadingText}
-                </motion.p>
+                </m.p>
                 <span className="text-[11px] font-black text-accent font-mono tracking-tighter">{progress}%</span>
               </div>
               <div className="h-[2px] w-full bg-white/5 rounded-full overflow-hidden">
-                <motion.div 
+                <m.div 
                   className="h-full bg-accent shadow-[0_0_20px_rgba(254,69,32,1)]"
                   initial={{ width: "0%" }}
                   animate={{ width: `${progress}%` }}
@@ -134,7 +134,7 @@ export const GlobalLoadingScreen = () => {
           <div className="absolute bottom-12 flex flex-col items-center gap-2">
             <div className="w-1 h-1 rounded-full bg-accent/40" />
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

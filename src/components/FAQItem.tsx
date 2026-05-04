@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { ChevronDown, LucideIcon } from 'lucide-react';
 
 export const FAQItem = ({ question, answer, icon: Icon }: { question: string, answer: string, icon: LucideIcon }) => {
@@ -17,16 +17,16 @@ export const FAQItem = ({ question, answer, icon: Icon }: { question: string, an
           </div>
           <span className="text-xl md:text-2xl font-black tracking-tight">{question}</span>
         </div>
-        <motion.div
+        <m.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           className="text-accent"
         >
           <ChevronDown />
-        </motion.div>
+        </m.div>
       </button>
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -35,7 +35,7 @@ export const FAQItem = ({ question, answer, icon: Icon }: { question: string, an
             <p className="pb-8 text-lg text-text-gray font-medium opacity-70 leading-relaxed max-w-3xl pl-[4.5rem]">
               {answer}
             </p>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

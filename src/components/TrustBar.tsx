@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Microscope, Heart, MapPin } from 'lucide-react';
 
 export const TrustBar = () => {
@@ -14,7 +14,7 @@ export const TrustBar = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-border">
           {points.map((p, i) => (
-            <motion.div 
+            <m.div 
               key={i} 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export const TrustBar = () => {
                 <h3 className="font-outfit font-black text-2xl md:text-3xl mb-1 tracking-tight group-hover:text-accent transition-colors duration-500">{p.title}</h3>
                 <p className="text-text-gray font-medium text-base md:text-lg opacity-80 group-hover:opacity-100 transition-opacity duration-500">{p.desc}</p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

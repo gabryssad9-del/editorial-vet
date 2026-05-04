@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Badge } from './Badge';
 
 export const TeamSection = () => {
@@ -33,8 +33,8 @@ export const TeamSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-          {members.map((m, i) => (
-            <motion.div
+          {members.map((member, i) => (
+            <m.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -43,18 +43,18 @@ export const TeamSection = () => {
               className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-premium border border-accent/10 group bg-secondary"
             >
               <div className="h-[450px] md:h-[600px] w-full overflow-hidden relative">
-                <img loading="lazy" decoding="async" src={m.img} alt={`Lek. wet. ${m.name}`} className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src={member.img} alt={`Lek. wet. ${member.name}`} className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                 
                 <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 text-white">
-                  <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-accent mb-2">{m.role}</p>
-                  <h3 className="text-3xl md:text-4xl font-black mb-6 tracking-tighter">lek. wet. {m.name}</h3>
+                  <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-accent mb-2">{member.role}</p>
+                  <h3 className="text-3xl md:text-4xl font-black mb-6 tracking-tighter">lek. wet. {member.name}</h3>
                   <p className="text-base md:text-lg text-white/90 font-medium italic leading-relaxed border-l-2 border-accent pl-4">
-                    "{m.quote}"
+                    "{member.quote}"
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

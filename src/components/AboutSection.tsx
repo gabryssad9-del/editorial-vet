@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { Badge } from './Badge';
 
@@ -8,7 +8,7 @@ export const AboutSection = () => (
   <section id="o-nas" className="py-24 md:py-32 px-4 md:px-8 relative overflow-hidden">
     <div className="container mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -27,7 +27,7 @@ export const AboutSection = () => (
              <div className="text-4xl md:text-6xl font-outfit font-black mb-2">15</div>
              <p className="text-[8px] md:text-xs font-black uppercase tracking-[0.3em] opacity-80 leading-relaxed">Lat misji i zaufania w sercu Olsztyna.</p>
           </div>
-        </motion.div>
+        </m.div>
         
         <div className="lg:pl-20 order-1 lg:order-2 text-center lg:text-left">
           <Badge>Nasza Misja</Badge>

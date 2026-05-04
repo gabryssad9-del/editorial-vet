@@ -1,17 +1,17 @@
 'use client';
 
-import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate, useInView } from 'framer-motion';
-import { Heart, Star, Users, Camera, MessageCircle, HelpCircle, Phone, MapPin, Mail, Clock, ChevronRight, ChevronDown, CheckCircle2, Play, Plus, Zap, Sparkles, Smile, Droplets, Scissors, Menu, X, Sun, Moon, ArrowRight, Activity, Microscope, Shield, Syringe, Globe, Search } from 'lucide-react';
+import { m, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate, useInView } from 'framer-motion';
+import { 
+  Heart, Star, Users, Zap, Syringe, Clock, Phone, Microscope, MapPin, Mail, ChevronRight, Menu, X, ArrowRight 
+} from 'lucide-react';
 import { useState, useEffect, useRef, Suspense } from 'react';
 import Link from 'next/link';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import dynamic from 'next/dynamic';
+
+// Optimized dynamic imports
 const Navbar = dynamic(() => import('@/components/Navbar').then(mod => mod.Navbar), { ssr: true });
-const ThemeToggle = dynamic(() => import('@/components/ThemeToggle').then(mod => mod.ThemeToggle), { ssr: false });
-const LiquidButton = dynamic(() => import('@/components/LiquidButton').then(mod => mod.LiquidButton), { ssr: false });
-const Badge = dynamic(() => import('@/components/Badge').then(mod => mod.Badge), { ssr: true });
-const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar), { ssr: true });
 const Services = dynamic(() => import('@/components/ServicesSection').then(mod => mod.ServicesSection), { ssr: true });
 const About = dynamic(() => import('@/components/AboutSection').then(mod => mod.AboutSection), { ssr: true });
 const Team = dynamic(() => import('@/components/TeamSection').then(mod => mod.TeamSection), { ssr: true });
@@ -19,11 +19,14 @@ const GroomingGallery = dynamic(() => import('@/components/GroomingGallery').the
 const InfinitePatients = dynamic(() => import('@/components/InfinitePatients').then(mod => mod.InfinitePatients), { ssr: true });
 const ReviewsSection = dynamic(() => import('@/components/ReviewsSection').then(mod => mod.ReviewsSection), { ssr: true });
 const MapBlock = dynamic(() => import('@/components/MapBlock').then(mod => mod.MapBlock), { ssr: true });
-const ContactMap = dynamic(() => import('@/components/ContactMap').then(mod => mod.ContactMap), { ssr: true });
 const BentoCard = dynamic(() => import('@/components/BentoCard').then(mod => mod.BentoCard), { ssr: true });
 const FAQItem = dynamic(() => import('@/components/FAQItem').then(mod => mod.FAQItem), { ssr: true });
 const Hero = dynamic(() => import('@/components/HeroSection').then(mod => mod.Hero), { ssr: true });
+const Badge = dynamic(() => import('@/components/Badge').then(mod => mod.Badge), { ssr: true });
+const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar), { ssr: true });
 const CountUp = dynamic(() => import('@/components/CountUp').then(mod => mod.CountUp), { ssr: true });
+
+
 
 
 
@@ -55,7 +58,7 @@ const CursorGlow = () => {
   const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
 
   return (
-    <motion.div
+    <m.div
       className="fixed inset-0 pointer-events-none z-[9999] opacity-30 hidden lg:block transform-gpu"
       style={{
         background: useMotionTemplate`radial-gradient(600px circle at ${springX}px ${springY}px, rgba(254,69,32,0.15), transparent 80%)`,
@@ -84,7 +87,7 @@ const FloatingOrb = ({ delay = 0, scale = 1, xOffset = "0%", yOffset = "0%" }) =
   const y = useSpring(useTransform(mouseY, [-1000, 1000], [-40 * scale, 40 * scale]), { stiffness: 50, damping: 25 });
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 0.3, scale: scale }}
       transition={{ delay, duration: 2.5, ease: "easeOut" }}
@@ -115,7 +118,7 @@ const PawBackground = () => {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
       {paws.map((paw) => (
-        <motion.div
+        <m.div
           key={paw.id}
           initial={{ rotate: paw.rotate, scale: paw.scale }}
           animate={{ 
@@ -148,42 +151,31 @@ const PawBackground = () => {
                M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
               S48.455,16.861,45.727,15.602z"/>
           </svg>
-        </motion.div>
+        </m.div>
       ))}
     </div>
   );
 };
-
-
-
-
-
 export default function UltraPremiumVetPage() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadingProgress, setLoadingProgress] = useState(0);
-
-  useEffect(() => {
-    setIsLoading(false);
-    setLoadingProgress(100);
-  }, []);
-
   return (
-    <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-accent selection:text-white">
-      {/* Usunięto redundantny LoadingScreen */}
+      <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-accent selection:text-white">
+        <CursorGlow />
+        <Navbar />
+        <PawBackground />
+        
+        <Hero />
+        <section className="py-8 bg-background">
+          <div className="container mx-auto">
+             <div className="h-px w-full bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+          </div>
+        </section>
 
-      <CursorGlow />
-      <Navbar />
-      <PawBackground />
-      
-      <Hero />
-      <TrustBar />
-
-      <Services />
-      <GroomingGallery />
-      <InfinitePatients />
-      
-      <About />
-      <Team />
+        <Services />
+        <GroomingGallery />
+        <InfinitePatients />
+        
+        <About />
+        <Team />
       
       <section className="py-24 md:py-32 px-4 md:px-8 relative overflow-hidden">
         {/* Background Decorations */}
@@ -244,8 +236,8 @@ export default function UltraPremiumVetPage() {
         </div>
       </section>
 
-      <ContactMap />
       <ReviewsSection />
+      <MapBlock />
 
       {/* FAQ Section */}
       <section className="py-24 md:py-32 max-w-4xl mx-auto px-4 md:px-6">
@@ -334,6 +326,6 @@ export default function UltraPremiumVetPage() {
           </div>
         </div>
       </footer>
-    </main>
+      </main>
   );
 }

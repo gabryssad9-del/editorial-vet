@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useSpring, useTransform, useMotionValue } from 'framer-motion';
+import { m, AnimatePresence, useSpring, useTransform, useMotionValue } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 const REVIEWS = [
@@ -30,7 +30,7 @@ const REVIEWS = [
 
 const RollingLetter = ({ char, index, direction, isDarkMode }: { char: string, index: number, direction: number, isDarkMode: boolean }) => {
   return (
-    <motion.span
+    <m.span
       initial={{ 
         rotateX: direction > 0 ? 120 : -120, 
         opacity: 0, 
@@ -67,7 +67,7 @@ const RollingLetter = ({ char, index, direction, isDarkMode }: { char: string, i
       }}
     >
       {char}
-    </motion.span>
+    </m.span>
   );
 };
 
@@ -141,7 +141,7 @@ export const ReviewsSection = () => {
 
   return (
     <section ref={sectionRef} className="py-24 md:py-40 relative overflow-hidden bg-background" id="opinie">
-      <motion.div 
+      <m.div 
         animate={{ 
           x: [0, 50, -50, 0],
           y: [0, -30, 30, 0],
@@ -156,7 +156,7 @@ export const ReviewsSection = () => {
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           
           {/* Left Side Card */}
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -194,7 +194,7 @@ export const ReviewsSection = () => {
               <div className="mt-14 pt-10 border-t border-white/5 flex items-center justify-between">
                 <div className="flex -space-x-4">
                   {[1, 2, 3, 4, 5].map(i => (
-                    <motion.div 
+                    <m.div 
                       key={i} 
                       whileHover={{ y: -10, zIndex: 50 }}
                       className={`w-12 h-12 rounded-full border-2 ${isDarkMode ? 'border-background bg-white/10' : 'border-white bg-black/10'} overflow-hidden cursor-pointer transition-all`}
@@ -202,13 +202,13 @@ export const ReviewsSection = () => {
                       <div className={`w-full h-full flex items-center justify-center text-[12px] font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
                         {String.fromCharCode(64 + i)}
                       </div>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
                 <p className={`text-xs md:text-sm font-black uppercase tracking-widest ${isDarkMode ? 'text-white/50' : 'text-black/50'}`}>+200 Pacjentów</p>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Review Reel */}
           <div className="w-full lg:w-2/3 relative">
@@ -220,11 +220,11 @@ export const ReviewsSection = () => {
 
               <div className="w-full" style={{ perspective: '3000px', transformStyle: 'preserve-3d' }}>
                 <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div key={index} custom={direction} className="w-full py-12 px-4 md:px-16 relative">
+                  <m.div key={index} custom={direction} className="w-full py-12 px-4 md:px-16 relative">
                     
                     {/* Author Section */}
                     <div className="flex items-center gap-7 mb-14">
-                      <motion.div 
+                      <m.div 
                         initial={{ scale: 0, rotate: -20 }}
                         animate={{ scale: 1, rotate: 0 }}
                         exit={{ scale: 0, rotate: 20 }}
@@ -233,7 +233,7 @@ export const ReviewsSection = () => {
                       >
                         <div className="absolute inset-0 bg-white/20 rounded-3xl blur-md -z-10" />
                         {REVIEWS[index].author[0]}
-                      </motion.div>
+                      </m.div>
                       <div>
                         <div className={`text-3xl md:text-4xl font-black tracking-tight flex flex-wrap ${isDarkMode ? 'text-white' : 'text-black'}`}>
                           {renderRollingText(REVIEWS[index].author)}
@@ -256,7 +256,7 @@ export const ReviewsSection = () => {
                     {/* Custom Progress Bar */}
                     <div className="relative h-2 w-48 bg-white/5 rounded-full overflow-hidden">
                       <div className="absolute inset-0 bg-accent/10" />
-                      <motion.div 
+                      <m.div 
                         initial={{ width: 0 }}
                         animate={{ width: "100%" }}
                         key={`progress-${index}`}
@@ -264,7 +264,7 @@ export const ReviewsSection = () => {
                         className="h-full bg-accent shadow-[0_0_20px_#FE4520]"
                       />
                     </div>
-                  </motion.div>
+                  </m.div>
                 </AnimatePresence>
               </div>
 

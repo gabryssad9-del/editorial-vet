@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Scissors, Sparkles, MoveHorizontal } from 'lucide-react';
 import { Badge } from './Badge';
 
@@ -67,7 +67,7 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
         />
 
         {/* Before Image (Foreground, clipped) */}
-        <motion.div 
+        <m.div 
           className="absolute inset-0 w-full h-full z-10 pointer-events-none"
           style={{ clipPath }}
         >
@@ -83,7 +83,7 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
           <div className="absolute top-6 left-6 z-20 bg-black/40 backdrop-blur-md text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/10">
             Przed
           </div>
-        </motion.div>
+        </m.div>
 
         {/* After Label */}
         <div className="absolute top-6 right-6 z-0 bg-accent/80 backdrop-blur-md text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
@@ -91,14 +91,14 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
         </div>
 
         {/* Slider Line */}
-        <motion.div 
+        <m.div 
           className="absolute inset-y-0 z-30 w-1 bg-white shadow-[0_0_15px_rgba(255,255,255,0.5)] pointer-events-none"
           style={{ left: useTransform(springPos, (p) => `${p}%`) }}
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-2xl flex items-center justify-center text-accent">
             <MoveHorizontal size={20} />
           </div>
-        </motion.div>
+        </m.div>
       </div>
       
       <div className="mt-6 flex justify-between items-center px-2">
@@ -138,7 +138,7 @@ export const GroomingGallery = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {animals.map((animal, i) => (
-            <motion.div
+            <m.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -146,11 +146,11 @@ export const GroomingGallery = () => {
               viewport={{ once: true }}
             >
               <ComparisonSlider {...animal} />
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="mt-24 text-center"
@@ -158,7 +158,7 @@ export const GroomingGallery = () => {
           <div className="inline-flex items-center gap-2 text-accent font-black uppercase tracking-widest text-xs hover:gap-4 transition-all cursor-pointer">
             Zobacz całe portfolio przemian <Sparkles size={14} />
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

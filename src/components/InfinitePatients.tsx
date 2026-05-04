@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, Suspense, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Sparkles, Heart } from 'lucide-react';
 
 const patients = [
@@ -106,7 +106,7 @@ export const InfinitePatients = () => {
                 }}
                 className="group p-1 md:p-2 flex items-center justify-center shrink-0"
               >
-                <motion.div 
+                <m.div 
                   animate={{ 
                     width: isActive ? 24 : 8,
                     height: isActive ? 4 : 4,
@@ -201,7 +201,7 @@ const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered
   const isActive = index === activeIdx;
 
   return (
-    <motion.div
+    <m.div
       style={{ x, y, scale, opacity, zIndex }}
       className="absolute w-[280px] md:w-[380px] aspect-[3/4] cursor-pointer pointer-events-auto will-change-transform transform-gpu"
       onMouseEnter={() => isActive && setIsHovered(true)}
@@ -209,7 +209,7 @@ const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered
     >
       {/* Spatial Background Glow */}
       {isActive && (
-        <motion.div 
+        <m.div 
           animate={{ 
             opacity: isHovered ? 0.4 : 0,
             scale: isHovered ? 1.2 : 0.8,
@@ -219,7 +219,7 @@ const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered
         />
       )}
 
-      <motion.div 
+      <m.div 
         style={{ 
           scale: isActive && isHovered ? 1.05 : 1,
           boxShadow: useTransform(shadowOpacity, [0, 1], [
@@ -232,7 +232,7 @@ const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered
         className={`relative w-full h-full rounded-[2.5rem] overflow-hidden transition-all duration-500 ${isDarkMode ? 'bg-[#141414]' : 'bg-white'} border border-white/5 will-change-transform transform-gpu`}
       >
         {/* Internal Image Zoom - teraz zsynchronizowany z ruchem i hoverem */}
-        <motion.img 
+        <m.img 
           style={{ 
             scale: isHovered && isActive ? 1.18 : imageScale,
             transformOrigin: 'center center',
@@ -251,23 +251,23 @@ const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered
         
         {/* Content Overlay */}
         <div className="absolute inset-0 flex flex-col justify-end p-10 z-20">
-          <motion.p 
+          <m.p 
             animate={{ y: isActive && isHovered ? 0 : 5, opacity: 1 }}
             className="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-3"
           >
             {p.breed}
-          </motion.p>
+          </m.p>
           
-          <motion.h4 
+          <m.h4 
             animate={{ scale: isActive && isHovered ? 1.05 : 1 }}
             className="text-5xl font-black font-outfit text-white uppercase tracking-tighter leading-none"
           >
             {p.name}
-          </motion.h4>
+          </m.h4>
           
           <AnimatePresence>
             {isActive && isHovered && (
-              <motion.div 
+              <m.div 
                 initial={{ opacity: 0, height: 0, y: 20 }} 
                 animate={{ opacity: 1, height: 'auto', y: 0 }} 
                 exit={{ opacity: 0, height: 0, y: 20 }}
@@ -279,27 +279,27 @@ const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered
                     "{p.story}"
                   </p>
                   
-                  <motion.div 
+                  <m.div 
                     initial={{ width: 0 }} 
                     animate={{ width: "40px" }} 
                     className="h-1 bg-accent mt-4 rounded-full" 
                   />
                 </div>
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
         </div>
 
         {/* Shimmer Glare Effect */}
-        <motion.div 
+        <m.div 
           animate={{ 
             x: isHovered ? ["-100%", "200%"] : "-100%",
           }}
           transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0, repeatDelay: 1 }}
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 pointer-events-none"
         />
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 });
 

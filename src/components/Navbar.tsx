@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Heart, Menu, X, ChevronRight, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
@@ -37,7 +37,7 @@ const MagneticLink = ({ children, className, href, onClick }: { children: React.
   };
 
   return (
-    <motion.div
+    <m.div
       style={{ x: springX, y: springY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -50,7 +50,7 @@ const MagneticLink = ({ children, className, href, onClick }: { children: React.
       >
         {children}
       </Link>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -136,7 +136,7 @@ export const Navbar = () => {
             : "bg-transparent border-transparent"
         )}>
           <Link href="/" className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group">
-            <motion.img 
+            <m.img 
               whileHover={{ scale: 1.05, rotate: -2 }}
               whileTap={{ scale: 0.95 }}
               src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=200&output=webp&q=80" 
@@ -174,7 +174,7 @@ export const Navbar = () => {
                       {item.name}
                     </Link>
                     {showPill && (
-                      <motion.div
+                      <m.div
                         layoutId="nav-pill"
                         className="absolute inset-0 bg-black dark:bg-white rounded-full z-0 shadow-xl shadow-black/10 dark:shadow-white/5 transform-gpu will-change-transform"
                         transition={{ type: "spring", stiffness: 450, damping: 35 }}
@@ -217,7 +217,7 @@ export const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
@@ -234,7 +234,7 @@ export const Navbar = () => {
 
             <div className="flex flex-col gap-8">
               {navLinks.map((item, i) => (
-                <motion.div
+                <m.div
                   key={item.name}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -253,10 +253,10 @@ export const Navbar = () => {
                     {item.name}
                     <ChevronRight size={40} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all text-accent" />
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
               
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -270,7 +270,7 @@ export const Navbar = () => {
                     Rezerwacja Online
                   </LiquidButton>
                 </a>
-              </motion.div>
+              </m.div>
             </div>
 
             <div className="mt-auto pb-12 flex flex-col gap-6">
@@ -285,7 +285,7 @@ export const Navbar = () => {
                </div>
                <p className="text-base font-bold opacity-60">Olsztyn, ul. Pana Tadeusza 6</p>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

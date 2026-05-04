@@ -4,14 +4,14 @@ import React from 'react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
 export const Badge = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <motion.div 
+  <m.div 
     initial={{ opacity: 0, y: 10 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
@@ -21,5 +21,5 @@ export const Badge = ({ children, className }: { children: React.ReactNode, clas
     )}
   >
     <Sparkles size={14} fill="currentColor" /> {children}
-  </motion.div>
+  </m.div>
 );

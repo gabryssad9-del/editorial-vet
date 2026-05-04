@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Phone } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
@@ -16,37 +16,37 @@ export const Hero = () => {
     <section id="start" className="min-h-screen pt-32 pb-20 md:pt-52 md:pb-32 px-4 md:px-8 relative overflow-hidden">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center">
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-center lg:text-left"
           >
             <Badge>Wyjątkowa Opieka Dla Pupila</Badge>
-            <motion.h1 
+            <m.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 1 }}
               className="text-5xl md:text-6xl lg:text-[7.5rem] font-outfit font-black leading-[0.85] text-foreground mb-8 md:mb-12 tracking-tighter"
             >
               Gdzie Serce <br /> <span className="text-accent italic">Spotyka</span> Wiedzę.
-            </motion.h1>
-            <motion.p 
+            </m.h1>
+            <m.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 1 }}
               className="text-lg md:text-xl lg:text-2xl text-text-gray max-w-xl mx-auto lg:mx-0 mb-10 md:mb-16 leading-relaxed font-medium opacity-80"
             >
               Znajdziemy przyczynę bólu, zanim Twój pupil poczuje stres. Tworzymy domową atmosferę, w której zwierzęta czują się bezpiecznie, a Ty masz pewność, że są w kochających rękach.
-            </motion.p>
-            <motion.div 
+            </m.p>
+            <m.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 1 }}
               className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center lg:justify-start w-full sm:w-auto"
             >
               <a href="https://vetmed.nakiedy.pl/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto group">
-                <motion.div
+                <m.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -56,10 +56,10 @@ export const Hero = () => {
                       Umów wizytę online <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </span>
                   </LiquidButton>
-                </motion.div>
+                </m.div>
               </a>
               <a href="tel:+48519619141" className="w-full sm:w-auto">
-                <motion.div
+                <m.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -70,12 +70,12 @@ export const Hero = () => {
                       Zadzwoń: 519 619 141
                     </span>
                   </LiquidButton>
-                </motion.div>
+                </m.div>
               </a>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
           
-          <motion.div
+          <m.div
             style={{ 
               translateY: scrollY, 
               scale: scaleScroll,
@@ -110,7 +110,7 @@ export const Hero = () => {
             </div>
             <div className="absolute -top-10 md:-top-20 -right-10 md:-right-20 w-40 md:w-80 h-40 md:h-80 bg-accent/5 rounded-full blur-[60px] md:blur-[100px]" />
             <div className="absolute -bottom-10 md:-bottom-20 -left-10 md:-left-20 w-40 md:w-80 h-40 md:h-80 bg-blue-400/5 rounded-full blur-[60px] md:blur-[100px]" />
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

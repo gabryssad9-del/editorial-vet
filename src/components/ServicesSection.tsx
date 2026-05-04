@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion';
 import { Sparkles, Smile, Scissors, Droplets, ChevronRight, Heart, Star } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from './Badge';
@@ -54,7 +54,7 @@ export const ServicesSection = () => {
             };
 
             return (
-              <motion.div
+              <m.div
                 key={i}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -65,12 +65,12 @@ export const ServicesSection = () => {
                 style={{ perspective: "1000px" }}
                 className="group h-full"
               >
-                <motion.div
+                <m.div
                   style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
                   whileHover={{ scale: 1.05 }}
                   className="bg-card-bg h-full p-8 md:p-12 py-16 md:py-20 rounded-[3rem] md:rounded-[5.5rem] shadow-[0_40px_100px_-30px_rgba(0,0,0,0.06)] border border-border flex flex-col items-center text-center hover:shadow-[0_60px_120px_-30px_rgba(0,0,0,0.12)] transition-shadow duration-700 relative overflow-hidden"
                 >
-                  <motion.div 
+                  <m.div 
                     className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
                       background: useMotionTemplate`radial-gradient(circle at ${useTransform(x, [-0.5, 0.5], ["0%", "100%"])} ${useTransform(y, [-0.5, 0.5], ["0%", "100%"])} , rgba(254,69,32,0.05) 0%, transparent 60%)`
@@ -88,8 +88,8 @@ export const ServicesSection = () => {
                        Odkryj <ChevronRight size={14} />
                      </Link>
                   </div>
-                </motion.div>
-              </motion.div>
+                </m.div>
+              </m.div>
             );
           })}
         </div>
