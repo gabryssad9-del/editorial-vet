@@ -87,7 +87,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://images.weserv.nl" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.weserv.nl" />
         
         {/* Simple Preload for LCP Image - most common mobile/desktop size */}
