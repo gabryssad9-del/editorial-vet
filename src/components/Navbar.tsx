@@ -98,10 +98,9 @@ export const Navbar = () => {
         )}>
           <Link href="/" className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group">
             <img 
-              src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=160&output=webp&q=60" 
-              srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50 120w,
-                      https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=160&output=webp&q=60 160w"
-              sizes="80px"
+              src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50" 
+              srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50 120w"
+              sizes="120px"
               alt="VETMED Logo" 
               fetchPriority="high"
               loading="eager"

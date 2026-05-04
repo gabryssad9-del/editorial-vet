@@ -71,11 +71,10 @@ export const Hero = () => {
             >
               <img 
                 src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=70" 
-                srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=480&output=webp&q=60 480w,
-                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=640&output=webp&q=65 640w,
-                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1000&output=webp&q=70 1000w,
-                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1400&output=webp&q=75 1400w"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=450&output=webp&q=50 450w,
+                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=60 800w,
+                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=70 1200w"
+                sizes="(max-width: 640px) 450px, (max-width: 1024px) 800px, 1000px"
                 alt="VETMED Hero" 
                 fetchPriority="high"
                 loading="eager"
