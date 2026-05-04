@@ -6,14 +6,15 @@ import { useState, useEffect, useRef, Suspense } from 'react';
 import Link from 'next/link';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { Navbar } from '@/components/Navbar';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { LiquidButton } from '@/components/LiquidButton';
-import { Badge } from '@/components/Badge';
-import { GroomingGallery } from '@/components/GroomingGallery';
-import { InfinitePatients } from '@/components/InfinitePatients';
-import { ContactMap } from '@/components/ContactMap';
-import { ReviewsSection } from '@/components/ReviewsSection';
+import dynamic from 'next/dynamic';
+const Navbar = dynamic(() => import('@/components/Navbar').then(mod => mod.Navbar), { ssr: true });
+const ThemeToggle = dynamic(() => import('@/components/ThemeToggle').then(mod => mod.ThemeToggle), { ssr: false });
+const LiquidButton = dynamic(() => import('@/components/LiquidButton').then(mod => mod.LiquidButton), { ssr: false });
+const Badge = dynamic(() => import('@/components/Badge').then(mod => mod.Badge), { ssr: true });
+const GroomingGallery = dynamic(() => import('@/components/GroomingGallery').then(mod => mod.GroomingGallery), { ssr: false });
+const InfinitePatients = dynamic(() => import('@/components/InfinitePatients').then(mod => mod.InfinitePatients), { ssr: false });
+const ContactMap = dynamic(() => import('@/components/ContactMap').then(mod => mod.ContactMap), { ssr: false });
+const ReviewsSection = dynamic(() => import('@/components/ReviewsSection').then(mod => mod.ReviewsSection), { ssr: false });
 
 
 // --- Utils ---

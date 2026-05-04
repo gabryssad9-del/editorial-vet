@@ -85,6 +85,15 @@ export default function RootLayout({
 
   return (
     <html lang="pl">
+      <head>
+        <link 
+          rel="preload" 
+          href="/editorial-vet/emotional-vet/hero-emotional.jpg" 
+          as="image" 
+          fetchpriority="high"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+      </head>
       <body className={`${inter.variable} ${outfit.variable} antialiased selection:bg-accent selection:text-white relative`}>
         <script
           type="application/ld+json"
