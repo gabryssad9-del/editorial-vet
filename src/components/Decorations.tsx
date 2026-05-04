@@ -1,60 +1,11 @@
 'use client';
-import { m, useSpring, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { useEffect, useState } from 'react';
-
-export const CursorGlow = () => {
-  const [isDesktop, setIsDesktop] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  useEffect(() => {
-    // Check if we're on desktop
-    const checkIsDesktop = () => setIsDesktop(window.innerWidth >= 1024);
-    checkIsDesktop();
-    window.addEventListener('resize', checkIsDesktop);
-    
-    let handleMouseMove: (e: MouseEvent) => void;
-    
-    if (window.innerWidth >= 1024) {
-      handleMouseMove = (e: MouseEvent) => {
-        mouseX.set(e.clientX);
-        mouseY.set(e.clientY);
-      };
-      window.addEventListener('mousemove', handleMouseMove);
-    }
-    
-    return () => {
-      window.removeEventListener('resize', checkIsDesktop);
-      if (handleMouseMove) {
-        window.removeEventListener('mousemove', handleMouseMove);
-      }
-    };
-  }, [mouseX, mouseY]);
-
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
-  
-  // HOOK FIX: Must be called before early return
-  const bgTemplate = useMotionTemplate`radial-gradient(600px circle at ${springX}px ${springY}px, rgba(254,69,32,0.15), transparent 80%)`;
-
-  if (!isDesktop) return null;
-
-  return (
-    <m.div
-      className="fixed inset-0 pointer-events-none z-[9999] opacity-30 transform-gpu"
-      style={{
-        background: bgTemplate,
-        willChange: "background"
-      }}
-    />
-  );
-};
 
 export const PawBackground = () => {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const checkIsDesktop = () => setIsDesktop(window.innerWidth >= 768);
+    const checkIsDesktop = () => setIsDesktop(window.innerWidth >= 1024);
     checkIsDesktop();
     window.addEventListener('resize', checkIsDesktop);
     return () => window.removeEventListener('resize', checkIsDesktop);
@@ -63,44 +14,29 @@ export const PawBackground = () => {
   if (!isDesktop) return null;
 
   const paws = [
-    { id: 1, left: "5%", top: "15%", rotate: 15, scale: 1.2, duration: 9 },
-    { id: 2, left: "85%", top: "10%", rotate: -20, scale: 0.8, duration: 10 },
-    { id: 3, left: "45%", top: "5%", rotate: 45, scale: 0.6, duration: 11 },
-    { id: 4, left: "15%", top: "45%", rotate: 110, scale: 1.1, duration: 12 },
-    { id: 5, left: "75%", top: "55%", rotate: -45, scale: 0.9, duration: 13 },
-    { id: 6, left: "35%", top: "75%", rotate: 180, scale: 1.3, duration: 14 },
-    { id: 7, left: "90%", top: "85%", rotate: 30, scale: 0.7, duration: 15 },
-    { id: 8, left: "10%", top: "90%", rotate: -15, scale: 1.0, duration: 16 },
-    { id: 9, left: "55%", top: "35%", rotate: 60, scale: 0.5, duration: 17 },
-    { id: 10, left: "25%", top: "25%", rotate: -90, scale: 0.8, duration: 18 },
+    { id: 1, left: "5%", top: "15%", rotate: 15, scale: 1.2 },
+    { id: 2, left: "85%", top: "10%", rotate: -20, scale: 0.8 },
+    { id: 3, left: "45%", top: "5%", rotate: 45, scale: 0.6 },
+    { id: 4, left: "15%", top: "45%", rotate: 110, scale: 1.1 },
+    { id: 5, left: "75%", top: "55%", rotate: -45, scale: 0.9 },
+    { id: 6, left: "35%", top: "75%", rotate: 180, scale: 1.3 },
+    { id: 7, left: "90%", top: "85%", rotate: 30, scale: 0.7 },
   ];
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes floatPaw {
-          0%, 100% { transform: translateY(0) rotate(var(--start-rot)) scale(var(--paw-scale)); }
-          50% { transform: translateY(-20px) rotate(calc(var(--start-rot) + 10deg)) scale(var(--paw-scale)); }
-        }
-        .paw-anim {
-          animation: floatPaw var(--anim-dur) ease-in-out infinite;
-          will-change: transform;
-        }
-      `}} />
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-10">
       {paws.map((paw) => (
         <div
           key={paw.id}
-          className="absolute paw-anim"
+          className="absolute"
           style={{ 
             left: paw.left, 
             top: paw.top, 
             color: '#FE4520',
-            '--start-rot': `${paw.rotate}deg`,
-            '--paw-scale': paw.scale,
-            '--anim-dur': `${paw.duration}s`
-          } as React.CSSProperties}
+            transform: `rotate(${paw.rotate}deg) scale(${paw.scale})`
+          }}
         >
-          <svg width="70" height="70" viewBox="0 0 48.839 48.839" fill="currentColor" style={{ display: 'block' }}>
+          <svg width="60" height="60" viewBox="0 0 48.839 48.839" fill="currentColor">
             <path d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252
               c-1.56,0-2.567-0.002-5.112-1.326c0,0-1.649-1.509-5.508-1.354c-3.895-0.154-5.545,1.373-5.545,1.373
               c-2.545,1.323-3.516,1.309-5.074,1.309c-3.539,0-6.168-1.713-6.168-5.252c0-1.791,0.971-3.506,3.024-6.742

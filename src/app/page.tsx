@@ -51,12 +51,6 @@ export default function UltraPremiumVetPage() {
         <TeamSection />
       
       <section className="py-24 md:py-32 px-4 md:px-8 relative overflow-hidden">
-        {/* Background Decorations */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none -z-10">
-          <div className="absolute top-[20%] left-[10%] w-[40%] h-[40%] bg-accent/5 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-[20%] right-[10%] w-[30%] h-[30%] bg-blue-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
-        </div>
-
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 h-auto md:h-[600px]">
             {/* Bento Tile 1: Massive Accent */}

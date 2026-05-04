@@ -244,7 +244,7 @@ const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered
           alt={p.name} 
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover will-change-transform transform-gpu" 
+          className="absolute inset-0 w-full h-full object-cover" 
         />
 
         <div className={`absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-90 ${isDarkMode ? 'from-black/95 via-black/20' : 'from-black/80'}`} />

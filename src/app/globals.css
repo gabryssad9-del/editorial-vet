@@ -57,13 +57,7 @@
     font-family: var(--font-inter);
     overflow-x: hidden;
     scroll-behavior: smooth;
-  }
-
-  * {
-    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-outfit);
