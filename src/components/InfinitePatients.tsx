@@ -88,7 +88,7 @@ export const InfinitePatients = () => {
 
       {/* Navigation Panel (Minimalist Red Lines) */}
       <div className="relative z-50 flex items-center gap-2 md:gap-8 w-full justify-center px-4 mt-8">
-        <button onClick={prev} className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full backdrop-blur-xl border flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all active:scale-90 shadow-2xl ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}><ChevronLeft size={20} /></button>
+        <button onClick={prev} aria-label="Poprzedni pacjent" className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full backdrop-blur-xl border flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all active:scale-90 shadow-2xl ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}><ChevronLeft size={20} /></button>
         
         <div className="flex items-center gap-2 md:gap-4 px-2 h-12 overflow-x-auto no-scrollbar max-w-[60vw]">
           {patients.map((_, i) => {
@@ -120,7 +120,7 @@ export const InfinitePatients = () => {
           })}
         </div>
 
-        <button onClick={next} className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full backdrop-blur-xl border flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all active:scale-90 shadow-2xl ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}><ChevronRight size={20} /></button>
+        <button onClick={next} aria-label="Następny pacjent" className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full backdrop-blur-xl border flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all active:scale-90 shadow-2xl ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}><ChevronRight size={20} /></button>
       </div>
     </section>
   );

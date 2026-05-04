@@ -269,12 +269,14 @@ export const ReviewsSection = () => {
               <div className="absolute -bottom-10 right-0 flex gap-6">
                 <button 
                   onClick={prevReview} 
+                  aria-label="Poprzednia opinia"
                   className={`w-16 h-16 rounded-[2rem] border flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-90 backdrop-blur-2xl ${isDarkMode ? 'bg-white/5 border-white/10 text-white/40 hover:text-white hover:border-accent hover:bg-accent/20' : 'bg-black/5 border-black/10 text-black/40 hover:text-black hover:border-accent hover:bg-accent/10'}`}
                 >
                   <ChevronLeft size={28} strokeWidth={2.5} />
                 </button>
                 <button 
                   onClick={nextReview} 
+                  aria-label="Następna opinia"
                   className={`w-16 h-16 rounded-[2rem] border flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-90 backdrop-blur-2xl ${isDarkMode ? 'bg-white/5 border-white/10 text-white/40 hover:text-white hover:border-accent hover:bg-accent/20' : 'bg-black/5 border-black/10 text-black/40 hover:text-black hover:border-accent hover:bg-accent/10'}`}
                 >
                   <ChevronRight size={28} strokeWidth={2.5} />
