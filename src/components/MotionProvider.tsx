@@ -1,8 +1,10 @@
-import { LazyMotion, domMax } from 'framer-motion';
+import { LazyMotion } from 'framer-motion';
+
+const loadFeatures = () => import('framer-motion').then(res => res.domMax);
 
 export function MotionProvider({ children }: { children: React.ReactNode }) {
   return (
-    <LazyMotion features={domMax} strict>
+    <LazyMotion features={loadFeatures} strict>
       {children}
     </LazyMotion>
   );
