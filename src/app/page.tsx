@@ -355,26 +355,26 @@ const Hero = () => {
               transition={{ delay: 0.5, duration: 1 }}
               className="text-lg md:text-xl lg:text-2xl text-text-gray max-w-xl mx-auto lg:mx-0 mb-10 md:mb-16 leading-relaxed font-medium opacity-80"
             >
-              Nie jesteśmy tylko kliniką. Jesteśmy miejscem, w którym strach zamienia się w zaufanie, a ból w zdrowie. Premium weterynaria w nowym wydaniu.
+              Nowoczesna diagnostyka i podejście bez strachu (Cat/Dog Friendly). Tworzymy atmosferę, w której Twój pupil czuje się bezpiecznie, a Ty masz pewność, że jest w najlepszych rękach.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 1 }}
-              className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center lg:justify-start w-full sm:w-auto"
             >
-              <a href="https://vetmed.nakiedy.pl/" target="_blank" rel="noopener noreferrer" className="group">
+              <a href="https://vetmed.nakiedy.pl/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto group">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <LiquidButton className="text-lg w-full sm:w-auto relative overflow-hidden group">
-                    <span className="relative z-10 flex items-center gap-2">
-                      Umów wizytę <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <LiquidButton className="text-lg w-full sm:w-auto relative overflow-hidden shadow-glow">
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      Umów wizytę online <ChevronRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                     </span>
                     <motion.div 
-                      className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity"
                       initial={false}
                       animate={{ x: [-100, 200] }}
                       transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
@@ -383,11 +383,20 @@ const Hero = () => {
                   </LiquidButton>
                 </motion.div>
               </a>
-              <Link href="#o-nas">
-                <LiquidButton variant="secondary" className="text-lg w-full sm:w-auto">
-                  Poznaj nas
-                </LiquidButton>
-              </Link>
+              <a href="tel:+48123456789" className="w-full sm:w-auto">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <LiquidButton variant="secondary" className="text-lg w-full sm:w-auto border-accent/20 bg-accent/5 hover:bg-accent/10">
+                    <span className="flex items-center justify-center gap-2">
+                      <Phone className="w-5 h-5 text-accent" />
+                      Zadzwoń: 123 456 789
+                    </span>
+                  </LiquidButton>
+                </motion.div>
+              </a>
             </motion.div>
           </motion.div>
           
@@ -729,35 +738,59 @@ const Contact = () => (
                 </div>
               </div>
             </div>
-            
-            <div className="bg-card-bg/80 dark:bg-card-bg/40 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-premium border border-accent/10 max-w-xl mx-auto lg:mx-0">
-               <form className="space-y-6 md:space-y-8">
-                 <div className="space-y-3">
-                   <label className="text-[9px] font-black uppercase tracking-[0.3em] text-text-gray/60 ml-2">Twoje Imię / Imię Pupila</label>
-                   <input 
-                     type="text" 
-                     className="w-full bg-secondary/50 p-5 md:p-6 rounded-[1.2rem] md:rounded-[1.5rem] outline-none border border-border/50 focus:border-accent/30 focus:ring-4 ring-accent/5 transition-all duration-500 font-medium text-sm text-foreground placeholder:text-text-gray/50 shadow-sm" 
-                     placeholder="Wpisz tutaj..." 
-                   />
-                 </div>
-                 <div className="space-y-3">
-                   <label className="text-[9px] font-black uppercase tracking-[0.3em] text-text-gray/60 ml-2">W czym możemy pomóc?</label>
-                   <textarea 
-                     rows={3} 
-                     className="w-full bg-secondary/50 p-5 md:p-6 rounded-[1.2rem] md:rounded-[1.5rem] outline-none border border-border/50 focus:border-accent/30 focus:ring-4 ring-accent/5 transition-all duration-500 font-medium text-sm text-foreground placeholder:text-text-gray/50 shadow-sm" 
-                     placeholder="Opisz krótko sprawę..."
-                   ></textarea>
-                 </div>
-                 <LiquidButton className="w-full py-6 md:py-8 text-[10px] md:text-xs tracking-[0.5em] shadow-premium">
-                    Wyślij Zapytanie
+            <div className="bg-card-bg/80 dark:bg-card-bg/40 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-premium border border-accent/10 max-w-xl mx-auto lg:mx-0 flex flex-col justify-center items-center text-center">
+               <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center mb-8">
+                 <Phone size={48} className="text-accent animate-pulse" />
+               </div>
+               <h3 className="text-3xl font-black mb-4">Nagły przypadek?</h3>
+               <p className="text-text-gray opacity-80 mb-8">Zrezygnowaliśmy z formularzy, bo w weterynarii liczy się każda minuta. Odbieramy telefony od razu.</p>
+               <a href="tel:+48519619141" className="w-full">
+                 <LiquidButton className="w-full py-6 md:py-8 text-[12px] md:text-sm tracking-[0.3em] shadow-glow">
+                    ZADZWOŃ TERAZ
                  </LiquidButton>
-               </form>
+               </a>
             </div>
           </div>
         </div>
     </div>
   </section>
-);
+  );
+};
+
+const TrustBar = () => {
+  const points = [
+    { icon: Microscope, title: "Pełna Diagnostyka", desc: "Badania i wyniki na miejscu" },
+    { icon: Heart, title: "Bezstresowo", desc: "Dog & Cat Friendly (Osobne poczekalnie)" },
+    { icon: MapPin, title: "Darmowy Parking", desc: "Wygodny podjazd prosto pod wejście" }
+  ];
+  return (
+    <section className="py-12 md:py-16 bg-background relative z-10 border-b border-border/50 shadow-[0_10px_30px_rgba(0,0,0,0.02)]">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-border">
+          {points.map((p, i) => (
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2 }}
+              className="flex items-center gap-6 pt-6 md:pt-0 first:pt-0 md:px-6"
+            >
+              <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                <p.icon className="w-8 h-8 text-accent" />
+              </div>
+              <div>
+                <h3 className="font-outfit font-black text-xl mb-1">{p.title}</h3>
+                <p className="text-text-gray font-medium opacity-80">{p.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 
 export default function UltraPremiumVetPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -814,7 +847,8 @@ export default function UltraPremiumVetPage() {
       <PawBackground />
       
       <Hero />
-      
+      <TrustBar />
+
       <Services />
       <GroomingGallery />
       <InfinitePatients />
