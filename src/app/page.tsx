@@ -613,12 +613,12 @@ const Team = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-secondary/30 p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] border border-border group"
+              className="flex flex-col gap-8 md:gap-10 items-center bg-secondary/30 p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] border border-border group"
             >
-              <div className="w-48 h-48 md:w-56 md:h-56 rounded-[2rem] md:rounded-[3rem] overflow-hidden shrink-0 shadow-xl border-4 border-white/10 group-hover:scale-105 transition-transform duration-700">
+              <div className="w-56 h-56 md:w-64 md:h-64 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shrink-0 shadow-xl border-4 border-white/10 group-hover:scale-105 transition-transform duration-700">
                 <img src={m.img} alt={m.name} className="w-full h-full object-cover" />
               </div>
-              <div className="text-center md:text-left">
+              <div className="text-center">
                 <h4 className="text-3xl md:text-4xl font-black mb-2 tracking-tighter">{m.name}</h4>
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-6">{m.role}</p>
                 <p className="text-base md:text-lg text-text-gray font-medium opacity-80 italic leading-relaxed">

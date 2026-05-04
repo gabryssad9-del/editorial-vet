@@ -164,8 +164,8 @@ export const Navbar = () => {
                       className={cn(
                         "relative z-10 text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.3em] px-6 py-2.5 transition-colors duration-300 block",
                         (hoveredLink ? isHovered : activeLink === item.name)
-                          ? "text-background dark:text-black" 
-                          : "text-foreground/50"
+                          ? "text-white dark:text-black" 
+                          : "text-black/50 dark:text-white/50"
                       )}
                     >
                       {item.name}
@@ -173,7 +173,7 @@ export const Navbar = () => {
                     {showPill && (
                       <motion.div
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-foreground dark:bg-white rounded-full z-0 shadow-xl shadow-black/10 dark:shadow-white/5 transform-gpu will-change-transform"
+                        className="absolute inset-0 bg-black dark:bg-white rounded-full z-0 shadow-xl shadow-black/10 dark:shadow-white/5 transform-gpu will-change-transform"
                         transition={{ type: "spring", stiffness: 450, damping: 35 }}
                       />
                     )}
