@@ -21,6 +21,7 @@ const MapBlock = dynamic(() => import('@/components/MapBlock').then(mod => mod.M
 const BentoCard = dynamic(() => import('@/components/BentoCard').then(mod => mod.BentoCard));
 const FAQSection = dynamic(() => import('@/components/FAQSection').then(mod => mod.FAQSection));
 const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar));
+const CountUp = dynamic(() => import('@/components/CountUp').then(mod => mod.CountUp));
 
 import { ClientDecorations } from '@/components/ClientDecorations';
 
