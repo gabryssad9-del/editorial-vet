@@ -83,7 +83,7 @@ export const GlobalLoadingScreen = () => {
             filter: "blur(20px)",
             transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
           }}
-          className="fixed inset-0 z-[100000] bg-[#050505] flex flex-col items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[100000] bg-[#050505] hidden md:flex flex-col items-center justify-center overflow-hidden"
         >
           {/* Background Aurora */}
           <div className="absolute inset-0 overflow-hidden">

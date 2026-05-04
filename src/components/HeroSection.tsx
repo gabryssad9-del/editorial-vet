@@ -4,7 +4,7 @@ import { m, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Phone } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
-const LiquidButton = dynamic(() => import('./LiquidButton').then(mod => mod.LiquidButton), { ssr: false });
+const LiquidButton = dynamic(() => import('./LiquidButton').then(mod => mod.LiquidButton), { ssr: true });
 const Badge = dynamic(() => import('./Badge').then(mod => mod.Badge), { ssr: true });
 
 export const Hero = () => {
@@ -82,9 +82,9 @@ export const Hero = () => {
               WebkitBackfaceVisibility: 'hidden',
               backfaceVisibility: 'hidden'
             }}
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+            initial={{ opacity: 1, scale: 0.8, rotate: -5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative will-change-transform transform-gpu"
           >
             <div 

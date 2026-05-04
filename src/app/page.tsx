@@ -1,17 +1,16 @@
-'use client';
-
-import { m, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate, useInView } from 'framer-motion';
 import { 
-  Heart, Star, Users, Zap, Syringe, Clock, Phone, Microscope, MapPin, Mail, ChevronRight, Menu, X, ArrowRight 
+  Heart, Star, Users, Zap, ChevronRight, Menu, X, ArrowRight 
 } from 'lucide-react';
-import { useState, useEffect, useRef, Suspense } from 'react';
 import Link from 'next/link';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import dynamic from 'next/dynamic';
+import { CursorGlow, PawBackground } from '@/components/Decorations';
 
 // Optimized dynamic imports
+// Optimized dynamic imports
 const Navbar = dynamic(() => import('@/components/Navbar').then(mod => mod.Navbar), { ssr: true });
+const Hero = dynamic(() => import('@/components/HeroSection').then(mod => mod.Hero), { ssr: true });
 const Services = dynamic(() => import('@/components/ServicesSection').then(mod => mod.ServicesSection), { ssr: true });
 const About = dynamic(() => import('@/components/AboutSection').then(mod => mod.AboutSection), { ssr: true });
 const Team = dynamic(() => import('@/components/TeamSection').then(mod => mod.TeamSection), { ssr: true });
@@ -20,8 +19,7 @@ const InfinitePatients = dynamic(() => import('@/components/InfinitePatients').t
 const ReviewsSection = dynamic(() => import('@/components/ReviewsSection').then(mod => mod.ReviewsSection), { ssr: true });
 const MapBlock = dynamic(() => import('@/components/MapBlock').then(mod => mod.MapBlock), { ssr: true });
 const BentoCard = dynamic(() => import('@/components/BentoCard').then(mod => mod.BentoCard), { ssr: true });
-const FAQItem = dynamic(() => import('@/components/FAQItem').then(mod => mod.FAQItem), { ssr: true });
-const Hero = dynamic(() => import('@/components/HeroSection').then(mod => mod.Hero), { ssr: true });
+const FAQSection = dynamic(() => import('@/components/FAQSection').then(mod => mod.FAQSection), { ssr: true });
 const Badge = dynamic(() => import('@/components/Badge').then(mod => mod.Badge), { ssr: true });
 const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar), { ssr: true });
 const CountUp = dynamic(() => import('@/components/CountUp').then(mod => mod.CountUp), { ssr: true });
@@ -37,125 +35,6 @@ const CountUp = dynamic(() => import('@/components/CountUp').then(mod => mod.Cou
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
-
-// --- Motion Magic (Hover Spells) ---
-
-const CursorGlow = () => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
-
-  return (
-    <m.div
-      className="fixed inset-0 pointer-events-none z-[9999] opacity-30 hidden lg:block transform-gpu"
-      style={{
-        background: useMotionTemplate`radial-gradient(600px circle at ${springX}px ${springY}px, rgba(254,69,32,0.15), transparent 80%)`,
-        willChange: "background"
-      }}
-    />
-  );
-};
-
-// --- Spatial Elements ---
-
-const FloatingOrb = ({ delay = 0, scale = 1, xOffset = "0%", yOffset = "0%" }) => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX - window.innerWidth / 2);
-      mouseY.set(e.clientY - window.innerHeight / 2);
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const x = useSpring(useTransform(mouseX, [-1000, 1000], [-40 * scale, 40 * scale]), { stiffness: 50, damping: 25 });
-  const y = useSpring(useTransform(mouseY, [-1000, 1000], [-40 * scale, 40 * scale]), { stiffness: 50, damping: 25 });
-
-  return (
-    <m.div
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 0.3, scale: scale }}
-      transition={{ delay, duration: 2.5, ease: "easeOut" }}
-      style={{ x, y, left: xOffset, top: yOffset }}
-      className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-accent/20 via-blue-500/5 to-transparent blur-3xl -z-10 transform-gpu will-change-transform"
-    />
-  );
-};
-
-
-
-// --- 3D Components (Three.js) ---
-
-const PawBackground = () => {
-  const paws = [
-    { id: 1, left: "5%", top: "15%", rotate: 15, scale: 1.2 },
-    { id: 2, left: "85%", top: "10%", rotate: -20, scale: 0.8 },
-    { id: 3, left: "45%", top: "5%", rotate: 45, scale: 0.6 },
-    { id: 4, left: "15%", top: "45%", rotate: 110, scale: 1.1 },
-    { id: 5, left: "75%", top: "55%", rotate: -45, scale: 0.9 },
-    { id: 6, left: "35%", top: "75%", rotate: 180, scale: 1.3 },
-    { id: 7, left: "90%", top: "85%", rotate: 30, scale: 0.7 },
-    { id: 8, left: "10%", top: "90%", rotate: -15, scale: 1.0 },
-    { id: 9, left: "55%", top: "35%", rotate: 60, scale: 0.5 },
-    { id: 10, left: "25%", top: "25%", rotate: -90, scale: 0.8 },
-  ];
-
-  return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
-      {paws.map((paw) => (
-        <m.div
-          key={paw.id}
-          initial={{ rotate: paw.rotate, scale: paw.scale }}
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [paw.rotate, paw.rotate + 10, paw.rotate]
-          }}
-          transition={{ 
-            duration: 8 + paw.id, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute will-change-transform transform-gpu"
-          style={{ 
-            left: paw.left, 
-            top: paw.top, 
-            color: '#FE4520',
-            WebkitBackfaceVisibility: 'hidden',
-            backfaceVisibility: 'hidden'
-          }}
-        >
-          <svg width="70" height="70" viewBox="0 0 48.839 48.839" fill="currentColor" style={{ display: 'block' }}>
-            <path d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252
-              c-1.56,0-2.567-0.002-5.112-1.326c0,0-1.649-1.509-5.508-1.354c-3.895-0.154-5.545,1.373-5.545,1.373
-              c-2.545,1.323-3.516,1.309-5.074,1.309c-3.539,0-6.168-1.713-6.168-5.252c0-1.791,0.971-3.506,3.024-6.742
-              c0,0,3.881-6.445,7.244-9.477c2.43-2.188,5.973-2.18,5.973-2.18h1.093v-0.001c0,0,3.698-0.009,5.976,2.181
-              C35.059,30.51,39.041,36.844,39.041,36.843z M16.631,20.878c3.7,0,6.699-4.674,6.699-10.439S20.331,0,16.631,0
-              S9.932,4.674,9.932,10.439S12.931,20.878,16.631,20.878z M10.211,30.988c2.727-1.259,3.349-5.723,1.388-9.971
-              s-5.761-6.672-8.488-5.414s-3.348,5.723-1.388,9.971C3.684,29.822,7.484,32.245,10.211,30.988z M32.206,20.878
-              c3.7,0,6.7-4.674,6.7-10.439S35.906,0,32.206,0s-6.699,4.674-6.699,10.439C25.507,16.204,28.506,20.878,32.206,20.878z
-               M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
-              S48.455,16.861,45.727,15.602z"/>
-          </svg>
-        </m.div>
-      ))}
-    </div>
-  );
-};
 export default function UltraPremiumVetPage() {
   return (
       <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-accent selection:text-white">
@@ -240,24 +119,7 @@ export default function UltraPremiumVetPage() {
       <MapBlock />
 
       {/* FAQ Section */}
-      <section className="py-24 md:py-32 max-w-4xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 md:mb-20">
-          <Badge className="mb-6">FAQ</Badge>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 leading-none">Pytania <br className="md:hidden" /> <span className="text-accent italic">i</span> Odpowiedzi</h2>
-          <p className="text-lg md:text-xl text-text-gray opacity-70">Wszystko, co warto wiedzieć przed wizytą.</p>
-        </div>
-        
-        <div className="space-y-4">
-          {[
-            { q: "Jak przygotować pupila do zabiegu?", a: "Zalecamy, aby zwierzę było na czczo przez minimum 12 godzin przed planowanym zabiegiem. Woda może być podawana bez ograniczeń.", icon: Syringe },
-            { q: "Czy muszę umawiać się na wizytę?", a: "Tak, rezerwacja terminu pozwala nam uniknąć tłoku i zapewnić Twojemu pupilowi spokojną atmosferę bez zbędnego stresu w poczekalni.", icon: Clock },
-            { q: "Co zrobić w nagłym przypadku w nocy?", a: "W godzinach nocnych oraz w weekendy prosimy o kontakt z najbliższą całodobową kliniką weterynaryjną. Współpracujemy z placówkami dyżurującymi.", icon: Phone },
-            { q: "Czy wykonujecie badania krwi?", a: "Tak, pobieramy krew do badań, które następnie przesyłamy do renomowanego zewnętrznego laboratorium. Wyniki są zazwyczaj dostępne następnego dnia roboczego.", icon: Microscope },
-          ].map((item, i) => (
-            <FAQItem key={i} question={item.q} answer={item.a} icon={item.icon} />
-          ))}
-        </div>
-      </section>
+      <FAQSection />
 
       <footer className="py-24 md:py-32 text-center lg:text-left bg-[#0D0D0D] text-white px-4 md:px-0 relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
