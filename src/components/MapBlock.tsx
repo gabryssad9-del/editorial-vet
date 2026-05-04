@@ -1,12 +1,12 @@
 'use client';
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export const MapBlock = () => {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <motion.div 
+    <m.div 
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -45,6 +45,6 @@ export const MapBlock = () => {
         )}
       </div>
       <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-    </motion.div>
+    </m.div>
   );
 };
