@@ -1,40 +1,32 @@
+'use client';
+
+import React from 'react';
 import { 
-  Heart, Star, Users, Zap, ChevronRight, Menu, X, ArrowRight 
+  Heart, Star, Users, Zap, ChevronRight, Menu, X, ArrowRight, Phone
 } from 'lucide-react';
 import Link from 'next/link';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import dynamic from 'next/dynamic';
+import { Navbar } from '@/components/Navbar';
+import { Hero } from '@/components/HeroSection';
+import { ServicesSection } from '@/components/ServicesSection';
+import { AboutSection } from '@/components/AboutSection';
+import { TeamSection } from '@/components/TeamSection';
+import { GroomingGallery } from '@/components/GroomingGallery';
+import { InfinitePatients } from '@/components/InfinitePatients';
+import { ReviewsSection } from '@/components/ReviewsSection';
+import { MapBlock } from '@/components/MapBlock';
+import { BentoCard } from '@/components/BentoCard';
+import { FAQSection } from '@/components/FAQSection';
+import { TrustBar } from '@/components/TrustBar';
+import { CountUp } from '@/components/CountUp';
 import { CursorGlow, PawBackground } from '@/components/Decorations';
-
-// Optimized dynamic imports
-// Optimized dynamic imports
-const Navbar = dynamic(() => import('@/components/Navbar').then(mod => mod.Navbar), { ssr: true });
-const Hero = dynamic(() => import('@/components/HeroSection').then(mod => mod.Hero), { ssr: true });
-const Services = dynamic(() => import('@/components/ServicesSection').then(mod => mod.ServicesSection), { ssr: true });
-const About = dynamic(() => import('@/components/AboutSection').then(mod => mod.AboutSection), { ssr: true });
-const Team = dynamic(() => import('@/components/TeamSection').then(mod => mod.TeamSection), { ssr: true });
-const GroomingGallery = dynamic(() => import('@/components/GroomingGallery').then(mod => mod.GroomingGallery), { ssr: true });
-const InfinitePatients = dynamic(() => import('@/components/InfinitePatients').then(mod => mod.InfinitePatients), { ssr: true });
-const ReviewsSection = dynamic(() => import('@/components/ReviewsSection').then(mod => mod.ReviewsSection), { ssr: true });
-const MapBlock = dynamic(() => import('@/components/MapBlock').then(mod => mod.MapBlock), { ssr: true });
-const BentoCard = dynamic(() => import('@/components/BentoCard').then(mod => mod.BentoCard), { ssr: true });
-const FAQSection = dynamic(() => import('@/components/FAQSection').then(mod => mod.FAQSection), { ssr: true });
-const Badge = dynamic(() => import('@/components/Badge').then(mod => mod.Badge), { ssr: true });
-const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar), { ssr: true });
-const CountUp = dynamic(() => import('@/components/CountUp').then(mod => mod.CountUp), { ssr: true });
-
-
-
-
-
-
-
 
 // --- Utils ---
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
 export default function UltraPremiumVetPage() {
   return (
       <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-accent selection:text-white">
@@ -49,12 +41,12 @@ export default function UltraPremiumVetPage() {
           </div>
         </section>
 
-        <Services />
+        <ServicesSection />
         <GroomingGallery />
         <InfinitePatients />
         
-        <About />
-        <Team />
+        <AboutSection />
+        <TeamSection />
       
       <section className="py-24 md:py-32 px-4 md:px-8 relative overflow-hidden">
         {/* Background Decorations */}

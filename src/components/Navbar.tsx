@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion as m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Heart, Menu, X, ChevronRight, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';

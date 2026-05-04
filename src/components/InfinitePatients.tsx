@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, Suspense, useRef } from 'react';
-import { m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion as m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Sparkles, Heart } from 'lucide-react';
 
 const patients = [

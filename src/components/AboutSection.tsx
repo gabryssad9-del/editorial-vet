@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { m } from 'framer-motion';
+import { motion as m } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { Badge } from './Badge';
 

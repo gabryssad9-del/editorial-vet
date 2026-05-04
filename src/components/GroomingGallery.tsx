@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion as m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Scissors, Sparkles, MoveHorizontal } from 'lucide-react';
 import { Badge } from './Badge';
 

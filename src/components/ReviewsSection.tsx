@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { m, AnimatePresence, useSpring, useTransform, useMotionValue } from 'framer-motion';
+import { motion as m, AnimatePresence, useSpring, useTransform, useMotionValue } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 const REVIEWS = [

@@ -1,5 +1,5 @@
 'use client';
-import { m, useSpring, useMotionValue, useMotionTemplate } from 'framer-motion';
+import { motion as m, useSpring, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export const CursorGlow = () => {

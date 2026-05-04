@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { m, AnimatePresence } from 'framer-motion';
+import { motion as m, AnimatePresence } from 'framer-motion';
 import { ChevronDown, LucideIcon } from 'lucide-react';
 
 export const FAQItem = ({ question, answer, icon: Icon }: { question: string, answer: string, icon: LucideIcon }) => {

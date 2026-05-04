@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { m } from 'framer-motion';
+import { motion as m } from 'framer-motion';
 import { Microscope, Heart, MapPin } from 'lucide-react';
 
 export const TrustBar = () => {
