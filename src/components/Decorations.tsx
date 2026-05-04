@@ -33,6 +33,9 @@ export const CursorGlow = () => {
 
   const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+  
+  // HOOK FIX: Must be called before early return
+  const bgTemplate = useMotionTemplate`radial-gradient(600px circle at ${springX}px ${springY}px, rgba(254,69,32,0.15), transparent 80%)`;
 
   if (!isDesktop) return null;
 
@@ -40,7 +43,7 @@ export const CursorGlow = () => {
     <m.div
       className="fixed inset-0 pointer-events-none z-[9999] opacity-30 transform-gpu"
       style={{
-        background: useMotionTemplate`radial-gradient(600px circle at ${springX}px ${springY}px, rgba(254,69,32,0.15), transparent 80%)`,
+        background: bgTemplate,
         willChange: "background"
       }}
     />
