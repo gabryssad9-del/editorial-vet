@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Heart, Menu, X, ChevronRight } from 'lucide-react';
+import { Heart, Menu, X, ChevronRight, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
 import { LiquidButton } from './LiquidButton';
@@ -139,7 +139,7 @@ export const Navbar = () => {
             <motion.img 
               whileHover={{ scale: 1.05, rotate: -2 }}
               whileTap={{ scale: 0.95 }}
-              src="/editorial-vet/emotional-vet/vetmed1.png" 
+              src="/emotional-vet/emotional-vet/vetmed1.png" 
               alt="VETMED Logo" 
               className="h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-[0_0_15px_rgba(254,69,32,0.3)] group-hover:drop-shadow-[0_0_25px_rgba(254,69,32,0.6)] transition-all duration-500" 
             />
@@ -162,10 +162,10 @@ export const Navbar = () => {
                       href={item.href} 
                       onClick={(e) => handleNavClick(e, item)}
                       className={cn(
-                        "relative z-10 text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.3em] px-6 py-2.5 transition-colors duration-300 block",
+                        "relative z-10 text-xs lg:text-sm font-bold uppercase tracking-[0.15em] px-6 py-2.5 transition-colors duration-300 block",
                         (hoveredLink ? isHovered : activeLink === item.name)
                           ? "text-white dark:text-black" 
-                          : "text-black/50 dark:text-white/50"
+                          : "text-black/60 dark:text-white/60"
                       )}
                     >
                       {item.name}
@@ -182,10 +182,15 @@ export const Navbar = () => {
               })}
             </div>
             
-            <div className="flex items-center gap-4 ml-4">
+            <div className="flex items-center gap-3 lg:gap-4 ml-2 lg:ml-4">
+              <a href="tel:+48519619141" className="flex items-center gap-2 bg-[#ff3b3b]/10 text-[#ff3b3b] hover:bg-[#ff3b3b] hover:text-white border border-[#ff3b3b]/20 px-4 py-2 lg:px-5 lg:py-2.5 rounded-full transition-all duration-300 font-black uppercase tracking-widest text-xs md:text-sm group shadow-[0_0_15px_rgba(255,59,59,0.2)] hover:shadow-[0_0_25px_rgba(255,59,59,0.4)]">
+                <span className="w-2 h-2 rounded-full bg-current animate-ping opacity-75"></span>
+                <span className="w-2 h-2 rounded-full bg-current absolute"></span>
+                Nagły Przypadek
+              </a>
               <ThemeToggle />
               <a href="https://vetmed.nakiedy.pl/" target="_blank" rel="noopener noreferrer">
-                <LiquidButton variant="dark" className="px-8 py-3 text-[10px] uppercase tracking-widest font-black">
+                <LiquidButton variant="dark" className="px-6 py-3 text-xs md:text-sm uppercase tracking-widest font-black">
                   Umów wizytę
                 </LiquidButton>
               </a>
@@ -251,10 +256,13 @@ export const Navbar = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="pt-12 border-t border-border mt-8"
+                className="pt-12 border-t border-border mt-8 flex flex-col gap-4"
               >
+                <a href="tel:+48519619141" className="w-full flex items-center justify-center gap-4 bg-[#ff3b3b] text-white py-6 rounded-3xl font-black uppercase tracking-widest text-lg md:text-xl shadow-[0_15px_40px_rgba(255,59,59,0.3)]">
+                   <Phone size={24} /> NAGŁY PRZYPADEK
+                </a>
                 <a href="https://vetmed.nakiedy.pl/" target="_blank" rel="noopener noreferrer">
-                  <LiquidButton className="w-full text-2xl py-8">
+                  <LiquidButton className="w-full text-xl py-6">
                     Rezerwacja Online
                   </LiquidButton>
                 </a>
@@ -263,15 +271,15 @@ export const Navbar = () => {
 
             <div className="mt-auto pb-12 flex flex-col gap-6">
                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent">
-                    <Heart size={24} fill="currentColor" />
+                  <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent">
+                    <Heart size={28} fill="currentColor" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.5em] text-accent">Pogotowie</p>
-                    <p className="text-2xl font-black">519 619 141</p>
+                    <p className="text-xs font-black uppercase tracking-[0.3em] text-accent mb-1">Recepcja</p>
+                    <a href="tel:+48519619141" className="text-3xl font-black hover:text-accent transition-colors block">519 619 141</a>
                   </div>
                </div>
-               <p className="text-sm font-bold opacity-40">Olsztyn, ul. Pana Tadeusza 6</p>
+               <p className="text-base font-bold opacity-60">Olsztyn, ul. Pana Tadeusza 6</p>
             </div>
           </motion.div>
         )}

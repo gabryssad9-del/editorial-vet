@@ -159,7 +159,7 @@ export const ReviewsSection = () => {
             viewport={{ once: true }}
             className="w-full lg:w-1/3"
           >
-            <div className={`p-10 md:p-14 rounded-[3.5rem] border backdrop-blur-[30px] relative group overflow-hidden transition-all duration-700 ${isDarkMode ? 'bg-white/5 border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.4)]' : 'bg-black/5 border-black/10 shadow-[0_40px_100px_rgba(0,0,0,0.1)]'}`}>
+            <div className={`p-10 md:p-14 rounded-[3.5rem] border backdrop-blur-[30px] relative group overflow-hidden transition-all duration-700 ${isDarkMode ? 'bg-white/5 border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.4)]' : 'bg-white border-transparent shadow-[0_40px_100px_rgba(254,69,32,0.08)]'}`}>
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-1000" />
               
               <div className="flex items-center gap-6 mb-12">
@@ -167,25 +167,25 @@ export const ReviewsSection = () => {
                   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-10 h-10" />
                 </div>
                 <div>
-                  <h4 className={`text-2xl font-black tracking-tighter ${isDarkMode ? 'text-white' : 'text-black'}`}>Google Reviews</h4>
-                  <div className="flex gap-1.5 text-accent mt-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+                  <h4 className={`text-2xl md:text-3xl font-black tracking-tighter ${isDarkMode ? 'text-white' : 'text-black'}`}>Opinie Naszych Pacjentów</h4>
+                  <div className="flex gap-1.5 text-accent mt-2">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
                   </div>
                 </div>
               </div>
 
               <div className="mb-12">
-                <span className={`text-8xl font-black tracking-tighter block leading-none mb-3 ${isDarkMode ? 'text-white' : 'text-black'}`}>4.8</span>
-                <p className={`${isDarkMode ? 'text-white/40' : 'text-black/40'} font-black uppercase tracking-[0.4em] text-[11px]`}>Ekspertyza potwierdzona opiniami</p>
+                <span className={`text-8xl font-black tracking-tighter block leading-none mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>4.8</span>
+                <p className={`${isDarkMode ? 'text-white/60' : 'text-black/60'} font-black uppercase tracking-[0.2em] text-xs md:text-sm`}>Ekspertyza potwierdzona zaufaniem</p>
               </div>
 
               <a 
                 href="https://www.google.com/search?q=vet-med+gabinet+weterynaryjny+opinie" 
                 target="_blank"
-                className={`w-full inline-flex items-center justify-center gap-4 py-5 rounded-2xl font-black text-[11px] uppercase tracking-widest transition-all duration-500 group relative overflow-hidden ${isDarkMode ? 'bg-white text-black hover:bg-accent hover:text-white' : 'bg-black text-white hover:bg-accent'}`}
+                className={`w-full inline-flex items-center justify-center gap-4 py-6 rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-500 group relative overflow-hidden ${isDarkMode ? 'bg-white text-black hover:bg-accent hover:text-white shadow-lg shadow-white/10' : 'bg-black text-white hover:bg-accent hover:shadow-lg hover:shadow-accent/30'}`}
               >
-                <span className="relative z-10">Zobacz wszystkie opinie</span>
-                <ExternalLink size={16} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <span className="relative z-10">Czytaj wszystkie historie</span>
+                <ExternalLink size={18} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
 
               <div className="mt-14 pt-10 border-t border-white/5 flex items-center justify-between">
@@ -202,7 +202,7 @@ export const ReviewsSection = () => {
                     </motion.div>
                   ))}
                 </div>
-                <p className={`text-[11px] font-black uppercase tracking-widest ${isDarkMode ? 'text-white/20' : 'text-black/20'}`}>+209 Pacjentów</p>
+                <p className={`text-xs md:text-sm font-black uppercase tracking-widest ${isDarkMode ? 'text-white/50' : 'text-black/50'}`}>+200 Pacjentów</p>
               </div>
             </div>
           </motion.div>
@@ -240,7 +240,7 @@ export const ReviewsSection = () => {
                             {[...Array(REVIEWS[index].rating)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                           </div>
                           <div className="h-1 w-1 rounded-full bg-white/20" />
-                          <span className={`text-[11px] font-black uppercase tracking-[0.3em] ${isDarkMode ? 'text-white/30' : 'text-black/30'}`}>{REVIEWS[index].date}</span>
+                          <span className={`text-xs md:text-sm font-black uppercase tracking-[0.2em] ${isDarkMode ? 'text-white/60' : 'text-black/60'}`}>{REVIEWS[index].date}</span>
                         </div>
                       </div>
                     </div>

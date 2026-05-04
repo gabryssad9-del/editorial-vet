@@ -23,6 +23,12 @@ export const GlobalLoadingScreen = () => {
     if (document.readyState === 'complete') { isLoaded = true; } 
     else { window.addEventListener('load', handleLoad); }
 
+    // Wyłączenie loadera na mobile (stres, ułamek sekundy na reakcję)
+    if (window.innerWidth < 768 || window.location.search.includes('emergency')) {
+      setIsLoading(false);
+      return;
+    }
+
     const timer = setInterval(() => {
       setProgress(prev => {
         if (isLoaded) {
@@ -87,9 +93,9 @@ export const GlobalLoadingScreen = () => {
                 <div className="absolute inset-0 bg-accent rounded-[2rem] animate-ping opacity-20" />
                 <Heart size={48} className="text-white fill-white relative z-10" />
               </div>
-              <h1 className="text-7xl font-black text-white tracking-tighter font-outfit uppercase">
+              <div role="heading" aria-level={2} className="text-7xl font-black text-white tracking-tighter font-outfit uppercase">
                 VET<span className="text-accent italic">MED</span>
-              </h1>
+              </div>
               <p className="text-[10px] font-black text-accent uppercase tracking-[0.6em] mt-4 ml-2 opacity-80">Premium Veterinary Care</p>
             </motion.div>
 

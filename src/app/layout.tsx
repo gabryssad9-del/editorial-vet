@@ -6,8 +6,44 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "Domowy Weterynarz | Ciepło, Emocje, Opieka",
-  description: "Zapewniamy najwyższą jakość opieki dla Twojego pupila w domowej, ciepłej atmosferze.",
+  metadataBase: new URL('https://vetmed-olsztyn.pl'), // Zakładana domena produkcyjna
+  title: {
+    default: "VETMED | Nowoczesna Klinika Weterynaryjna Olsztyn",
+    template: "%s | VETMED Olsztyn"
+  },
+  description: "Całodobowa opieka, pełna diagnostyka i bezstresowe leczenie Twojego pupila. Najlepszy weterynarz w Olsztynie. Sprawdź nasze opinie i umów wizytę.",
+  keywords: ["weterynarz olsztyn", "klinika weterynaryjna olsztyn", "dobry weterynarz", "pogotowie weterynaryjne", "chirurgia zwierząt", "szczepienia psów", "leczenie kotów", "rtg zwierząt"],
+  authors: [{ name: "Gabriel Sadowski" }],
+  creator: "Gabriel Sadowski",
+  publisher: "VETMED",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "VETMED | Nowoczesna Klinika Weterynaryjna Olsztyn",
+    description: "Całodobowa opieka, pełna diagnostyka i bezstresowe leczenie Twojego pupila. Zobacz, dlaczego ufają nam tysiące pacjentów.",
+    url: "https://vetmed-olsztyn.pl",
+    siteName: "VETMED",
+    locale: "pl_PL",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  twitter: {
+    title: "VETMED | Nowoczesna Klinika Weterynaryjna",
+    card: "summary_large_image",
+  },
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
@@ -18,9 +54,42 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VeterinaryCare",
+    "name": "VETMED",
+    "image": "https://vetmed-olsztyn.pl/emotional-vet/emotional-vet/vetmed1.png",
+    "@id": "https://vetmed-olsztyn.pl",
+    "url": "https://vetmed-olsztyn.pl",
+    "telephone": "+48519619141",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ul. Pana Tadeusza 6",
+      "addressLocality": "Olsztyn",
+      "postalCode": "10-001",
+      "addressCountry": "PL"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  };
+
   return (
     <html lang="pl">
       <body className={`${inter.variable} ${outfit.variable} antialiased selection:bg-accent selection:text-white relative`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <GlobalLoadingScreen />
         <SmoothScroll>
           <div className="fixed inset-0 bg-background -z-20" />

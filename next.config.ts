@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/editorial-vet',
+  basePath: '/emotional-vet',
   images: {
     unoptimized: true,
   },

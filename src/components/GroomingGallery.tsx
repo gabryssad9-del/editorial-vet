@@ -109,10 +109,10 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
 
 export const GroomingGallery = () => {
   const animals = [
-    { label: "Pudel Królewski", before: "/editorial-vet/emotional-vet/grooming/poodle_before.png", after: "/editorial-vet/emotional-vet/grooming/poodle_after.png" },
-    { label: "Yorkshire Terrier", before: "/editorial-vet/emotional-vet/grooming/yorkie_before.png", after: "/editorial-vet/emotional-vet/grooming/yorkie_after.png" },
-    { label: "Kot Perski", before: "/editorial-vet/emotional-vet/grooming/cat_before.png", after: "/editorial-vet/emotional-vet/grooming/cat_after.png" },
-    { label: "Sznaucer Olbrzym", before: "/editorial-vet/emotional-vet/grooming/schnauzer_before.png", after: "/editorial-vet/emotional-vet/grooming/schnauzer_after.png" },
+    { label: "Pudel Królewski", before: "/emotional-vet/emotional-vet/grooming/poodle_before.png", after: "/emotional-vet/emotional-vet/grooming/poodle_after.png" },
+    { label: "Yorkshire Terrier", before: "/emotional-vet/emotional-vet/grooming/yorkie_before.png", after: "/emotional-vet/emotional-vet/grooming/yorkie_after.png" },
+    { label: "Kot Perski", before: "/emotional-vet/emotional-vet/grooming/cat_before.png", after: "/emotional-vet/emotional-vet/grooming/cat_after.png" },
+    { label: "Sznaucer Olbrzym", before: "/emotional-vet/emotional-vet/grooming/schnauzer_before.png", after: "/emotional-vet/emotional-vet/grooming/schnauzer_after.png" },
   ];
 
   return (

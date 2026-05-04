@@ -96,13 +96,28 @@ export const ContactMap = () => {
               { label: 'Telefon', val: '+48 519 619 141', icon: Phone },
               { label: 'Godziny', val: 'Pn-Pt: 8:00 - 18:00', icon: Clock }
             ].map((item, i) => (
-              <div key={i} className={`p-6 rounded-[2rem] border min-w-[240px] ${isDarkMode ? 'bg-white/5 border-white/10 text-white' : 'bg-black/5 border-black/10 text-black shadow-sm'}`}>
-                <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center text-accent mb-4">
-                  <item.icon size={18} />
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className={`p-8 rounded-[2rem] border min-w-[280px] transition-colors duration-500 relative overflow-hidden group ${isDarkMode ? 'bg-white/5 backdrop-blur-xl border-white/10 text-white shadow-[0_20px_40px_rgba(0,0,0,0.3)]' : 'bg-white border-transparent text-black shadow-[0_20px_60px_rgba(0,0,0,0.06)]'}`}
+              >
+                {/* Antigravity Glow Effect on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-accent/0 via-accent/5 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                
+                <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center text-accent mb-6 relative z-10 group-hover:scale-110 transition-transform duration-500">
+                  <item.icon size={26} strokeWidth={2} />
                 </div>
-                <p className="text-[9px] font-black uppercase tracking-[0.2em] text-accent mb-1">{item.label}</p>
-                <p className="text-sm font-bold opacity-90 leading-tight">{item.val}</p>
-              </div>
+                <p className="text-[11px] font-black uppercase tracking-[0.25em] text-accent mb-2 relative z-10">{item.label}</p>
+                {item.label === 'Telefon' ? (
+                  <a href={`tel:${item.val.replace(/\s+/g, '')}`} className="text-lg font-bold opacity-100 leading-tight tracking-tight relative z-10 hover:text-accent transition-colors block">{item.val}</a>
+                ) : (
+                  <p className="text-lg font-bold opacity-100 leading-tight tracking-tight relative z-10">{item.val}</p>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>

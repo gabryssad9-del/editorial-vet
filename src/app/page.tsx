@@ -286,7 +286,7 @@ const LoadingScreen = ({ progress }: { progress: number }) => {
         className="relative mb-12"
       >
         <img 
-          src="/editorial-vet/emotional-vet/vetmed1.png" 
+          src="/emotional-vet/emotional-vet/vetmed1.png" 
           alt="Loading..." 
           className="h-32 md:h-48 w-auto brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(254,69,32,0.5)]" 
         />
@@ -355,7 +355,7 @@ const Hero = () => {
               transition={{ delay: 0.5, duration: 1 }}
               className="text-lg md:text-xl lg:text-2xl text-text-gray max-w-xl mx-auto lg:mx-0 mb-10 md:mb-16 leading-relaxed font-medium opacity-80"
             >
-              Nowoczesna diagnostyka i podejście bez strachu (Cat/Dog Friendly). Tworzymy atmosferę, w której Twój pupil czuje się bezpiecznie, a Ty masz pewność, że jest w najlepszych rękach.
+              Znajdziemy przyczynę bólu, zanim Twój pupil poczuje stres. Tworzymy domową atmosferę, w której zwierzęta czują się bezpiecznie, a Ty masz pewność, że są w kochających rękach.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -383,7 +383,7 @@ const Hero = () => {
                   </LiquidButton>
                 </motion.div>
               </a>
-              <a href="tel:+48123456789" className="w-full sm:w-auto">
+              <a href="tel:+48519619141" className="w-full sm:w-auto">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -392,7 +392,7 @@ const Hero = () => {
                   <LiquidButton variant="secondary" className="text-lg w-full sm:w-auto border-accent/20 bg-accent/5 hover:bg-accent/10">
                     <span className="flex items-center justify-center gap-2">
                       <Phone className="w-5 h-5 text-accent" />
-                      Zadzwoń: 123 456 789
+                      Zadzwoń: 519 619 141
                     </span>
                   </LiquidButton>
                 </motion.div>
@@ -417,7 +417,7 @@ const Hero = () => {
               style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: 'radial-gradient(white, black)' }}
             >
               <img 
-                src="/editorial-vet/emotional-vet/hero-emotional.jpg" 
+                src="/emotional-vet/emotional-vet/hero-emotional.jpg" 
                 alt="VETMED Hero" 
                 decoding="async"
                 className="w-full h-[450px] md:h-[750px] object-cover transition-transform duration-[4s] group-hover:scale-110 will-change-transform transform-gpu" 
@@ -526,8 +526,8 @@ const Services = () => {
                     {s.desc}
                   </p>
 
-                  <div style={{ transform: "translateZ(40px)" }} className="mt-8 md:mt-12 opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-0 md:translate-y-4 group-hover:translate-y-0">
-                     <Link href="/uslugi" className="text-[10px] font-black uppercase tracking-[0.4em] text-accent flex items-center gap-2">
+                  <div style={{ transform: "translateZ(40px)" }} className="mt-8 md:mt-12 opacity-100 md:opacity-50 group-hover:opacity-100 transition-all duration-700">
+                     <Link href="/uslugi" className="text-[10px] font-black uppercase tracking-[0.3em] text-accent flex items-center gap-2 bg-accent/5 px-5 py-3 rounded-full border border-accent/10 hover:bg-accent hover:text-white transition-all duration-300">
                        Odkryj <ChevronRight size={14} />
                      </Link>
                   </div>
@@ -552,7 +552,7 @@ const About = () => (
           className="relative order-2 lg:order-1"
         >
           <div className="rounded-[3rem] md:rounded-[5.5rem] overflow-hidden shadow-premium border-[12px] md:border-[20px] border-secondary group">
-            <img src="/editorial-vet/emotional-vet/history.jpg" alt="O nas" className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" />
+            <img src="/emotional-vet/emotional-vet/history.jpg" alt="O nas" className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" />
           </div>
           <div className="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-16 bg-accent p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-glow max-w-[200px] md:max-w-xs text-white">
              <div className="text-4xl md:text-6xl font-outfit font-black mb-2">15</div>
@@ -592,28 +592,33 @@ const About = () => (
 const Team = () => {
   const members = [
     { 
-      name: "Lek. Anna Nowak", 
-      role: "CHIRURGIA & ONKOLOGIA", 
-      img: "/editorial-vet/emotional-vet/team-1.jpg",
-      bio: "Leczy z pasji od ponad 12 lat. Specjalizuje się w chirurgii tkanek miękkich, dbając o każdy detal i komfort pacjenta."
+      name: "[Imię Nazwisko 1]", 
+      role: "Główny Lekarz Weterynarii", 
+      img: "/emotional-vet/emotional-vet/team-1.jpg",
+      quote: "Każde merdnięcie ogonem na widok lekarza to nasz największy sukces."
     },
     { 
-      name: "Lek. Piotr Wiśniewski", 
-      role: "KARDIOLOGIA & USG", 
-      img: "/editorial-vet/emotional-vet/team-2.jpg",
-      bio: "Mistrz precyzji diagnostycznej. Od 15 lat ratuje serca czworonogów, łącząc wiedzę z empatią."
+      name: "[Imię Nazwisko 2]", 
+      role: "Lekarz Weterynarii", 
+      img: "/emotional-vet/emotional-vet/team-2.jpg",
+      quote: "Traktujemy każdego pacjenta tak, jakby był naszym własnym pupilem."
     },
   ];
 
   return (
     <section id="zespol" className="py-24 px-4 md:px-8 bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="text-center mb-16 md:mb-24">
-          <Badge>Nasi Eksperci</Badge>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-outfit font-black mb-6 md:mb-8 tracking-tighter">Ludzie, którzy <span className="text-accent italic">kochają</span> zwierzęta.</h2>
-          <p className="text-base md:text-xl text-text-gray max-w-xl mx-auto opacity-70">Każdy członek naszego zespołu to pasjonat i profesjonalista.</p>
-        </div>
         
+        <div className="text-center mb-16 md:mb-24">
+            <Badge>Nasz Zespół</Badge>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-outfit font-black mb-8 tracking-tighter leading-[0.9]">
+              Leczymy nie tylko ciało, ale i <span className="text-accent italic">serce</span>.
+            </h2>
+            <p className="text-lg md:text-xl text-text-gray max-w-3xl mx-auto leading-relaxed font-medium opacity-80">
+              Za każdą diagnozą kryje się członek czyjejś rodziny. Mamy sprzęt z najwyższej półki, ale naszą największą siłą jest empatia. Wiemy, jak silna jest Twoja więź z pupilem, dlatego robimy wszystko, by leczenie było bezstresowe.
+            </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           {members.map((m, i) => (
             <motion.div
@@ -622,17 +627,19 @@ const Team = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="flex flex-col gap-8 md:gap-10 items-center bg-secondary/30 p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] border border-border group"
+              className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-premium border border-accent/10 group bg-secondary"
             >
-              <div className="w-56 h-56 md:w-64 md:h-64 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shrink-0 shadow-xl border-4 border-white/10 group-hover:scale-105 transition-transform duration-700">
-                <img src={m.img} alt={m.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="text-center">
-                <h4 className="text-3xl md:text-4xl font-black mb-2 tracking-tighter">{m.name}</h4>
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-6">{m.role}</p>
-                <p className="text-base md:text-lg text-text-gray font-medium opacity-80 italic leading-relaxed">
-                  "{m.bio}"
-                </p>
+              <div className="h-[450px] md:h-[600px] w-full overflow-hidden relative">
+                <img src={m.img} alt={`Lek. wet. ${m.name}`} className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                
+                <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 text-white">
+                  <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-accent mb-2">{m.role}</p>
+                  <h4 className="text-3xl md:text-4xl font-black mb-6 tracking-tighter">lek. wet. {m.name}</h4>
+                  <p className="text-base md:text-lg text-white/90 font-medium italic leading-relaxed border-l-2 border-accent pl-4">
+                    "{m.quote}"
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -755,12 +762,12 @@ const Contact = () => (
     </div>
   </section>
   );
-};
+
 
 const TrustBar = () => {
   const points = [
     { icon: Microscope, title: "Pełna Diagnostyka", desc: "Badania i wyniki na miejscu" },
-    { icon: Heart, title: "Bezstresowo", desc: "Dog & Cat Friendly (Osobne poczekalnie)" },
+    { icon: Heart, title: "Bezstresowo", desc: "Dog & Cat Friendly" },
     { icon: MapPin, title: "Darmowy Parking", desc: "Wygodny podjazd prosto pod wejście" }
   ];
   return (
@@ -770,18 +777,19 @@ const TrustBar = () => {
           {points.map((p, i) => (
             <motion.div 
               key={i} 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="flex items-center gap-6 pt-6 md:pt-0 first:pt-0 md:px-6"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="flex items-center gap-6 pt-6 md:pt-0 first:pt-0 md:px-6 transition-all duration-500 group cursor-default"
             >
-              <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                <p.icon className="w-8 h-8 text-accent" />
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-accent/10 flex items-center justify-center shrink-0 border border-accent/20 shadow-inner group-hover:shadow-[0_0_40px_rgba(254,69,32,0.15)] group-hover:bg-accent/15 transition-all duration-500">
+                <p.icon className="w-10 h-10 md:w-12 md:h-12 text-accent group-hover:scale-110 transition-transform duration-500 ease-out" strokeWidth={1.5} />
               </div>
               <div>
-                <h3 className="font-outfit font-black text-xl mb-1">{p.title}</h3>
-                <p className="text-text-gray font-medium opacity-80">{p.desc}</p>
+                <h3 className="font-outfit font-black text-2xl md:text-3xl mb-1 tracking-tight group-hover:text-accent transition-colors duration-500">{p.title}</h3>
+                <p className="text-text-gray font-medium text-base md:text-lg opacity-80 group-hover:opacity-100 transition-opacity duration-500">{p.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -798,11 +806,11 @@ export default function UltraPremiumVetPage() {
 
   useEffect(() => {
     const imagesToPreload = [
-      "/editorial-vet/emotional-vet/hero-emotional.jpg",
-      "/editorial-vet/emotional-vet/history.jpg",
-      "/editorial-vet/emotional-vet/vetmed1.png",
-      "/editorial-vet/emotional-vet/team-1.jpg",
-      "/editorial-vet/emotional-vet/team-2.jpg"
+      "/emotional-vet/emotional-vet/hero-emotional.jpg",
+      "/emotional-vet/emotional-vet/history.jpg",
+      "/emotional-vet/emotional-vet/vetmed1.png",
+      "/emotional-vet/emotional-vet/team-1.jpg",
+      "/emotional-vet/emotional-vet/team-2.jpg"
     ];
 
     let loadedCount = 0;
@@ -945,7 +953,7 @@ export default function UltraPremiumVetPage() {
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="flex items-center gap-4 font-outfit text-3xl md:text-4xl font-black tracking-tighter text-accent mb-8 md:mb-10">
                 <img 
-                  src="/editorial-vet/emotional-vet/vetmed1.png" 
+                  src="/emotional-vet/emotional-vet/vetmed1.png" 
                   alt="VETMED Logo" 
                   className="h-24 md:h-32 w-auto object-contain brightness-125 contrast-125 drop-shadow-[0_0_20px_rgba(254,69,32,0.4)]" 
                 />
