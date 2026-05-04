@@ -3,10 +3,7 @@
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate, useInView } from 'framer-motion';
 import { Heart, Star, Users, Camera, MessageCircle, HelpCircle, Phone, MapPin, Mail, Clock, ChevronRight, ChevronDown, CheckCircle2, Play, Plus, Zap, Sparkles, Smile, Droplets, Scissors, Menu, X, Sun, Moon, ArrowRight, Activity, Microscope, Shield, Syringe, Globe, Search } from 'lucide-react';
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, Sphere, MeshWobbleMaterial, OrbitControls, PresentationControls } from '@react-three/drei';
 import Link from 'next/link';
-import gsap from 'gsap';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { Navbar } from '@/components/Navbar';
@@ -419,6 +416,7 @@ const Hero = () => {
               <img 
                 src="/editorial-vet/emotional-vet/hero-emotional.jpg" 
                 alt="VETMED Hero" 
+                fetchPriority="high"
                 decoding="async"
                 className="w-full h-[450px] md:h-[750px] object-cover transition-transform duration-[4s] group-hover:scale-110 will-change-transform transform-gpu" 
               />
@@ -552,7 +550,7 @@ const About = () => (
           className="relative order-2 lg:order-1"
         >
           <div className="rounded-[3rem] md:rounded-[5.5rem] overflow-hidden shadow-premium border-[12px] md:border-[20px] border-secondary group">
-            <img src="/editorial-vet/emotional-vet/history.jpg" alt="O nas" className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" />
+            <img loading="lazy" decoding="async" src="/editorial-vet/emotional-vet/history.jpg" alt="O nas" className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" />
           </div>
           <div className="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-16 bg-accent p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-glow max-w-[200px] md:max-w-xs text-white">
              <div className="text-4xl md:text-6xl font-outfit font-black mb-2">15</div>
@@ -630,7 +628,7 @@ const Team = () => {
               className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-premium border border-accent/10 group bg-secondary"
             >
               <div className="h-[450px] md:h-[600px] w-full overflow-hidden relative">
-                <img src={m.img} alt={`Lek. wet. ${m.name}`} className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src={m.img} alt={`Lek. wet. ${m.name}`} className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                 
                 <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 text-white">

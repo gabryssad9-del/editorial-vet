@@ -241,6 +241,8 @@ const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered
           transition={{ duration: 0.8, ease: "easeOut" }}
           src={p.img} 
           alt={p.name} 
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover will-change-transform transform-gpu" 
         />
 

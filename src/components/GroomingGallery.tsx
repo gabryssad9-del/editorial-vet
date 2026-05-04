@@ -60,6 +60,8 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
         <img 
           src={after} 
           alt={`${label} After`} 
+          loading="lazy"
+          decoding="async"
           draggable="false"
           className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
         />
@@ -72,6 +74,8 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
           <img 
             src={before} 
             alt={`${label} Before`} 
+            loading="lazy"
+            decoding="async"
             draggable="false"
             className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
           />
