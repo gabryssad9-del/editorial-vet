@@ -22,7 +22,7 @@ const services = [
     title: "Dermatologia", 
     tag: "Pasja & Precyzja",
     desc: "Specjalizujemy się w leczeniu uporczywego świądu, alergii oraz skomplikowanych zmian skórnych. Twój pupil zasługuje na komfort bez drapania.",
-    image: "/emotional-vet/dermatologia_premium_vet_1777155118669.png",
+    image: "/editorial-vet/emotional-vet/dermatologia_premium_vet_1777155118669.png",
     features: ["Alergologia", "Zeskrobiny", "Biopsje skóry", "Leczenie uszu"],
     stats: "98% skuteczności"
   },
@@ -32,7 +32,7 @@ const services = [
     title: "Stomatologia", 
     tag: "RTG Cyfrowe",
     desc: "Zaawansowana diagnostyka RTG stomatologicznego pozwala nam wykryć to, czego nie widać gołym okiem. Pełna sanacja i chirurgia szczękowa.",
-    image: "/emotional-vet/stomatologia_premium_vet_1777155131239.png",
+    image: "/editorial-vet/emotional-vet/stomatologia_premium_vet_1777155131239.png",
     features: ["RTG Stomatologiczne", "Usuwanie kamienia", "Ekstrakcje", "Higiena"],
     stats: "Nowoczesne RTG"
   },
@@ -42,7 +42,7 @@ const services = [
     title: "Chirurgia", 
     tag: "Bezpieczeństwo",
     desc: "Zabiegi chirurgii miękkiej oraz kastracje (tradycyjne i chemiczne Suprelorin) w najwyższym standardzie sterylności i opieki pooperacyjnej.",
-    image: "/emotional-vet/chirurgia_premium_vet_1777155145748.png",
+    image: "/editorial-vet/emotional-vet/chirurgia_premium_vet_1777155145748.png",
     features: ["Chirurgia miękka", "Kastracje", "Suprelorin", "Onkologia"],
     stats: "Pełny monitoring"
   },
@@ -52,7 +52,7 @@ const services = [
     title: "Diagnostyka", 
     tag: "Pełen Obraz",
     desc: "Własne laboratorium i zaawansowane USG/RTG pozwalają nam na szybkie postawienie trafnej diagnozy, co jest kluczowe w ratowaniu życia.",
-    image: "/emotional-vet/diagnostyka_premium_vet_1777155161736.png",
+    image: "/editorial-vet/emotional-vet/diagnostyka_premium_vet_1777155161736.png",
     features: ["USG Doppler", "Badania krwi", "Czipowanie", "Paszporty"],
     stats: "Wyniki od ręki"
   }
@@ -278,7 +278,7 @@ export default function ServicesPage() {
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3 font-outfit text-2xl font-black tracking-tighter text-accent">
             <img 
-              src="/emotional-vet/vetmed1.png" 
+              src="/editorial-vet/emotional-vet/vetmed1.png" 
               alt="VETMED Logo" 
               className="h-20 w-auto object-contain brightness-110 drop-shadow-[0_0_10px_rgba(254,69,32,0.2)]" 
             />

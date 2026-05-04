@@ -286,7 +286,7 @@ const LoadingScreen = ({ progress }: { progress: number }) => {
         className="relative mb-12"
       >
         <img 
-          src="/emotional-vet/vetmed1.png" 
+          src="/editorial-vet/emotional-vet/vetmed1.png" 
           alt="Loading..." 
           className="h-32 md:h-48 w-auto brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(254,69,32,0.5)]" 
         />
@@ -408,7 +408,7 @@ const Hero = () => {
               style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: 'radial-gradient(white, black)' }}
             >
               <img 
-                src="/emotional-vet/hero-emotional.jpg" 
+                src="/editorial-vet/emotional-vet/hero-emotional.jpg" 
                 alt="VETMED Hero" 
                 decoding="async"
                 className="w-full h-[450px] md:h-[750px] object-cover transition-transform duration-[4s] group-hover:scale-110 will-change-transform transform-gpu" 
@@ -543,7 +543,7 @@ const About = () => (
           className="relative order-2 lg:order-1"
         >
           <div className="rounded-[3rem] md:rounded-[5.5rem] overflow-hidden shadow-premium border-[12px] md:border-[20px] border-secondary group">
-            <img src="/emotional-vet/history.jpg" alt="O nas" className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" />
+            <img src="/editorial-vet/emotional-vet/history.jpg" alt="O nas" className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" />
           </div>
           <div className="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-16 bg-accent p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-glow max-w-[200px] md:max-w-xs text-white">
              <div className="text-4xl md:text-6xl font-outfit font-black mb-2">15</div>
@@ -585,13 +585,13 @@ const Team = () => {
     { 
       name: "Lek. Anna Nowak", 
       role: "CHIRURGIA & ONKOLOGIA", 
-      img: "/emotional-vet/team-1.jpg",
+      img: "/editorial-vet/emotional-vet/team-1.jpg",
       bio: "Leczy z pasji od ponad 12 lat. Specjalizuje się w chirurgii tkanek miękkich, dbając o każdy detal i komfort pacjenta."
     },
     { 
       name: "Lek. Piotr Wiśniewski", 
       role: "KARDIOLOGIA & USG", 
-      img: "/emotional-vet/team-2.jpg",
+      img: "/editorial-vet/emotional-vet/team-2.jpg",
       bio: "Mistrz precyzji diagnostycznej. Od 15 lat ratuje serca czworonogów, łącząc wiedzę z empatią."
     },
   ];
@@ -765,11 +765,11 @@ export default function UltraPremiumVetPage() {
 
   useEffect(() => {
     const imagesToPreload = [
-      "/emotional-vet/hero-emotional.jpg",
-      "/emotional-vet/history.jpg",
-      "/emotional-vet/vetmed1.png",
-      "/emotional-vet/team-1.jpg",
-      "/emotional-vet/team-2.jpg"
+      "/editorial-vet/emotional-vet/hero-emotional.jpg",
+      "/editorial-vet/emotional-vet/history.jpg",
+      "/editorial-vet/emotional-vet/vetmed1.png",
+      "/editorial-vet/emotional-vet/team-1.jpg",
+      "/editorial-vet/emotional-vet/team-2.jpg"
     ];
 
     let loadedCount = 0;
@@ -911,7 +911,7 @@ export default function UltraPremiumVetPage() {
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="flex items-center gap-4 font-outfit text-3xl md:text-4xl font-black tracking-tighter text-accent mb-8 md:mb-10">
                 <img 
-                  src="/emotional-vet/vetmed1.png" 
+                  src="/editorial-vet/emotional-vet/vetmed1.png" 
                   alt="VETMED Logo" 
                   className="h-24 md:h-32 w-auto object-contain brightness-125 contrast-125 drop-shadow-[0_0_20px_rgba(254,69,32,0.4)]" 
                 />
