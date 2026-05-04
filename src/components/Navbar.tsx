@@ -164,7 +164,7 @@ export const Navbar = () => {
                       className={cn(
                         "relative z-10 text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.3em] px-6 py-2.5 transition-colors duration-300 block",
                         (hoveredLink ? isHovered : activeLink === item.name)
-                          ? "text-background dark:text-foreground" 
+                          ? "text-background dark:text-black" 
                           : "text-foreground/50"
                       )}
                     >
