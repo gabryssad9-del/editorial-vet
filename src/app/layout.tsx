@@ -88,7 +88,7 @@ export default function RootLayout({
       <head>
         <link 
           rel="preload" 
-          href="/editorial-vet/emotional-vet/hero-emotional.jpg" 
+          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=85" 
           as="image" 
           fetchpriority="high"
         />

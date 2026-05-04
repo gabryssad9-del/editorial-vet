@@ -239,7 +239,7 @@ const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered
             backfaceVisibility: 'hidden'
           }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          src={p.img} 
+          src={`https://images.weserv.nl/?url=${encodeURIComponent(p.img.replace('https://', ''))}&w=600&output=webp&q=80`} 
           alt={p.name} 
           loading="lazy"
           decoding="async"

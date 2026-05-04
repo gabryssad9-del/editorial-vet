@@ -113,10 +113,10 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
 
 export const GroomingGallery = () => {
   const animals = [
-    { label: "Pudel Królewski", before: "/editorial-vet/emotional-vet/grooming/poodle_before.png", after: "/editorial-vet/emotional-vet/grooming/poodle_after.png" },
-    { label: "Yorkshire Terrier", before: "/editorial-vet/emotional-vet/grooming/yorkie_before.png", after: "/editorial-vet/emotional-vet/grooming/yorkie_after.png" },
-    { label: "Kot Perski", before: "/editorial-vet/emotional-vet/grooming/cat_before.png", after: "/editorial-vet/emotional-vet/grooming/cat_after.png" },
-    { label: "Sznaucer Olbrzym", before: "/editorial-vet/emotional-vet/grooming/schnauzer_before.png", after: "/editorial-vet/emotional-vet/grooming/schnauzer_after.png" },
+    { label: "Pudel Królewski", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/poodle_before.png&w=600&output=webp&q=80", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/poodle_after.png&w=600&output=webp&q=80" },
+    { label: "Yorkshire Terrier", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/yorkie_before.png&w=600&output=webp&q=80", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/yorkie_after.png&w=600&output=webp&q=80" },
+    { label: "Kot Perski", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/cat_before.png&w=600&output=webp&q=80", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/cat_after.png&w=600&output=webp&q=80" },
+    { label: "Sznaucer Olbrzym", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/schnauzer_before.png&w=600&output=webp&q=80", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/schnauzer_after.png&w=600&output=webp&q=80" },
   ];
 
   return (

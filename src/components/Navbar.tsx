@@ -224,6 +224,7 @@ export const Navbar = () => {
             <button 
               onClick={() => setIsMenuOpen(false)}
               className="absolute top-8 right-8 w-14 h-14 flex items-center justify-center bg-accent/10 rounded-full text-accent"
+              aria-label="Zamknij menu"
             >
               <X size={32} />
             </button>

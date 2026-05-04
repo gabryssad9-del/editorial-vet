@@ -284,7 +284,7 @@ const LoadingScreen = ({ progress }: { progress: number }) => {
         className="relative mb-12"
       >
         <img 
-          src="/editorial-vet/emotional-vet/vetmed1.png" 
+          src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=400&output=webp" 
           alt="Loading..." 
           className="h-32 md:h-48 w-auto brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(254,69,32,0.5)]" 
         />
@@ -415,10 +415,15 @@ const Hero = () => {
               style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: 'radial-gradient(white, black)' }}
             >
               <img 
-                src="/editorial-vet/emotional-vet/hero-emotional.jpg" 
+                src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=85" 
+                srcset="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=600&output=webp&q=80 600w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=85 1200w"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 alt="VETMED Hero" 
                 fetchPriority="high"
+                loading="eager"
                 decoding="async"
+                width="1200"
+                height="750"
                 className="w-full h-[450px] md:h-[750px] object-cover transition-transform duration-[4s] group-hover:scale-110 will-change-transform transform-gpu" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -551,7 +556,13 @@ const About = () => (
           className="relative order-2 lg:order-1"
         >
           <div className="rounded-[3rem] md:rounded-[5.5rem] overflow-hidden shadow-premium border-[12px] md:border-[20px] border-secondary group">
-            <img loading="lazy" decoding="async" src="/editorial-vet/emotional-vet/history.jpg" alt="O nas" className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" />
+            <img 
+              loading="lazy" 
+              decoding="async" 
+              src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/history.jpg&w=800&output=webp&q=80" 
+              alt="O nas" 
+              className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" 
+            />
           </div>
           <div className="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-16 bg-accent p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-glow max-w-[200px] md:max-w-xs text-white">
              <div className="text-4xl md:text-6xl font-outfit font-black mb-2">15</div>
@@ -593,13 +604,13 @@ const Team = () => {
     { 
       name: "[Imię Nazwisko 1]", 
       role: "Główny Lekarz Weterynarii", 
-      img: "/editorial-vet/emotional-vet/team-1.jpg",
+      img: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/team-1.jpg&w=600&output=webp&q=80",
       quote: "Każde merdnięcie ogonem na widok lekarza to nasz największy sukces."
     },
     { 
       name: "[Imię Nazwisko 2]", 
       role: "Lekarz Weterynarii", 
-      img: "/editorial-vet/emotional-vet/team-2.jpg",
+      img: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/team-2.jpg&w=600&output=webp&q=80",
       quote: "Traktujemy każdego pacjenta tak, jakby był naszym własnym pupilem."
     },
   ];
@@ -634,7 +645,7 @@ const Team = () => {
                 
                 <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 text-white">
                   <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-accent mb-2">{m.role}</p>
-                  <h4 className="text-3xl md:text-4xl font-black mb-6 tracking-tighter">lek. wet. {m.name}</h4>
+                  <h3 className="text-3xl md:text-4xl font-black mb-6 tracking-tighter">lek. wet. {m.name}</h3>
                   <p className="text-base md:text-lg text-white/90 font-medium italic leading-relaxed border-l-2 border-accent pl-4">
                     "{m.quote}"
                   </p>
@@ -952,7 +963,7 @@ export default function UltraPremiumVetPage() {
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="flex items-center gap-4 font-outfit text-3xl md:text-4xl font-black tracking-tighter text-accent mb-8 md:mb-10">
                 <img 
-                  src="/editorial-vet/emotional-vet/vetmed1.png" 
+                  src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=400&output=webp" 
                   alt="VETMED Logo" 
                   className="h-24 md:h-32 w-auto object-contain brightness-125 contrast-125 drop-shadow-[0_0_20px_rgba(254,69,32,0.4)]" 
                 />
