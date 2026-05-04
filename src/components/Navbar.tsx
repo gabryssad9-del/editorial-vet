@@ -139,8 +139,11 @@ export const Navbar = () => {
             <motion.img 
               whileHover={{ scale: 1.05, rotate: -2 }}
               whileTap={{ scale: 0.95 }}
-              src="/editorial-vet/emotional-vet/vetmed1.png" 
+              src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=200&output=webp&q=80" 
               alt="VETMED Logo" 
+              loading="eager"
+              width="80"
+              height="80"
               className="h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-[0_0_15px_rgba(254,69,32,0.3)] group-hover:drop-shadow-[0_0_25px_rgba(254,69,32,0.6)] transition-all duration-500" 
             />
           </Link>

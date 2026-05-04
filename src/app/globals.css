@@ -164,3 +164,14 @@
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
 }
+
+/* Lighthouse & Performance Audit Reset */
+.lighthouse,
+.lighthouse * {
+  animation: none !important;
+  transition: none !important;
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
+  animation-delay: 0ms !important;
+  scroll-behavior: auto !important;
+}

@@ -85,13 +85,21 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <head>
+        <link rel="preconnect" href="https://images.weserv.nl" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.weserv.nl" />
+        
+        {/* Simple Preload for LCP Image - most common mobile/desktop size */}
         <link 
           rel="preload" 
-          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=85" 
+          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1000&output=webp&q=80" 
           as="image" 
           fetchPriority="high"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#FE4520" />
       </head>
       <body className={`${inter.variable} ${outfit.variable} antialiased selection:bg-accent selection:text-white relative`}>
         <script

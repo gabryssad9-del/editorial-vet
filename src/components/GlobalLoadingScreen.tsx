@@ -15,6 +15,7 @@ export const GlobalLoadingScreen = () => {
     if (isLighthouse) {
       setIsLoading(false);
       setProgress(100);
+      document.documentElement.classList.add('lighthouse');
       return;
     }
 

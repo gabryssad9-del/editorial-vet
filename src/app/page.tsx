@@ -11,19 +11,20 @@ const Navbar = dynamic(() => import('@/components/Navbar').then(mod => mod.Navba
 const ThemeToggle = dynamic(() => import('@/components/ThemeToggle').then(mod => mod.ThemeToggle), { ssr: false });
 const LiquidButton = dynamic(() => import('@/components/LiquidButton').then(mod => mod.LiquidButton), { ssr: false });
 const Badge = dynamic(() => import('@/components/Badge').then(mod => mod.Badge), { ssr: true });
-const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar), { ssr: false });
-const Services = dynamic(() => import('@/components/ServicesSection').then(mod => mod.ServicesSection), { ssr: false });
-const About = dynamic(() => import('@/components/AboutSection').then(mod => mod.AboutSection), { ssr: false });
-const Team = dynamic(() => import('@/components/TeamSection').then(mod => mod.TeamSection), { ssr: false });
-const GroomingGallery = dynamic(() => import('@/components/GroomingGallery').then(mod => mod.GroomingGallery), { ssr: false });
-const InfinitePatients = dynamic(() => import('@/components/InfinitePatients').then(mod => mod.InfinitePatients), { ssr: false });
-const ReviewsSection = dynamic(() => import('@/components/ReviewsSection').then(mod => mod.ReviewsSection), { ssr: false });
-const MapBlock = dynamic(() => import('@/components/MapBlock').then(mod => mod.MapBlock), { ssr: false });
-const ContactMap = dynamic(() => import('@/components/ContactMap').then(mod => mod.ContactMap), { ssr: false });
-const BentoCard = dynamic(() => import('@/components/BentoCard').then(mod => mod.BentoCard), { ssr: false });
-const FAQItem = dynamic(() => import('@/components/FAQItem').then(mod => mod.FAQItem), { ssr: false });
+const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar), { ssr: true });
+const Services = dynamic(() => import('@/components/ServicesSection').then(mod => mod.ServicesSection), { ssr: true });
+const About = dynamic(() => import('@/components/AboutSection').then(mod => mod.AboutSection), { ssr: true });
+const Team = dynamic(() => import('@/components/TeamSection').then(mod => mod.TeamSection), { ssr: true });
+const GroomingGallery = dynamic(() => import('@/components/GroomingGallery').then(mod => mod.GroomingGallery), { ssr: true });
+const InfinitePatients = dynamic(() => import('@/components/InfinitePatients').then(mod => mod.InfinitePatients), { ssr: true });
+const ReviewsSection = dynamic(() => import('@/components/ReviewsSection').then(mod => mod.ReviewsSection), { ssr: true });
+const MapBlock = dynamic(() => import('@/components/MapBlock').then(mod => mod.MapBlock), { ssr: true });
+const ContactMap = dynamic(() => import('@/components/ContactMap').then(mod => mod.ContactMap), { ssr: true });
+const BentoCard = dynamic(() => import('@/components/BentoCard').then(mod => mod.BentoCard), { ssr: true });
+const FAQItem = dynamic(() => import('@/components/FAQItem').then(mod => mod.FAQItem), { ssr: true });
 const Hero = dynamic(() => import('@/components/HeroSection').then(mod => mod.Hero), { ssr: true });
-const CountUp = dynamic(() => import('@/components/CountUp').then(mod => mod.CountUp), { ssr: false });
+const CountUp = dynamic(() => import('@/components/CountUp').then(mod => mod.CountUp), { ssr: true });
+
 
 
 
