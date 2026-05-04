@@ -250,11 +250,9 @@ export default function ServicesPage() {
                   Zatroszczymy się o <br /> Twój największy <span className="text-accent italic">Skarb</span>.
                 </h2>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                  <a href="https://vetmed.nakiedy.pl/" target="_blank" rel="noopener noreferrer">
-                    <LiquidButton className="px-12 py-5 text-lg">
-                      Umów wizytę online
-                    </LiquidButton>
-                  </a>
+                  <LiquidButton href="https://vetmed.nakiedy.pl/" className="px-12 py-5 text-lg">
+                    Umów wizytę online
+                  </LiquidButton>
                   <div className="flex flex-col items-center sm:items-start">
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] opacity-40 mb-1">Lub zadzwoń bezpośrednio</span>
                     <a href="tel:519619141" className="text-2xl font-black hover:text-accent transition-colors">519 619 141</a>

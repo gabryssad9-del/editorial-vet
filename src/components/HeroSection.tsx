@@ -45,33 +45,31 @@ export const Hero = () => {
               transition={{ delay: 0.7, duration: 1 }}
               className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center lg:justify-start w-full sm:w-auto"
             >
-              <a href="https://vetmed.nakiedy.pl/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto group">
-                <m.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <LiquidButton className="text-lg w-full sm:w-auto relative overflow-hidden shadow-glow">
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      Umów wizytę online <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </LiquidButton>
-                </m.div>
-              </a>
-              <a href="tel:+48519619141" className="w-full sm:w-auto">
-                <m.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <LiquidButton variant="secondary" className="text-lg w-full sm:w-auto border-accent/20 bg-accent/5 hover:bg-accent/10">
-                    <span className="flex items-center justify-center gap-2">
-                      <Phone className="w-5 h-5 text-accent" />
-                      Zadzwoń: 519 619 141
-                    </span>
-                  </LiquidButton>
-                </m.div>
-              </a>
+              <m.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-full sm:w-auto"
+              >
+                <LiquidButton href="https://vetmed.nakiedy.pl/" className="text-lg w-full sm:w-auto relative overflow-hidden shadow-glow">
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Umów wizytę online <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </LiquidButton>
+              </m.div>
+              <m.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-full sm:w-auto"
+              >
+                <LiquidButton href="tel:+48519619141" variant="secondary" className="text-lg w-full sm:w-auto border-accent/20 bg-accent/5 hover:bg-accent/10">
+                  <span className="flex items-center justify-center gap-2">
+                    <Phone className="w-5 h-5 text-accent" />
+                    Zadzwoń: 519 619 141
+                  </span>
+                </LiquidButton>
+              </m.div>
             </m.div>
           </m.div>
           

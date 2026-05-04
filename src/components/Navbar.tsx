@@ -192,11 +192,9 @@ export const Navbar = () => {
                 Nagły Przypadek
               </a>
               <ThemeToggle />
-              <a href="https://vetmed.nakiedy.pl/" target="_blank" rel="noopener noreferrer">
-                <LiquidButton variant="dark" className="px-6 py-3 text-xs md:text-sm uppercase tracking-widest font-black">
-                  Umów wizytę
-                </LiquidButton>
-              </a>
+              <LiquidButton href="https://vetmed.nakiedy.pl/" variant="dark" className="px-6 py-3 text-xs md:text-sm uppercase tracking-widest font-black">
+                Umów wizytę
+              </LiquidButton>
             </div>
           </div>
 
@@ -265,11 +263,9 @@ export const Navbar = () => {
                 <a href="tel:+48519619141" className="w-full flex items-center justify-center gap-4 bg-[#ff3b3b] text-white py-6 rounded-3xl font-black uppercase tracking-widest text-lg md:text-xl shadow-[0_15px_40px_rgba(255,59,59,0.3)]">
                    <Phone size={24} /> NAGŁY PRZYPADEK
                 </a>
-                <a href="https://vetmed.nakiedy.pl/" target="_blank" rel="noopener noreferrer">
-                  <LiquidButton className="w-full text-xl py-6">
-                    Rezerwacja Online
-                  </LiquidButton>
-                </a>
+                <LiquidButton href="https://vetmed.nakiedy.pl/" className="w-full text-xl py-6">
+                  Rezerwacja Online
+                </LiquidButton>
               </m.div>
             </div>
 
