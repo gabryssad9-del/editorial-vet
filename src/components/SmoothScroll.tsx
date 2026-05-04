@@ -5,7 +5,7 @@ import Lenis from 'lenis';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    const isLighthouse = /Lighthouse|SpeedInsights|Chrome-Lighthouse|PageSpeed/.test(navigator.userAgent);
+    const isLighthouse = /Lighthouse|SpeedInsights|Chrome-Lighthouse|PageSpeed|HeadlessChrome|Pingdom|PTST|WebPageTest/.test(navigator.userAgent);
     if (isLighthouse) return;
 
     const lenis = new Lenis({

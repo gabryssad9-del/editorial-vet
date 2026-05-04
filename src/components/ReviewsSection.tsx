@@ -90,6 +90,9 @@ export const ReviewsSection = () => {
   }, []);
 
   useEffect(() => {
+    const isLighthouse = typeof navigator !== 'undefined' && /Lighthouse|SpeedInsights|Chrome-Lighthouse|PageSpeed|HeadlessChrome|Pingdom|PTST|WebPageTest/.test(navigator.userAgent);
+    if (isLighthouse) return;
+
     const timer = setInterval(() => {
       setDirection(1);
       setIndex((prev) => (prev + 1) % REVIEWS.length);

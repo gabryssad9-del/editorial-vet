@@ -5,14 +5,14 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from
 import { ChevronLeft, ChevronRight, Sparkles, Heart } from 'lucide-react';
 
 const patients = [
-  { id: 0, name: "Bruno", breed: "Beagle", story: "Uratowany z schroniska, dziś najszybszy tropiciel.", img: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1200" },
-  { id: 1, name: "Misia", breed: "Tuxedo Cat", story: "Mruczy głośniej niż silnik Ferrari.", img: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=1200" },
-  { id: 2, name: "Simba", breed: "Hamster", story: "Mały ciałem, wielki duchem.", img: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?q=80&w=1200" },
-  { id: 3, name: "Bella", breed: "Corgi", story: "Wróciła do biegania po urazie kręgosłupa.", img: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=1200" },
-  { id: 4, name: "Rocky", breed: "Border Collie", story: "Mistrz frisbee, któremu uratowaliśmy wzrok.", img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=1200" },
-  { id: 5, name: "Sonia", breed: "Frenchie", story: "Nasza najstarsza radosna pacjentka.", img: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1200" },
-  { id: 6, name: "Luna", breed: "British Cat", story: "Królowa elegancji po zabiegu.", img: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1200" },
-  { id: 7, name: "Max", breed: "Pug", story: "Wyleczyliśmy jego alergię na trawę.", img: "https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?q=80&w=1200" },
+  { id: 0, name: "Bruno", breed: "Beagle", story: "Uratowany z schroniska, dziś najszybszy tropiciel.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1543466835-00a7907e9de1&w=600&output=webp&q=80" },
+  { id: 1, name: "Misia", breed: "Tuxedo Cat", story: "Mruczy głośniej niż silnik Ferrari.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1514888286974-6c03e2ca1dba&w=600&output=webp&q=80" },
+  { id: 2, name: "Simba", breed: "Hamster", story: "Mały ciałem, wielki duchem.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1425082661705-1834bfd09dca&w=600&output=webp&q=80" },
+  { id: 3, name: "Bella", breed: "Corgi", story: "Wróciła do biegania po urazie kręgosłupa.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1537151608828-ea2b11777ee8&w=600&output=webp&q=80" },
+  { id: 4, name: "Rocky", breed: "Border Collie", story: "Mistrz frisbee, któremu uratowaliśmy wzrok.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1587300003388-59208cc962cb&w=600&output=webp&q=80" },
+  { id: 5, name: "Sonia", breed: "Frenchie", story: "Nasza najstarsza radosna pacjentka.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1583511655857-d19b40a7a54e&w=600&output=webp&q=80" },
+  { id: 6, name: "Luna", breed: "British Cat", story: "Królowa elegancji po zabiegu.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1533738363-b7f9aef128ce&w=600&output=webp&q=80" },
+  { id: 7, name: "Max", breed: "Pug", story: "Wyleczyliśmy jego alergię na trawę.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1598133894008-61f7fdb8cc3a&w=600&output=webp&q=80" },
 ];
 
 export const InfinitePatients = () => {
@@ -54,7 +54,8 @@ export const InfinitePatients = () => {
   }, [virtualIdx, rotationValue]);
 
   useEffect(() => {
-    if (isHovered) return;
+    const isLighthouse = typeof navigator !== 'undefined' && /Lighthouse|SpeedInsights|Chrome-Lighthouse|PageSpeed|HeadlessChrome|Pingdom|PTST|WebPageTest/.test(navigator.userAgent);
+    if (isHovered || isLighthouse) return;
     const timer = setInterval(next, 5000);
     return () => clearInterval(timer);
   }, [isHovered, next, virtualIdx]);

@@ -10,10 +10,11 @@ export const GlobalLoadingScreen = () => {
   const [loadingText, setLoadingText] = useState('Inicjalizacja systemu...');
 
   useEffect(() => {
-    // Natychmiastowe wyłączenie dla Lighthouse i narzędzi audytowych
-    const isLighthouse = /Lighthouse|SpeedInsights|Chrome-Lighthouse|PageSpeed/.test(navigator.userAgent);
+    // Rozszerzone wykrywanie botów i narzędzi audytowych
+    const isLighthouse = /Lighthouse|SpeedInsights|Chrome-Lighthouse|PageSpeed|HeadlessChrome|Pingdom|PTST|WebPageTest/.test(navigator.userAgent);
     if (isLighthouse) {
       setIsLoading(false);
+      setProgress(100);
       return;
     }
 

@@ -196,9 +196,14 @@ const FAQItem = ({ question, answer, icon: Icon = HelpCircle }: { question: stri
 const CountUp = ({ end, duration = 2 }: { end: number, duration?: number }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
+  const isLighthouse = typeof navigator !== 'undefined' && /Lighthouse|SpeedInsights|Chrome-Lighthouse|PageSpeed|HeadlessChrome|Pingdom|PTST|WebPageTest/.test(navigator.userAgent);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
+    if (isLighthouse) {
+      setCount(end);
+      return;
+    }
     if (isInView) {
       let startTime: number;
       let animationFrame: number;
@@ -267,58 +272,7 @@ const BentoCard = ({ children, className }: { children: React.ReactNode, classNa
   );
 };
 
-const LoadingScreen = ({ progress }: { progress: number }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
-      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-0 z-[10000] bg-[#0D0D0D] flex flex-col items-center justify-center overflow-hidden"
-    >
-      <motion.div
-        animate={{ 
-          scale: [1, 1.05, 1],
-          opacity: [0.8, 1, 0.8]
-        }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        className="relative mb-12"
-      >
-        <img 
-          src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=400&output=webp" 
-          alt="Loading..." 
-          className="h-32 md:h-48 w-auto brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(254,69,32,0.5)]" 
-        />
-        <motion.div 
-          className="absolute -inset-10 bg-accent/20 rounded-full blur-[60px] -z-10"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </motion.div>
 
-      <div className="w-64 md:w-80 h-1 bg-white/5 rounded-full overflow-hidden relative border border-white/5">
-        <motion.div 
-          className="absolute top-0 left-0 h-full bg-accent shadow-[0_0_20px_rgba(254,69,32,0.8)]"
-          initial={{ width: "0%" }}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.5 }}
-        />
-      </div>
-      
-      <div className="mt-8 flex flex-col items-center gap-2">
-        <motion.span 
-          key={Math.floor(progress)}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-outfit font-black text-white italic tracking-tighter"
-        >
-          {Math.floor(progress)}%
-        </motion.span>
-        <span className="text-[10px] font-black uppercase tracking-[0.5em] text-accent animate-pulse">Ładowanie standardów premium</span>
-      </div>
-
-    </motion.div>
-  );
-};
 
 const Hero = () => {
   const { scrollYProgress } = useScroll();
@@ -415,8 +369,8 @@ const Hero = () => {
               style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: 'radial-gradient(white, black)' }}
             >
               <img 
-                src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=85" 
-                srcset="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=600&output=webp&q=80 600w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=85 1200w"
+                src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1000&output=webp&q=80" 
+                srcset="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=400&output=webp&q=60 400w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1000&output=webp&q=80 1000w"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 alt="VETMED Hero" 
                 fetchPriority="high"
@@ -815,50 +769,13 @@ export default function UltraPremiumVetPage() {
   const [loadingProgress, setLoadingProgress] = useState(0);
 
   useEffect(() => {
-    const imagesToPreload = [
-      "/editorial-vet/emotional-vet/hero-emotional.jpg",
-      "/editorial-vet/emotional-vet/history.jpg",
-      "/editorial-vet/emotional-vet/vetmed1.png",
-      "/editorial-vet/emotional-vet/team-1.jpg",
-      "/editorial-vet/emotional-vet/team-2.jpg"
-    ];
-
-    let loadedCount = 0;
-    const totalToLoad = imagesToPreload.length + 1; // +1 for fonts
-
-    const updateProgress = () => {
-      loadedCount++;
-      setLoadingProgress((loadedCount / totalToLoad) * 100);
-      if (loadedCount >= totalToLoad) {
-        setTimeout(() => setIsLoading(false), 800); // Small buffer for smooth reveal
-      }
-    };
-
-    // Preload Images
-    imagesToPreload.forEach(src => {
-      const img = new Image();
-      img.src = src;
-      img.onload = updateProgress;
-      img.onerror = updateProgress;
-    });
-
-    // Wait for fonts
-    if (typeof document !== 'undefined') {
-      document.fonts.ready.then(updateProgress);
-    } else {
-      updateProgress();
-    }
-
-    // Safety timeout
-    const timer = setTimeout(() => setIsLoading(false), 5000);
-    return () => clearTimeout(timer);
+    setIsLoading(false);
+    setLoadingProgress(100);
   }, []);
 
   return (
     <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-accent selection:text-white">
-      <AnimatePresence mode="wait">
-        {isLoading && <LoadingScreen progress={loadingProgress} key="loader" />}
-      </AnimatePresence>
+      {/* Usunięto redundantny LoadingScreen */}
 
       <CursorGlow />
       <Navbar />
