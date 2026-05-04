@@ -7,20 +7,22 @@ import {
 import Link from 'next/link';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/HeroSection';
-import { ServicesSection } from '@/components/ServicesSection';
-import { AboutSection } from '@/components/AboutSection';
-import { TeamSection } from '@/components/TeamSection';
-import { GroomingGallery } from '@/components/GroomingGallery';
-import { InfinitePatients } from '@/components/InfinitePatients';
-import { ReviewsSection } from '@/components/ReviewsSection';
-import { MapBlock } from '@/components/MapBlock';
-import { BentoCard } from '@/components/BentoCard';
-import { FAQSection } from '@/components/FAQSection';
-import { TrustBar } from '@/components/TrustBar';
-import { CountUp } from '@/components/CountUp';
-import { CursorGlow, PawBackground } from '@/components/Decorations';
+
+const ServicesSection = dynamic(() => import('@/components/ServicesSection').then(mod => mod.ServicesSection));
+const AboutSection = dynamic(() => import('@/components/AboutSection').then(mod => mod.AboutSection));
+const TeamSection = dynamic(() => import('@/components/TeamSection').then(mod => mod.TeamSection));
+const GroomingGallery = dynamic(() => import('@/components/GroomingGallery').then(mod => mod.GroomingGallery));
+const InfinitePatients = dynamic(() => import('@/components/InfinitePatients').then(mod => mod.InfinitePatients));
+const ReviewsSection = dynamic(() => import('@/components/ReviewsSection').then(mod => mod.ReviewsSection));
+const MapBlock = dynamic(() => import('@/components/MapBlock').then(mod => mod.MapBlock));
+const BentoCard = dynamic(() => import('@/components/BentoCard').then(mod => mod.BentoCard));
+const FAQSection = dynamic(() => import('@/components/FAQSection').then(mod => mod.FAQSection));
+const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar));
+const CursorGlow = dynamic(() => import('@/components/Decorations').then(mod => mod.CursorGlow), { ssr: false });
+const PawBackground = dynamic(() => import('@/components/Decorations').then(mod => mod.PawBackground), { ssr: false });
 
 // --- Utils ---
 function cn(...inputs: ClassValue[]) {
