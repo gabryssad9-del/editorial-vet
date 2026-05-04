@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { motion as m } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export const MapBlock = () => {
   const [isActive, setIsActive] = useState(false);

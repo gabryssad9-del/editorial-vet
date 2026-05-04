@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion as m } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export const BentoCard = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
   <m.div

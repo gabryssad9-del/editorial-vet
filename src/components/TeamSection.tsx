@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion as m } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Badge } from './Badge';
 
 export const TeamSection = () => {

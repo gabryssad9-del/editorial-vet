@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion as m, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Phone } from 'lucide-react';
 import dynamic from 'next/dynamic';
 

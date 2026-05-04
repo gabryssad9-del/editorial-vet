@@ -1,5 +1,5 @@
 'use client';
-import { motion as m, useSpring, useMotionValue, useMotionTemplate } from 'framer-motion';
+import { m, useSpring, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export const CursorGlow = () => {
@@ -63,41 +63,42 @@ export const PawBackground = () => {
   if (!isDesktop) return null;
 
   const paws = [
-    { id: 1, left: "5%", top: "15%", rotate: 15, scale: 1.2 },
-    { id: 2, left: "85%", top: "10%", rotate: -20, scale: 0.8 },
-    { id: 3, left: "45%", top: "5%", rotate: 45, scale: 0.6 },
-    { id: 4, left: "15%", top: "45%", rotate: 110, scale: 1.1 },
-    { id: 5, left: "75%", top: "55%", rotate: -45, scale: 0.9 },
-    { id: 6, left: "35%", top: "75%", rotate: 180, scale: 1.3 },
-    { id: 7, left: "90%", top: "85%", rotate: 30, scale: 0.7 },
-    { id: 8, left: "10%", top: "90%", rotate: -15, scale: 1.0 },
-    { id: 9, left: "55%", top: "35%", rotate: 60, scale: 0.5 },
-    { id: 10, left: "25%", top: "25%", rotate: -90, scale: 0.8 },
+    { id: 1, left: "5%", top: "15%", rotate: 15, scale: 1.2, duration: 9 },
+    { id: 2, left: "85%", top: "10%", rotate: -20, scale: 0.8, duration: 10 },
+    { id: 3, left: "45%", top: "5%", rotate: 45, scale: 0.6, duration: 11 },
+    { id: 4, left: "15%", top: "45%", rotate: 110, scale: 1.1, duration: 12 },
+    { id: 5, left: "75%", top: "55%", rotate: -45, scale: 0.9, duration: 13 },
+    { id: 6, left: "35%", top: "75%", rotate: 180, scale: 1.3, duration: 14 },
+    { id: 7, left: "90%", top: "85%", rotate: 30, scale: 0.7, duration: 15 },
+    { id: 8, left: "10%", top: "90%", rotate: -15, scale: 1.0, duration: 16 },
+    { id: 9, left: "55%", top: "35%", rotate: 60, scale: 0.5, duration: 17 },
+    { id: 10, left: "25%", top: "25%", rotate: -90, scale: 0.8, duration: 18 },
   ];
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes floatPaw {
+          0%, 100% { transform: translateY(0) rotate(var(--start-rot)) scale(var(--paw-scale)); }
+          50% { transform: translateY(-20px) rotate(calc(var(--start-rot) + 10deg)) scale(var(--paw-scale)); }
+        }
+        .paw-anim {
+          animation: floatPaw var(--anim-dur) ease-in-out infinite;
+          will-change: transform;
+        }
+      `}} />
       {paws.map((paw) => (
-        <m.div
+        <div
           key={paw.id}
-          initial={{ rotate: paw.rotate, scale: paw.scale }}
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [paw.rotate, paw.rotate + 10, paw.rotate]
-          }}
-          transition={{ 
-            duration: 8 + paw.id, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute will-change-transform transform-gpu"
+          className="absolute paw-anim"
           style={{ 
             left: paw.left, 
             top: paw.top, 
             color: '#FE4520',
-            WebkitBackfaceVisibility: 'hidden',
-            backfaceVisibility: 'hidden'
-          }}
+            '--start-rot': `${paw.rotate}deg`,
+            '--paw-scale': paw.scale,
+            '--anim-dur': `${paw.duration}s`
+          } as React.CSSProperties}
         >
           <svg width="70" height="70" viewBox="0 0 48.839 48.839" fill="currentColor" style={{ display: 'block' }}>
             <path d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252
@@ -111,7 +112,7 @@ export const PawBackground = () => {
                M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
               S48.455,16.861,45.727,15.602z"/>
           </svg>
-        </m.div>
+        </div>
       ))}
     </div>
   );

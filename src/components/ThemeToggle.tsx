@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion as m } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 
 export const ThemeToggle = () => {
