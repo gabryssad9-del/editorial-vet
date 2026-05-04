@@ -90,7 +90,7 @@ export default function RootLayout({
           rel="preload" 
           href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=85" 
           as="image" 
-          fetchpriority="high"
+          fetchPriority="high"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
