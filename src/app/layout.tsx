@@ -58,7 +58,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "VeterinaryCare",
     "name": "VETMED",
-    "image": "https://vetmed-olsztyn.pl/emotional-vet/emotional-vet/vetmed1.png",
+    "image": "https://vetmed-olsztyn.pl/editorial-vet/emotional-vet/vetmed1.png",
     "@id": "https://vetmed-olsztyn.pl",
     "url": "https://vetmed-olsztyn.pl",
     "telephone": "+48519619141",
