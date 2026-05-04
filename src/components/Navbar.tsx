@@ -214,7 +214,7 @@ export const Navbar = () => {
                         setIsMenuOpen(false);
                       }
                     }}
-                    className="text-5xl font-black font-outfit tracking-tighter text-foreground hover:text-accent transition-colors flex items-center justify-between group"
+                    className="text-4xl font-black font-outfit tracking-tighter text-foreground hover:text-accent transition-colors flex items-center justify-between group"
                   >
                     {item.name}
                     <ChevronRight size={40} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all text-accent" />
@@ -228,26 +228,26 @@ export const Navbar = () => {
                 transition={{ delay: 0.4 }}
                 className="pt-12 border-t border-border mt-8 flex flex-col gap-4"
               >
-                <a href="tel:+48519619141" className="w-full flex items-center justify-center gap-4 bg-[#ff3b3b] text-white py-6 rounded-3xl font-black uppercase tracking-widest text-lg md:text-xl shadow-[0_15px_40px_rgba(255,59,59,0.3)]">
-                   <Phone size={24} /> NAGŁY PRZYPADEK
+                <a href="tel:+48519619141" className="w-full flex items-center justify-center gap-3 bg-[#ff3b3b] text-white py-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_15px_40px_rgba(255,59,59,0.2)]">
+                   <Phone size={20} /> NAGŁY PRZYPADEK
                 </a>
-                <LiquidButton href="https://vetmed.nakiedy.pl/" className="w-full text-xl py-6">
+                <LiquidButton href="https://vetmed.nakiedy.pl/" className="w-full text-base py-5">
                   Rezerwacja Online
                 </LiquidButton>
               </m.div>
             </div>
 
             <div className="mt-auto pb-12 flex flex-col gap-6">
-               <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent">
-                    <Heart size={28} fill="currentColor" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+                    <Heart size={24} fill="currentColor" />
                   </div>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-[0.3em] text-accent mb-1">Recepcja</p>
-                    <a href="tel:+48519619141" className="text-3xl font-black hover:text-accent transition-colors block">519 619 141</a>
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-0.5">Recepcja</p>
+                    <a href="tel:+48519619141" className="text-2xl font-black hover:text-accent transition-colors block leading-none">519 619 141</a>
                   </div>
                </div>
-               <p className="text-base font-bold opacity-60">Olsztyn, ul. Pana Tadeusza 6</p>
+               <p className="text-xs font-bold opacity-60">Olsztyn, ul. Pana Tadeusza 6</p>
             </div>
           </m.div>
         )}
