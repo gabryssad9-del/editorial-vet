@@ -65,24 +65,26 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Start", href: "/#home", isHash: true },
-    { name: "Usługi", href: "/#uslugi", isHash: true },
-    { name: "Pacjenci", href: "/#pacjenci", isHash: true },
-    { name: "O nas", href: "/#zespol", isHash: true },
-    { name: "Kontakt", href: "/#kontakt", isHash: true },
+    { name: "Start", href: "#home", isHash: true },
+    { name: "Usługi", href: "#uslugi", isHash: true },
+    { name: "Pacjenci", href: "#pacjenci", isHash: true },
+    { name: "O nas", href: "#o-nas", isHash: true },
+    { name: "Kontakt", href: "#kontakt", isHash: true },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { name: string, href: string, isHash: boolean }) => {
-    setActiveLink(item.name);
     if (item.isHash) {
-      const id = item.href.split('#')[1];
+      const id = item.href.replace('#', '');
       const element = document.getElementById(id);
       if (element) {
         e.preventDefault();
+        setActiveLink(item.name);
         const yOffset = -100;
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
         setIsMenuOpen(false);
+        // Update URL hash without jumping
+        window.history.pushState(null, '', `#${id}`);
       }
     }
   };
