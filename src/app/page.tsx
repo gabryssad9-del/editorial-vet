@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate, useInView } from 'framer-motion';
-import { Heart, Star, Users, Camera, MessageCircle, HelpCircle, Phone, MapPin, Mail, Clock, ChevronRight, ChevronDown, CheckCircle2, Play, Plus, Zap, Sparkles, Smile, Droplets, Scissors, Menu, X, Sun, Moon, ArrowRight, Activity, Microscope, Shield, Syringe, Globe, Search, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Heart, Star, Users, Camera, MessageCircle, HelpCircle, Phone, MapPin, Mail, Clock, ChevronRight, ChevronDown, CheckCircle2, Play, Plus, Zap, Sparkles, Smile, Droplets, Scissors, Menu, X, Sun, Moon, ArrowRight, Activity, Microscope, Shield, Syringe, Globe, Search } from 'lucide-react';
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sphere, MeshWobbleMaterial, OrbitControls, PresentationControls } from '@react-three/drei';
