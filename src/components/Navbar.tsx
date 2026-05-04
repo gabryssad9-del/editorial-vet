@@ -234,7 +234,7 @@ export const Navbar = () => {
                   <Link 
                     href={item.href}
                     onClick={(e) => {
-                      handleNavClick(e, item.href, item.isHash);
+                      handleNavClick(e, item);
                       if (!item.isHash || window.location.pathname !== '/') {
                         setIsMenuOpen(false);
                       }
