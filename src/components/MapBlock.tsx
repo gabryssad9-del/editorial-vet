@@ -7,6 +7,7 @@ export const MapBlock = () => {
 
   return (
     <m.div 
+      id="kontakt"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

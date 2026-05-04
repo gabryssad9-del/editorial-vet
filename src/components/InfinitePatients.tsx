@@ -61,7 +61,7 @@ export const InfinitePatients = () => {
   }, [isHovered, next, virtualIdx]);
 
   return (
-    <section className="py-32 relative bg-background overflow-hidden flex flex-col items-center">
+    <section id="pacjenci" className="py-32 relative bg-background overflow-hidden flex flex-col items-center">
       
       <div className="container mx-auto max-w-7xl px-6 relative z-10 mb-16 text-center">
         <h2 className={`text-5xl md:text-8xl font-black font-outfit tracking-tighter leading-tight uppercase ${isDarkMode ? 'text-white' : 'text-black'}`}>

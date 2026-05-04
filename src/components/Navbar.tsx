@@ -24,6 +24,9 @@ export const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      if (window.scrollY < 100) {
+        setActiveLink("Start");
+      }
     };
     
     // High-performance Intersection Observer for scroll spy
