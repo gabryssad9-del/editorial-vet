@@ -46,7 +46,6 @@ export const metadata: Metadata = {
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
-import { GlobalLoadingScreen } from "@/components/GlobalLoadingScreen";
 import { MotionProvider } from "@/components/MotionProvider";
 
 export default function RootLayout({
@@ -108,7 +107,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <MotionProvider>
-          <GlobalLoadingScreen />
           <SmoothScroll>
             <div className="fixed inset-0 bg-background -z-20" />
             <div className="fixed inset-0 opacity-10 paw-pattern-bg -z-10" />

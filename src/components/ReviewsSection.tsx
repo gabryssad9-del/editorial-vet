@@ -28,46 +28,17 @@ const REVIEWS = [
   }
 ];
 
-const RollingLetter = ({ char, index, direction, isDarkMode }: { char: string, index: number, direction: number, isDarkMode: boolean }) => {
+const ReviewText = ({ text, isDarkMode }: { text: string, isDarkMode: boolean }) => {
   return (
-    <m.span
-      initial={{ 
-        rotateX: direction > 0 ? 120 : -120, 
-        opacity: 0, 
-        y: direction > 0 ? 40 : -40,
-        z: -100,
-        filter: 'blur(8px)'
-      }}
-      animate={{ 
-        rotateX: 0, 
-        opacity: 1, 
-        y: 0,
-        z: 0,
-        filter: 'blur(0px)'
-      }}
-      exit={{ 
-        rotateX: direction > 0 ? -120 : 120, 
-        opacity: 0, 
-        y: direction > 0 ? -40 : 40,
-        z: -100,
-        filter: 'blur(8px)'
-      }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 120, 
-        damping: 14,
-        mass: 0.8,
-        delay: index * 0.008 
-      }}
-      style={{ 
-        display: 'inline-block', 
-        backfaceVisibility: 'hidden',
-        transformStyle: 'preserve-3d',
-        willChange: 'transform, opacity, filter'
-      }}
+    <m.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className={`text-2xl md:text-4xl font-bold leading-[1.4] tracking-tight mb-16 min-h-[250px] ${isDarkMode ? 'text-white/95' : 'text-black/90'}`}
     >
-      {char}
-    </m.span>
+      {text}
+    </m.div>
   );
 };
 
@@ -110,45 +81,14 @@ export const ReviewsSection = () => {
     setIndex((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
   };
 
-  // Funkcja pomocnicza do renderowania tekstu słowo po słowie, by uniknąć łamania wyrazów
-  const renderRollingText = (text: string) => {
-    let globalCharIndex = 0;
-    const words = text.split(' ');
-    
-    return words.map((word, wordIdx) => {
-      const wordChars = word.split('');
-      const element = (
-        <span key={`word-${wordIdx}`} className="inline-block whitespace-nowrap mr-[0.3em] py-1">
-          {wordChars.map((char) => {
-            const charElement = (
-              <RollingLetter 
-                key={`char-${globalCharIndex}`} 
-                char={char} 
-                index={globalCharIndex} 
-                direction={direction} 
-                isDarkMode={isDarkMode} 
-              />
-            );
-            globalCharIndex++;
-            return charElement;
-          })}
-        </span>
-      );
-      globalCharIndex++; // Liczymy spację jako index, by zachować rytm staggera
-      return element;
-    });
-  };
-
   return (
     <section ref={sectionRef} className="py-24 md:py-40 relative overflow-hidden bg-background" id="opinie">
       <m.div 
         animate={{ 
-          x: [0, 50, -50, 0],
-          y: [0, -30, 30, 0],
-          scale: [1, 1.1, 0.9, 1],
-          opacity: [0.05, 0.08, 0.05]
+          opacity: [0.03, 0.05, 0.03],
+          scale: [1, 1.05, 1]
         }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent rounded-full blur-[140px] pointer-events-none z-0"
       />
       
@@ -157,8 +97,8 @@ export const ReviewsSection = () => {
           
           {/* Left Side Card */}
           <m.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="w-full lg:w-1/3"
           >
@@ -194,15 +134,14 @@ export const ReviewsSection = () => {
               <div className="mt-14 pt-10 border-t border-white/5 flex items-center justify-between">
                 <div className="flex -space-x-4">
                   {[1, 2, 3, 4, 5].map(i => (
-                    <m.div 
+                    <div 
                       key={i} 
-                      whileHover={{ y: -10, zIndex: 50 }}
-                      className={`w-12 h-12 rounded-full border-2 ${isDarkMode ? 'border-background bg-white/10' : 'border-white bg-black/10'} overflow-hidden cursor-pointer transition-all`}
+                      className={`w-12 h-12 rounded-full border-2 ${isDarkMode ? 'border-background bg-white/10' : 'border-white bg-black/10'} overflow-hidden cursor-pointer transition-all hover:-translate-y-1`}
                     >
                       <div className={`w-full h-full flex items-center justify-center text-[12px] font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
                         {String.fromCharCode(64 + i)}
                       </div>
-                    </m.div>
+                    </div>
                   ))}
                 </div>
                 <p className={`text-xs md:text-sm font-black uppercase tracking-widest ${isDarkMode ? 'text-white/50' : 'text-black/50'}`}>+200 Pacjentów</p>
@@ -218,25 +157,25 @@ export const ReviewsSection = () => {
                 <Quote size={280} fill="currentColor" />
               </div>
 
-              <div className="w-full" style={{ perspective: '3000px', transformStyle: 'preserve-3d' }}>
+              <div className="w-full">
                 <AnimatePresence mode="wait" custom={direction}>
-                  <m.div key={index} custom={direction} className="w-full py-12 px-4 md:px-16 relative">
+                  <m.div 
+                    key={index} 
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-full py-12 px-4 md:px-16 relative"
+                  >
                     
                     {/* Author Section */}
                     <div className="flex items-center gap-7 mb-14">
-                      <m.div 
-                        initial={{ scale: 0, rotate: -20 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        exit={{ scale: 0, rotate: 20 }}
-                        transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                        className="w-20 h-20 rounded-3xl bg-accent flex items-center justify-center text-white font-black text-3xl shadow-[0_25px_60px_rgba(254,69,32,0.4)] relative"
-                      >
-                        <div className="absolute inset-0 bg-white/20 rounded-3xl blur-md -z-10" />
+                      <div className="w-20 h-20 rounded-3xl bg-accent flex items-center justify-center text-white font-black text-3xl shadow-[0_25px_60px_rgba(254,69,32,0.4)] relative">
                         {REVIEWS[index].author[0]}
-                      </m.div>
+                      </div>
                       <div>
-                        <div className={`text-3xl md:text-4xl font-black tracking-tight flex flex-wrap ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                          {renderRollingText(REVIEWS[index].author)}
+                        <div className={`text-3xl md:text-4xl font-black tracking-tight ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                          {REVIEWS[index].author}
                         </div>
                         <div className="flex items-center gap-4 mt-2">
                           <div className="flex gap-1 text-accent">
@@ -248,10 +187,7 @@ export const ReviewsSection = () => {
                       </div>
                     </div>
 
-                    {/* Review Text - Word Wrapping Fix */}
-                    <div className={`text-2xl md:text-4xl font-bold leading-[1.4] tracking-tight mb-16 flex flex-wrap min-h-[250px] content-start ${isDarkMode ? 'text-white/95' : 'text-black/90'}`}>
-                      {renderRollingText(REVIEWS[index].text)}
-                    </div>
+                    <ReviewText text={REVIEWS[index].text} isDarkMode={isDarkMode} />
 
                     {/* Custom Progress Bar */}
                     <div className="relative h-2 w-48 bg-white/5 rounded-full overflow-hidden">

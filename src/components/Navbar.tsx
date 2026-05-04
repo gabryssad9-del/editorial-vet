@@ -13,46 +13,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// Magnetic effect for links
-const MagneticLink = ({ children, className, href, onClick }: { children: React.ReactNode, className?: string, href: string, onClick?: (e: any) => void }) => {
-  const ref = useRef<HTMLAnchorElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springX = useSpring(x, { stiffness: 150, damping: 15 });
-  const springY = useSpring(y, { stiffness: 150, damping: 15 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = ref.current?.getBoundingClientRect() || { left: 0, top: 0, width: 0, height: 0 };
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
-    x.set((clientX - centerX) * 0.35);
-    y.set((clientY - centerY) * 0.35);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <m.div
-      style={{ x: springX, y: springY }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <Link 
-        ref={ref}
-        href={href}
-        onClick={onClick}
-        className={cn("relative py-2 px-4 transition-colors duration-300", className)}
-      >
-        {children}
-      </Link>
-    </m.div>
-  );
-};
+// No Magnetic effect needed for maximum performance
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -136,9 +97,7 @@ export const Navbar = () => {
             : "bg-transparent border-transparent"
         )}>
           <Link href="/" className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group">
-            <m.img 
-              whileHover={{ scale: 1.05, rotate: -2 }}
-              whileTap={{ scale: 0.95 }}
+            <img 
               src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=200&output=webp&q=80" 
               srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=100&output=webp&q=70 100w,
                       https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=200&output=webp&q=80 200w"
@@ -149,7 +108,7 @@ export const Navbar = () => {
               decoding="async"
               width="80"
               height="80"
-              className="h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-[0_0_15px_rgba(254,69,32,0.3)] group-hover:drop-shadow-[0_0_25px_rgba(254,69,32,0.6)] transition-all duration-500" 
+              className="h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-[0_0_15px_rgba(254,69,32,0.3)] group-hover:scale-105 transition-all duration-500" 
             />
           </Link>
 
@@ -181,8 +140,8 @@ export const Navbar = () => {
                     {showPill && (
                       <m.div
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-black dark:bg-white rounded-full z-0 shadow-xl shadow-black/10 dark:shadow-white/5 transform-gpu will-change-transform"
-                        transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                        className="absolute inset-0 bg-black dark:bg-white rounded-full z-0 shadow-xl shadow-black/10 dark:shadow-white/5"
+                        transition={{ duration: 0.3, ease: "easeOut" }}
                       />
                     )}
                   </div>
@@ -221,10 +180,10 @@ export const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <m.div
-            initial={{ opacity: 0, x: '100%' }}
+            initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="fixed inset-0 z-[110] bg-background lg:hidden flex flex-col p-8 pt-32"
           >
             <button 

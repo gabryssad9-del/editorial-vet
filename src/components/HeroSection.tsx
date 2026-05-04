@@ -8,81 +8,61 @@ const LiquidButton = dynamic(() => import('./LiquidButton').then(mod => mod.Liqu
 const Badge = dynamic(() => import('./Badge').then(mod => mod.Badge), { ssr: true });
 
 export const Hero = () => {
-  const { scrollYProgress } = useScroll();
-  const scrollY = useTransform(scrollYProgress, [0, 0.2], [0, -100]);
-  const scaleScroll = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
-
   return (
     <section id="start" className="min-h-screen pt-32 pb-20 md:pt-52 md:pb-32 px-4 md:px-8 relative overflow-hidden">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center">
           <m.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center lg:text-left"
           >
             <Badge>Wyjątkowa Opieka Dla Pupila</Badge>
             <m.h1 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 1 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
               className="text-5xl md:text-6xl lg:text-[7.5rem] font-outfit font-black leading-[0.85] text-foreground mb-8 md:mb-12 tracking-tighter"
             >
               Gdzie Serce <br /> <span className="text-accent italic">Spotyka</span> Wiedzę.
             </m.h1>
             <m.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
               className="text-lg md:text-xl lg:text-2xl text-text-gray max-w-xl mx-auto lg:mx-0 mb-10 md:mb-16 leading-relaxed font-medium opacity-80"
             >
               Znajdziemy przyczynę bólu, zanim Twój pupil poczuje stres. Tworzymy domową atmosferę, w której zwierzęta czują się bezpiecznie, a Ty masz pewność, że są w kochających rękach.
             </m.p>
             <m.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center lg:justify-start w-full sm:w-auto"
             >
-              <m.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="w-full sm:w-auto"
-              >
+              <div className="w-full sm:w-auto transition-transform hover:scale-105 active:scale-95">
                 <LiquidButton href="https://vetmed.nakiedy.pl/" className="text-lg w-full sm:w-auto relative overflow-hidden shadow-glow">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Umów wizytę online <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </span>
                 </LiquidButton>
-              </m.div>
-              <m.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="w-full sm:w-auto"
-              >
+              </div>
+              <div className="w-full sm:w-auto transition-transform hover:scale-105 active:scale-95">
                 <LiquidButton href="tel:+48519619141" variant="secondary" className="text-lg w-full sm:w-auto border-accent/20 bg-accent/5 hover:bg-accent/10">
                   <span className="flex items-center justify-center gap-2">
                     <Phone className="w-5 h-5 text-accent" />
                     Zadzwoń: 519 619 141
                   </span>
                 </LiquidButton>
-              </m.div>
+              </div>
             </m.div>
           </m.div>
           
           <m.div
-            style={{ 
-              translateY: scrollY, 
-              scale: scaleScroll,
-              WebkitBackfaceVisibility: 'hidden',
-              backfaceVisibility: 'hidden'
-            }}
-            initial={{ opacity: 1, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
             className="relative will-change-transform transform-gpu"
           >
             <div 
