@@ -79,7 +79,7 @@ export const Navbar = () => {
           const linkName = id === "home" ? "Start" :
                           id === "uslugi" ? "Usługi" : 
                           id === "pacjenci" ? "Pacjenci" : 
-                          id === "o-nas" ? "O nas" : 
+                          (id === "o-nas" || id === "zespol") ? "O nas" : 
                           id === "kontakt" ? "Kontakt" : null;
           if (linkName) setActiveLink(linkName);
         }
@@ -87,7 +87,7 @@ export const Navbar = () => {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const sections = ["home", "uslugi", "pacjenci", "o-nas", "kontakt"];
+    const sections = ["home", "uslugi", "pacjenci", "o-nas", "zespol", "kontakt"];
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -104,13 +104,13 @@ export const Navbar = () => {
     { name: "Start", href: "/#home", isHash: true },
     { name: "Usługi", href: "/#uslugi", isHash: true },
     { name: "Pacjenci", href: "/#pacjenci", isHash: true },
-    { name: "O nas", href: "/#o-nas", isHash: true },
+    { name: "O nas", href: "/#zespol", isHash: true },
     { name: "Kontakt", href: "/#kontakt", isHash: true },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { name: string, href: string, isHash: boolean }) => {
     setActiveLink(item.name);
-    if (item.isHash && window.location.pathname === '/') {
+    if (item.isHash) {
       const id = item.href.split('#')[1];
       const element = document.getElementById(id);
       if (element) {
