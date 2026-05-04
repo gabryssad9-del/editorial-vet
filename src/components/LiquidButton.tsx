@@ -21,7 +21,7 @@ export const LiquidButton = ({ children, className, variant = "primary", onClick
       onClick={onClick}
       className={cn(
         "relative group/btn px-10 py-5 rounded-full font-black overflow-hidden transition-all duration-500",
-        variant === "primary" ? "bg-accent text-white" : variant === "secondary" ? "bg-card-bg text-foreground border-2 border-foreground/10" : "bg-foreground text-background",
+        variant === "primary" ? "bg-accent text-white" : variant === "secondary" ? "bg-card-bg text-foreground border-2 border-foreground/10" : "bg-black dark:bg-white text-white dark:text-black",
         className
       )}
     >
