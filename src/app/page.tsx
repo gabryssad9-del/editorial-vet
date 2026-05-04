@@ -17,7 +17,7 @@ const TeamSection = dynamic(() => import('@/components/TeamSection').then(mod =>
 const GroomingGallery = dynamic(() => import('@/components/GroomingGallery').then(mod => mod.GroomingGallery));
 const InfinitePatients = dynamic(() => import('@/components/InfinitePatients').then(mod => mod.InfinitePatients));
 const ReviewsSection = dynamic(() => import('@/components/ReviewsSection').then(mod => mod.ReviewsSection));
-const MapBlock = dynamic(() => import('@/components/MapBlock').then(mod => mod.MapBlock));
+const ContactSection = dynamic(() => import('@/components/ContactSection').then(mod => mod.ContactSection));
 const BentoCard = dynamic(() => import('@/components/BentoCard').then(mod => mod.BentoCard));
 const FAQSection = dynamic(() => import('@/components/FAQSection').then(mod => mod.FAQSection));
 const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar));
@@ -110,7 +110,7 @@ export default function UltraPremiumVetPage() {
       </section>
 
       <ReviewsSection />
-      <MapBlock />
+      <ContactSection />
 
       {/* FAQ Section */}
       <FAQSection />
