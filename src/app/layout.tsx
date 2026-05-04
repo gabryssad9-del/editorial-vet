@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     title: "VETMED | Nowoczesna Klinika Weterynaryjna",
     card: "summary_large_image",
   },
+  alternates: {
+    canonical: 'https://vetmed-olsztyn.pl',
+  },
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
@@ -98,7 +101,19 @@ export default function RootLayout({
           fetchPriority="high"
         />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link 
+          rel="preload" 
+          as="image" 
+          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=640&output=webp&q=75"
+          imagesrcset="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=320&output=webp&q=60 320w,
+                       https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=640&output=webp&q=75 640w"
+          imagesizes="(max-width: 768px) 100vw, 50vw"
+          fetchpriority="high"
+        />
+
+        <link rel="preconnect" href="https://images.weserv.nl" />
+        <link rel="dns-prefetch" href="https://images.weserv.nl" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#FE4520" />
       </head>
       <body className={`${inter.variable} ${outfit.variable} antialiased selection:bg-accent selection:text-white relative`}>
