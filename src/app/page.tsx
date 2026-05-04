@@ -21,10 +21,10 @@ const MapBlock = dynamic(() => import('@/components/MapBlock').then(mod => mod.M
 const BentoCard = dynamic(() => import('@/components/BentoCard').then(mod => mod.BentoCard));
 const FAQSection = dynamic(() => import('@/components/FAQSection').then(mod => mod.FAQSection));
 const TrustBar = dynamic(() => import('@/components/TrustBar').then(mod => mod.TrustBar));
-const CursorGlow = dynamic(() => import('@/components/Decorations').then(mod => mod.CursorGlow), { ssr: false });
-const PawBackground = dynamic(() => import('@/components/Decorations').then(mod => mod.PawBackground), { ssr: false });
 
-// --- Utils ---
+import { ClientDecorations } from '@/components/ClientDecorations';
+
+// Utils
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -32,9 +32,8 @@ function cn(...inputs: ClassValue[]) {
 export default function UltraPremiumVetPage() {
   return (
       <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-accent selection:text-white">
-        <CursorGlow />
+        <ClientDecorations />
         <Navbar />
-        <PawBackground />
         
         <Hero />
         <section className="py-8 bg-background">
