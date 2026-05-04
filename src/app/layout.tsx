@@ -105,10 +105,10 @@ export default function RootLayout({
           rel="preload" 
           as="image" 
           href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=640&output=webp&q=75"
-          imagesrcset="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=320&output=webp&q=60 320w,
+          imageSrcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=320&output=webp&q=60 320w,
                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=640&output=webp&q=75 640w"
-          imagesizes="(max-width: 768px) 100vw, 50vw"
-          fetchpriority="high"
+          imageSizes="(max-width: 768px) 100vw, 50vw"
+          fetchPriority="high"
         />
 
         <link rel="preconnect" href="https://images.weserv.nl" />
