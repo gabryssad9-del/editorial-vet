@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Heart, Menu, X, ChevronRight, Phone, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -98,6 +98,26 @@ export const Navbar = () => {
     }
   };
 
+  // Refs for the magic sliding pill
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const linkRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const [pillStyle, setPillStyle] = useState({ x: 0, width: 0, ready: false });
+
+  useLayoutEffect(() => {
+    const activeKey = hoveredLink ?? activeLink;
+    const activeRef = linkRefs.current[activeKey];
+    const containerEl = navContainerRef.current;
+    if (activeRef && containerEl) {
+      const cRect = containerEl.getBoundingClientRect();
+      const aRect = activeRef.getBoundingClientRect();
+      setPillStyle({
+        x: aRect.left - cRect.left,
+        width: aRect.width,
+        ready: true,
+      });
+    }
+  }, [hoveredLink, activeLink]);
+
   return (
     <>
       <nav className={cn(
@@ -136,37 +156,44 @@ export const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4 lg:gap-6">
-            <div className="flex items-center gap-1 p-1 bg-black/5 dark:bg-white/5 rounded-full relative" onMouseLeave={() => setHoveredLink(null)}>
-              {navLinks.map((item) => {
-                const isHovered = hoveredLink === item.name;
-                const isActive = activeLink === item.name && hoveredLink === null;
-                const showPill = isHovered || isActive;
+            {/* Magic sliding pill nav */}
+            <div
+              ref={navContainerRef}
+              className="relative flex items-center gap-1 p-1 bg-black/5 dark:bg-white/5 rounded-full"
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              {/* Single sliding pill — always in DOM, positioned via measured refs */}
+              {pillStyle.ready && (
+                <m.div
+                  className="absolute top-1 bottom-1 bg-black dark:bg-white rounded-full z-0 shadow-xl shadow-black/10 dark:shadow-white/5 pointer-events-none"
+                  animate={{ x: pillStyle.x, width: pillStyle.width }}
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 380, damping: 32, mass: 0.7 }}
+                  style={{ left: 0 }}
+                />
+              )}
 
+              {navLinks.map((item) => {
+                const isActiveOrHovered = hoveredLink ? hoveredLink === item.name : activeLink === item.name;
                 return (
-                  <div 
-                    key={item.name} 
-                    className="relative" 
+                  <div
+                    key={item.name}
+                    ref={(el) => { linkRefs.current[item.name] = el; }}
+                    className="relative"
                     onMouseEnter={() => setHoveredLink(item.name)}
                   >
-                    <Link 
-                      href={item.href} 
+                    <Link
+                      href={item.href}
                       onClick={(e) => handleNavClick(e, item)}
                       className={cn(
-                        "relative z-10 text-xs lg:text-sm font-bold uppercase tracking-[0.15em] px-6 py-2.5 transition-colors duration-300 block",
-                        (hoveredLink ? isHovered : activeLink === item.name)
-                          ? "text-white dark:text-black" 
+                        "relative z-10 text-xs lg:text-sm font-bold uppercase tracking-[0.15em] px-6 py-2.5 transition-colors duration-200 block select-none",
+                        isActiveOrHovered
+                          ? "text-white dark:text-black"
                           : "text-black/60 dark:text-white/60"
                       )}
                     >
                       {item.name}
                     </Link>
-                    {showPill && (
-                      <m.div
-                        layoutId="nav-pill"
-                        className="absolute inset-0 bg-black dark:bg-white rounded-full z-0 shadow-xl shadow-black/10 dark:shadow-white/5"
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                      />
-                    )}
                   </div>
                 );
               })}
