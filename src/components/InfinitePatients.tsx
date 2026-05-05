@@ -85,15 +85,15 @@ export const InfinitePatients = () => {
           )}
         </AnimatePresence>
         
-        <m.div layout className="mt-10 md:mt-14 flex justify-center">
+        <m.div layout className="mt-10 md:mt-14 flex justify-center relative z-10">
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center justify-center gap-4 w-full sm:w-auto bg-secondary hover:bg-accent text-foreground hover:text-white px-10 py-5 min-h-[56px] rounded-2xl font-black uppercase tracking-widest text-[11px] transition-all shadow-premium group active:scale-[0.97] border border-accent/10 touch-manipulation"
+            className="flex items-center justify-center gap-3 w-full sm:w-auto bg-accent hover:bg-accent/90 text-white px-10 py-4 min-h-[56px] rounded-2xl font-black uppercase tracking-widest text-[11px] transition-all shadow-[0_10px_30px_rgba(254,69,32,0.3)] hover:shadow-[0_15px_40px_rgba(254,69,32,0.4)] group active:scale-[0.97] border border-accent/20 touch-manipulation cursor-pointer select-none"
           >
-            <span>{isExpanded ? 'Zwiń galerię' : 'Rozwiń galerię'}</span>
+            {isExpanded ? 'Zwiń galerię' : 'Rozwiń galerię'}
             {isExpanded 
-              ? <ChevronUp className="group-hover:-translate-y-1 transition-transform shrink-0" size={18} />
-              : <ChevronDown className="group-hover:translate-y-1 transition-transform shrink-0" size={18} />
+              ? <ChevronUp className="group-hover:-translate-y-1 transition-transform pointer-events-none" size={18} />
+              : <ChevronDown className="group-hover:translate-y-1 transition-transform pointer-events-none" size={18} />
             }
           </button>
         </m.div>
