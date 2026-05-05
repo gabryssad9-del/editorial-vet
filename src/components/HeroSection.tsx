@@ -21,7 +21,7 @@ export const Hero = () => {
             <m.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col gap-8 md:gap-10 max-w-4xl"
+              className="flex flex-col items-center lg:items-start gap-8 md:gap-10 max-w-4xl"
             >
               <Badge>Klinika Weterynaryjna Olsztyn</Badge>
               <h1 className="text-6xl md:text-8xl lg:text-9xl font-outfit font-black tracking-tighter leading-[0.85] text-foreground">

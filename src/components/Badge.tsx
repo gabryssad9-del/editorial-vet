@@ -16,7 +16,7 @@ export const Badge = ({ children, className }: { children: React.ReactNode, clas
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     className={cn(
-      "inline-flex items-center gap-2 px-6 py-2.5 bg-accent/10 text-accent rounded-full text-xs font-black uppercase tracking-widest mb-10 shadow-sm border border-accent/20 backdrop-blur-sm",
+      "inline-flex items-center gap-2 px-6 py-2.5 bg-accent/10 text-accent rounded-full text-xs font-black uppercase tracking-widest mb-10 shadow-sm border border-accent/20 backdrop-blur-sm w-fit",
       className
     )}
   >
