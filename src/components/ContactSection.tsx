@@ -40,55 +40,57 @@ export const ContactSection = () => {
   return (
     <section id="kontakt" className="py-24 md:py-32 px-4 md:px-8 bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-stretch">
           
           {/* Left Column: Info */}
-          <div className="lg:col-span-6">
-            <Badge>Kontakt</Badge>
-            <h2 className="text-4xl md:text-6xl font-outfit font-black mb-10 md:mb-16 tracking-tighter leading-none">
-              Jesteśmy tu dla <br /> <span className="text-accent italic">Twojego</span> pupila.
-            </h2>
-            
-            <div className="space-y-8 md:space-y-10">
-              {contactInfo.map((info, i) => (
-                <m.div 
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex gap-6 group"
-                >
-                  <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center text-accent shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-500 shadow-premium">
-                    <info.icon size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-1">{info.label}</p>
-                    <p className="text-xl md:text-2xl font-bold text-foreground mb-2">{info.value}</p>
-                    {info.subValue && <p className="text-sm font-medium opacity-50">{info.subValue}</p>}
-                    {info.action && (
-                      <a 
-                        href={info.action} 
-                        target={info.action.startsWith('http') ? "_blank" : undefined}
-                        rel={info.action.startsWith('http') ? "noopener noreferrer" : undefined}
-                        className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-accent/60 hover:text-accent transition-colors"
-                      >
-                        {info.actionLabel} <ChevronRight size={14} />
-                      </a>
-                    )}
-                  </div>
-                </m.div>
-              ))}
+          <div className="lg:col-span-6 flex flex-col justify-between py-2">
+            <div>
+              <Badge>Kontakt</Badge>
+              <h2 className="text-4xl md:text-6xl font-outfit font-black mb-10 md:mb-16 tracking-tighter leading-none">
+                Jesteśmy tu dla <br /> <span className="text-accent italic">Twojego</span> pupila.
+              </h2>
+              
+              <div className="space-y-8 md:space-y-10">
+                {contactInfo.map((info, i) => (
+                  <m.div 
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex gap-6 group"
+                  >
+                    <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center text-accent shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-500 shadow-premium">
+                      <info.icon size={24} />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-1">{info.label}</p>
+                      <p className="text-xl md:text-2xl font-bold text-foreground mb-2">{info.value}</p>
+                      {info.subValue && <p className="text-sm font-medium opacity-50">{info.subValue}</p>}
+                      {info.action && (
+                        <a 
+                          href={info.action} 
+                          target={info.action.startsWith('http') ? "_blank" : undefined}
+                          rel={info.action.startsWith('http') ? "noopener noreferrer" : undefined}
+                          className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-accent/60 hover:text-accent transition-colors"
+                        >
+                          {info.actionLabel} <ChevronRight size={14} />
+                        </a>
+                      )}
+                    </div>
+                  </m.div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Square Map */}
-          <div className="lg:col-span-6 flex justify-center lg:justify-end">
+          {/* Right Column: Full Height Map */}
+          <div className="lg:col-span-6 flex items-stretch">
             <m.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="w-full max-w-[500px] aspect-square bg-secondary rounded-[2.5rem] md:rounded-[3.5rem] p-2 md:p-3 border border-accent/10 shadow-premium relative group overflow-hidden"
+              className="w-full h-full min-h-[500px] bg-secondary rounded-[2.5rem] md:rounded-[3.5rem] p-2 md:p-3 border border-accent/10 shadow-premium relative group overflow-hidden"
             >
               <div 
                 className="w-full h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-secondary relative z-10 cursor-pointer group/map"

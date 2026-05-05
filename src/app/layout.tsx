@@ -7,10 +7,10 @@ const outfit = Outfit({ subsets: ["latin"], display: 'swap', variable: "--font-o
 export const metadata: Metadata = {
   metadataBase: new URL('https://vetmed-olsztyn.pl'), // Zakładana domena produkcyjna
   title: {
-    default: "VETMED | Nowoczesna Klinika Weterynaryjna Olsztyn",
+    default: "VETMED | Profesjonalna Opieka Weterynaryjna Olsztyn",
     template: "%s | VETMED Olsztyn"
   },
-  description: "Całodobowa opieka, pełna diagnostyka i bezstresowe leczenie Twojego pupila. Najlepszy weterynarz w Olsztynie. Sprawdź nasze opinie i umów wizytę.",
+  description: "Profesjonalna opieka weterynaryjna, pełna diagnostyka i zaawansowane leczenie Twojego pupila. Najlepszy weterynarz w Olsztynie.",
   keywords: ["weterynarz olsztyn", "klinika weterynaryjna olsztyn", "dobry weterynarz", "pogotowie weterynaryjne", "chirurgia zwierząt", "szczepienia psów", "leczenie kotów", "rtg zwierząt"],
   authors: [{ name: "Gabriel Sadowski" }],
   creator: "Gabriel Sadowski",
@@ -21,10 +21,18 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "VETMED | Nowoczesna Klinika Weterynaryjna Olsztyn",
-    description: "Całodobowa opieka, pełna diagnostyka i bezstresowe leczenie Twojego pupila. Zobacz, dlaczego ufają nam tysiące pacjentów.",
+    title: "VETMED | Profesjonalna Opieka Weterynaryjna Olsztyn",
+    description: "Najwyższej jakości profesjonalna opieka weterynaryjna w Olsztynie. Zobacz nasze specjalizacje.",
     url: "https://vetmed-olsztyn.pl",
     siteName: "VETMED",
+    images: [
+      {
+        url: "/emotional-vet/vetmed.png",
+        width: 1200,
+        height: 630,
+        alt: "VETMED Olsztyn",
+      },
+    ],
     locale: "pl_PL",
     type: "website",
   },
@@ -40,8 +48,10 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "VETMED | Nowoczesna Klinika Weterynaryjna",
+    title: "VETMED | Profesjonalna Opieka Weterynaryjna",
+    description: "Najwyższej jakości opieka weterynaryjna w Olsztynie.",
     card: "summary_large_image",
+    images: ["/emotional-vet/vetmed.png"],
   },
   alternates: {
     canonical: 'https://vetmed-olsztyn.pl',
