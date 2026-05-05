@@ -12,7 +12,7 @@ export const ContactSection = () => {
       icon: MapPin, 
       label: "Adres", 
       value: "ul. Pana Tadeusza 6, 10-461 Olsztyn",
-      action: "https://maps.app.goo.gl/CWWUCqF2Gui2YmYFA",
+      action: "https://www.google.com/maps/dir/?api=1&destination=Vet-Med+Gabinet+Weterynaryjny+Pana+Tadeusza+6+Olsztyn",
       actionLabel: "Nawiguj"
     },
     { 
