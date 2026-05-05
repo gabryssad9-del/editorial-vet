@@ -8,13 +8,13 @@ export const TeamSection = () => {
     { 
       name: "Anna Sadowska", 
       role: "Główny Lekarz Weterynarii", 
-      img: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/team-1.jpg&w=600&output=webp&q=80",
+      img: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/team-1.jpg&w=600&output=webp&q=70",
       description: "Specjalizuje się w zaawansowanej dermatologii oraz chorobach wewnętrznych. Od ponad 15 lat z pasją pomaga czworonożnym pacjentom, stale podnosząc swoje kwalifikacje na międzynarodowych kongresach medycznych. Jej priorytetem jest nie tylko skuteczna terapia, ale również minimalizowanie stresu u zwierząt podczas wizyt."
     },
     { 
       name: "Gabriel Sadowski", 
       role: "Lekarz Weterynarii", 
-      img: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/team-2.jpg&w=600&output=webp&q=80",
+      img: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/team-2.jpg&w=600&output=webp&q=70",
       description: "Ekspert w dziedzinie chirurgii miękkiej oraz stomatologii weterynaryjnej. W swojej codziennej praktyce wykorzystuje najnowsze technologie diagnostyczne, aby zapewnić pacjentom najwyższy standard leczenia. Jest zwolennikiem medycyny opartej na dowodach i indywidualnego podejścia do każdego przypadku."
     },
   ];
@@ -43,7 +43,7 @@ export const TeamSection = () => {
               className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-premium border border-accent/10 group bg-secondary"
             >
               <div className="h-[550px] md:h-[750px] w-full overflow-hidden relative">
-                <img loading="lazy" decoding="async" src={member.img} alt={`Lek. wet. ${member.name}`} className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src={member.img} alt={`Lek. wet. ${member.name}`} width="600" height="750" className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
                 
                 <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 text-white">

@@ -118,6 +118,10 @@ export default function UltraPremiumVetPage() {
                 <img 
                   src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=400&output=webp" 
                   alt="VETMED Logo" 
+                  width="400"
+                  height="200"
+                  loading="lazy"
+                  decoding="async"
                   className="h-24 md:h-32 w-auto object-contain brightness-125 contrast-125 drop-shadow-[0_0_20px_rgba(254,69,32,0.4)]" 
                 />
               </div>

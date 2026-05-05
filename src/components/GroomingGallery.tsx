@@ -63,6 +63,8 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
           loading="lazy"
           decoding="async"
           draggable="false"
+          width="600"
+          height="750"
           className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
         />
 
@@ -77,6 +79,8 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
             loading="lazy"
             decoding="async"
             draggable="false"
+            width="600"
+            height="750"
             className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
           />
           {/* Before Label */}
@@ -113,10 +117,10 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
 
 export const GroomingGallery = () => {
   const animals = [
-    { label: "Pudel Królewski", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/poodle_before.png&w=600&output=webp&q=80", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/poodle_after.png&w=600&output=webp&q=80" },
-    { label: "Yorkshire Terrier", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/yorkie_before.png&w=600&output=webp&q=80", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/yorkie_after.png&w=600&output=webp&q=80" },
-    { label: "Kot Perski", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/cat_before.png&w=600&output=webp&q=80", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/cat_after.png&w=600&output=webp&q=80" },
-    { label: "Sznaucer Olbrzym", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/schnauzer_before.png&w=600&output=webp&q=80", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/schnauzer_after.png&w=600&output=webp&q=80" },
+    { label: "Pudel Królewski", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/poodle_before.png&w=600&output=webp&q=70", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/poodle_after.png&w=600&output=webp&q=70" },
+    { label: "Yorkshire Terrier", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/yorkie_before.png&w=600&output=webp&q=70", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/yorkie_after.png&w=600&output=webp&q=70" },
+    { label: "Kot Perski", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/cat_before.png&w=600&output=webp&q=70", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/cat_after.png&w=600&output=webp&q=70" },
+    { label: "Sznaucer Olbrzym", before: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/schnauzer_before.png&w=600&output=webp&q=70", after: "https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/grooming/schnauzer_after.png&w=600&output=webp&q=70" },
   ];
 
   return (

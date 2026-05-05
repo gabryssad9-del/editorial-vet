@@ -57,15 +57,15 @@ export const Hero = () => {
               className="relative z-10 rounded-[3rem] md:rounded-[5rem] overflow-hidden shadow-[0_80px_150px_-30px_rgba(254,69,32,0.15)] border-[12px] md:border-[20px] border-secondary group isolate"
             >
               <img 
-                src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=70" 
-                srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=450&output=webp&q=50 450w,
-                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=60 800w,
-                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=70 1200w"
+                src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=60" 
+                srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=450&output=webp&q=45 450w,
+                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=55 800w,
+                        https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=65 1200w"
                 sizes="(max-width: 640px) 450px, (max-width: 1024px) 800px, 1000px"
                 alt="VETMED Hero" 
                 fetchPriority="high"
                 loading="eager"
-                decoding="async"
+                decoding="sync"
                 width="1200"
                 height="750"
                 className="w-full h-[450px] md:h-[750px] object-cover transition-transform duration-[4s] group-hover:scale-110" 

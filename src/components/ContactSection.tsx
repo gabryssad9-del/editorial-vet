@@ -110,6 +110,8 @@ export const ContactSection = () => {
                     <img 
                       src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/map-placeholder.jpg&w=1000&output=webp&q=80" 
                       alt="Mapa lokalizacji VETMED"
+                      width="1000"
+                      height="600"
                       className="w-full h-full object-cover brightness-90 group-hover/map:scale-105 transition-transform duration-700"
                       loading="lazy"
                     />

@@ -107,7 +107,7 @@ export const ReviewsSection = () => {
               
               <div className="flex items-center gap-6 mb-12">
                 <div className="w-20 h-20 bg-white rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/20 group-hover:scale-110 transition-transform duration-500">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-10 h-10" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" width="40" height="40" className="w-10 h-10" />
                 </div>
                 <div>
                   <h4 className={`text-2xl md:text-3xl font-black tracking-tighter ${isDarkMode ? 'text-white' : 'text-black'}`}>Opinie Naszych Pacjentów</h4>

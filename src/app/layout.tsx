@@ -98,30 +98,30 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <head>
-        <link rel="preconnect" href="https://images.weserv.nl" />
+        {/* Critical resource hints */}
+        <link rel="preconnect" href="https://images.weserv.nl" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://images.weserv.nl" />
-        
-        {/* Simple Preload for LCP Image - most common mobile/desktop size */}
+        <link rel="dns-prefetch" href="https://www.google.com" />
+
+        {/* LCP Hero Image Preload - responsive */}
         <link 
           rel="preload" 
-          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1000&output=webp&q=80" 
-          as="image" 
+          as="image"
+          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=70"
+          imageSrcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=450&output=webp&q=50 450w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=60 800w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=70 1200w"
+          imageSizes="(max-width: 640px) 450px, (max-width: 1024px) 800px, 1000px"
           fetchPriority="high"
         />
 
-        <link 
-          rel="preload" 
-          as="image" 
-          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=450&output=webp&q=50"
-          imageSrcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=450&output=webp&q=50 450w"
-          imageSizes="(max-width: 640px) 450px"
+        {/* Vetmed logo preload (above the fold) */}
+        <link
+          rel="preload"
+          as="image"
+          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50"
           fetchPriority="high"
         />
 
-        <link rel="preconnect" href="https://images.weserv.nl" />
-        <link rel="dns-prefetch" href="https://images.weserv.nl" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#FE4520" />
       </head>

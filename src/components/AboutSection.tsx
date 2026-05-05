@@ -18,8 +18,10 @@ export const AboutSection = () => (
             <img 
               loading="lazy" 
               decoding="async" 
-              src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/history.jpg&w=800&output=webp&q=80" 
+              src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/history.jpg&w=800&output=webp&q=70" 
               alt="O nas" 
+              width="800"
+              height="650"
               className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" 
             />
           </div>

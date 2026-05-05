@@ -26,8 +26,11 @@ const PatientCard = ({ p }: { p: typeof patients[0] }) => (
   >
     <img 
        loading="lazy"
-       src={`https://images.weserv.nl/?url=${encodeURIComponent(p.img.replace('https://', ''))}&w=800&output=webp&q=80`} 
-       alt={p.name} 
+       decoding="async"
+       src={p.img}
+       alt={p.name}
+       width="600"
+       height="800"
        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-12">
