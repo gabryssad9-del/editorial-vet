@@ -112,7 +112,7 @@ export default function UltraPremiumVetPage() {
       <footer className="py-24 md:py-32 text-center lg:text-left bg-[#0D0D0D] text-white px-4 md:px-0 relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-32 items-start mb-24 md:mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-start mb-24 md:mb-32">
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="flex items-center gap-4 font-outfit text-3xl md:text-4xl font-black tracking-tighter text-accent mb-8 md:mb-10">
                 <img 
@@ -122,30 +122,13 @@ export default function UltraPremiumVetPage() {
                 />
               </div>
               <p className="text-base md:text-lg opacity-40 font-medium leading-relaxed max-w-xs text-white">
-                Tworzymy standardy nowoczesnej weterynarii, w której pacjent jest zawsze na pierwszym miejscu.
+                Zaawansowana dermatologia i stomatologia dla Twojego pupila w sercu Olsztyna.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-8 md:gap-20">
-               <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-6 md:mb-8">Nawigacja</h4>
-                  <div className="flex flex-col gap-4 md:gap-6 text-sm font-bold opacity-60">
-                     <Link href="/" className="hover:text-accent transition-colors">Start</Link>
-                     <Link href="/uslugi" className="hover:text-accent transition-colors">Usługi</Link>
-                     <Link href="/#o-nas" className="hover:text-accent transition-colors">O nas</Link>
-                  </div>
-               </div>
-               <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-6 md:mb-8">Social</h4>
-                  <div className="flex flex-col gap-4 md:gap-6 text-sm font-bold opacity-60">
-                     <a href="#" className="hover:text-accent transition-colors">Instagram</a>
-                     <a href="#" className="hover:text-accent transition-colors">Facebook</a>
-                     <a href="#" className="hover:text-accent transition-colors">LinkedIn</a>
-                  </div>
-               </div>
-            </div>
+            
             <div className="flex flex-col gap-8 md:gap-10 items-center lg:items-start text-center lg:text-left">
                <div className="w-full">
-                  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-6 md:mb-8">VET-News</h4>
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-6 md:mb-8">Newsletter</h4>
                   <div className="relative group">
                     <input 
                       type="email" 
@@ -156,11 +139,19 @@ export default function UltraPremiumVetPage() {
                       Zapisz
                     </button>
                   </div>
-                  <p className="text-[8px] font-bold opacity-20 uppercase tracking-widest mt-4">Wysyłamy tylko ważne info dla Twojego pupila.</p>
                </div>
-               <div>
-                  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-4 md:mb-8">Kontakt</h4>
-                  <p className="text-xl md:text-2xl font-black italic opacity-80">kontakt@vetmed.pl</p>
+               <div className="flex flex-col md:flex-row gap-8 md:gap-16">
+                  <div>
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-4">Social Media</h4>
+                    <div className="flex gap-6 text-sm font-bold opacity-60">
+                       <a href="#" className="hover:text-accent transition-colors">FB</a>
+                       <a href="#" className="hover:text-accent transition-colors">IG</a>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-4">Lokalizacja</h4>
+                    <p className="text-sm font-bold opacity-60">Olsztyn, ul. Pana Tadeusza 6</p>
+                  </div>
                </div>
             </div>
           </div>

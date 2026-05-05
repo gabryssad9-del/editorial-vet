@@ -48,14 +48,6 @@ export const Hero = () => {
                   </span>
                 </LiquidButton>
               </div>
-              <div className="w-full sm:w-auto transition-transform hover:scale-105 active:scale-95">
-                <LiquidButton href="tel:+48519619141" variant="secondary" className="text-lg w-full sm:w-auto border-accent/20 bg-accent/5 hover:bg-accent/10">
-                  <span className="flex items-center justify-center gap-2">
-                    <Phone className="w-5 h-5 text-accent" />
-                    Zadzwoń: 519 619 141
-                  </span>
-                </LiquidButton>
-              </div>
             </m.div>
           </m.div>
           

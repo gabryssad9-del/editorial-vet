@@ -30,11 +30,11 @@ export const AboutSection = () => (
         </m.div>
         
         <div className="lg:pl-20 order-1 lg:order-2 text-center lg:text-left">
-          <Badge>Nasza Misja</Badge>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-outfit font-black mb-8 md:mb-12 tracking-tighter leading-tight">Gdzie wiedza <br className="hidden md:block" /> <span className="text-accent italic">spotyka się</span> z pasją.</h2>
+          <Badge>Nasza Eksperckość</Badge>
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-outfit font-black mb-8 md:mb-12 tracking-tighter leading-tight">Wąska specjalizacja, <br className="hidden md:block" /> <span className="text-accent italic">szerokie</span> horyzonty.</h2>
           <div className="space-y-6 md:space-y-10 text-lg md:text-xl text-text-gray leading-relaxed mb-12 md:mb-16 font-medium opacity-80">
-             <p>Jesteśmy gabinetem weterynaryjnym oferującym pełną gamę usług dla zwierząt – od profilaktyki, poprzez leczenie chorób przewlekłych, po zaawansowaną diagnostykę i pielęgnację.</p>
-             <p className="opacity-70">Naszym szczególnym zainteresowaniem cieszy się dziedzina <strong>dermatologii i stomatologii</strong>. Wykonujemy badania USG, RTG (w tym stomatologiczne), badania krwi oraz zabiegi chirurgii miękkiej.</p>
+             <p>Naszym konikiem jest <strong>dermatologia i stomatologia</strong>. To tu skupiamy nasze największe siły, inwestując w sprzęt klasy światowej, jak cyfrowe RTG stomatologiczne czy zaawansowane testy alergiczne.</p>
+             <p className="opacity-70">Każdy przypadek traktujemy jak zagadkę detektywistyczną. Szukamy źródła problemu, a nie tylko gasimy objawy, co pozwala na skuteczne leczenie nawet najtrudniejszych schorzeń skórnych.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 text-left">
               <div className="flex gap-4 md:gap-5">
