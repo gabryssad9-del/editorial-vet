@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LiquidButton } from './LiquidButton';
+import { PhoneLink } from './PhoneDialog';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -200,11 +201,15 @@ export const Navbar = () => {
             </div>
             
             <div className="flex items-center gap-3 lg:gap-4 ml-2 lg:ml-4">
-              <a href="tel:+48519619141" className="flex items-center gap-2 bg-[#ff3b3b]/10 text-[#ff3b3b] hover:bg-[#ff3b3b] hover:text-white border border-[#ff3b3b]/20 px-4 py-2 lg:px-5 lg:py-2.5 rounded-full transition-all duration-300 font-black uppercase tracking-widest text-xs md:text-sm group shadow-[0_0_15px_rgba(255,59,59,0.2)] hover:shadow-[0_0_25px_rgba(255,59,59,0.4)]">
+              <PhoneLink
+                phone="+48519619141"
+                displayPhone="519 619 141"
+                className="flex items-center gap-2 bg-[#ff3b3b]/10 text-[#ff3b3b] hover:bg-[#ff3b3b] hover:text-white border border-[#ff3b3b]/20 px-4 py-2 lg:px-5 lg:py-2.5 rounded-full transition-all duration-300 font-black uppercase tracking-widest text-xs md:text-sm group shadow-[0_0_15px_rgba(255,59,59,0.2)] hover:shadow-[0_0_25px_rgba(255,59,59,0.4)]"
+              >
                 <span className="w-2 h-2 rounded-full bg-current animate-ping opacity-75"></span>
                 <span className="w-2 h-2 rounded-full bg-current absolute"></span>
                 Nagły Przypadek
-              </a>
+              </PhoneLink>
               <ThemeToggle />
               <LiquidButton href="https://vetmed.nakiedy.pl/" variant="dark" className="px-6 py-3 text-xs md:text-sm uppercase tracking-widest font-black">
                 Umów wizytę
@@ -274,9 +279,13 @@ export const Navbar = () => {
                 transition={{ delay: 0.35 }}
                 className="pt-6 border-t border-border mt-2 flex flex-col gap-3"
               >
-                <a href="tel:+48519619141" className="w-full flex items-center justify-center gap-3 bg-[#ff3b3b] text-white py-4 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_10px_30px_rgba(255,59,59,0.2)]">
+                <PhoneLink
+                   phone="+48519619141"
+                   displayPhone="519 619 141"
+                   className="w-full flex items-center justify-center gap-3 bg-[#ff3b3b] text-white py-4 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_10px_30px_rgba(255,59,59,0.2)] active:scale-95 transition-transform"
+                >
                    <Phone size={18} /> Nagły Przypadek
-                </a>
+                </PhoneLink>
                 <LiquidButton href="https://vetmed.nakiedy.pl/" className="w-full text-sm py-4">
                   Umów wizytę online
                 </LiquidButton>
@@ -288,7 +297,11 @@ export const Navbar = () => {
                 </div>
                 <div>
                   <p className="text-[9px] font-black uppercase tracking-[0.3em] text-accent mb-0.5">Recepcja</p>
-                  <a href="tel:+48519619141" className="text-xl font-black hover:text-accent transition-colors block leading-none">519 619 141</a>
+                  <PhoneLink
+                    phone="+48519619141"
+                    displayPhone="519 619 141"
+                    className="text-xl font-black hover:text-accent transition-colors block leading-none"
+                  >519 619 141</PhoneLink>
                 </div>
               </div>
             </div>

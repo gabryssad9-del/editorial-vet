@@ -85,16 +85,16 @@ export const InfinitePatients = () => {
           )}
         </AnimatePresence>
         
-        <m.div layout className="mt-16 md:mt-24">
+        <m.div layout className="mt-16 md:mt-24 flex justify-center">
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-4 bg-secondary hover:bg-accent text-foreground hover:text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[11px] transition-all shadow-premium group active:scale-95 border border-accent/10"
+            className="flex items-center justify-center gap-4 w-full sm:w-auto bg-secondary hover:bg-accent text-foreground hover:text-white px-10 py-5 min-h-[56px] rounded-2xl font-black uppercase tracking-widest text-[11px] transition-all shadow-premium group active:scale-[0.97] border border-accent/10 touch-manipulation"
           >
-            {isExpanded ? (
-              <>Zwiń galerię <ChevronUp className="group-hover:-translate-y-1 transition-transform" size={18} /></>
-            ) : (
-              <>Rozwiń galerię <ChevronDown className="group-hover:translate-y-1 transition-transform" size={18} /></>
-            )}
+            <span>{isExpanded ? 'Zwiń galerię' : 'Rozwiń galerię'}</span>
+            {isExpanded 
+              ? <ChevronUp className="group-hover:-translate-y-1 transition-transform shrink-0" size={18} />
+              : <ChevronDown className="group-hover:translate-y-1 transition-transform shrink-0" size={18} />
+            }
           </button>
         </m.div>
       </div>
