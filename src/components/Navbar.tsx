@@ -207,23 +207,23 @@ export const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed inset-0 z-[110] bg-background lg:hidden flex flex-col p-8 pt-32"
+            className="fixed inset-0 z-[110] bg-background lg:hidden flex flex-col p-6 pt-24 overflow-y-auto"
           >
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-8 right-8 w-14 h-14 flex items-center justify-center bg-accent/10 rounded-full text-accent"
+              className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-accent/10 rounded-full text-accent"
               aria-label="Zamknij menu"
             >
-              <X size={32} />
+              <X size={28} />
             </button>
 
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-5 flex-1">
               {navLinks.map((item, i) => (
                 <m.div
                   key={item.name}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.07 }}
                 >
                   <Link 
                     href={item.href}
@@ -233,10 +233,10 @@ export const Navbar = () => {
                         setIsMenuOpen(false);
                       }
                     }}
-                    className="text-4xl font-black font-outfit tracking-tighter text-foreground hover:text-accent transition-colors flex items-center justify-between group"
+                    className="text-3xl font-black font-outfit tracking-tighter text-foreground hover:text-accent transition-colors flex items-center justify-between group"
                   >
                     {item.name}
-                    <ChevronRight size={40} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all text-accent" />
+                    <ChevronRight size={32} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all text-accent" />
                   </Link>
                 </m.div>
               ))}
@@ -244,29 +244,26 @@ export const Navbar = () => {
               <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="pt-12 border-t border-border mt-8 flex flex-col gap-4"
+                transition={{ delay: 0.35 }}
+                className="pt-6 border-t border-border mt-2 flex flex-col gap-3"
               >
-                <a href="tel:+48519619141" className="w-full flex items-center justify-center gap-3 bg-[#ff3b3b] text-white py-5 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_15px_40px_rgba(255,59,59,0.2)]">
-                   <Phone size={20} /> NAGŁY PRZYPADEK
+                <a href="tel:+48519619141" className="w-full flex items-center justify-center gap-3 bg-[#ff3b3b] text-white py-4 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_10px_30px_rgba(255,59,59,0.2)]">
+                   <Phone size={18} /> Nagły Przypadek
                 </a>
-                <LiquidButton href="https://vetmed.nakiedy.pl/" className="w-full text-base py-5">
-                  Rezerwacja Online
+                <LiquidButton href="https://vetmed.nakiedy.pl/" className="w-full text-sm py-4">
+                  Umów wizytę online
                 </LiquidButton>
               </m.div>
-            </div>
 
-            <div className="mt-auto pb-12 flex flex-col gap-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
-                    <Heart size={24} fill="currentColor" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-0.5">Recepcja</p>
-                    <a href="tel:+48519619141" className="text-2xl font-black hover:text-accent transition-colors block leading-none">519 619 141</a>
-                  </div>
-               </div>
-               <p className="text-xs font-bold opacity-60">Olsztyn, ul. Pana Tadeusza 6</p>
+              <div className="flex items-center gap-4 py-4">
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                  <Heart size={20} fill="currentColor" />
+                </div>
+                <div>
+                  <p className="text-[9px] font-black uppercase tracking-[0.3em] text-accent mb-0.5">Recepcja</p>
+                  <a href="tel:+48519619141" className="text-xl font-black hover:text-accent transition-colors block leading-none">519 619 141</a>
+                </div>
+              </div>
             </div>
           </m.div>
         )}
