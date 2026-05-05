@@ -90,7 +90,7 @@ export const ContactSection = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="w-full h-full min-h-[500px] bg-secondary rounded-[2.5rem] md:rounded-[3.5rem] p-2 md:p-3 border border-accent/10 shadow-premium relative group overflow-hidden"
+              className="w-full h-full min-h-[380px] md:min-h-[500px] bg-secondary rounded-[2.5rem] md:rounded-[3.5rem] p-2 md:p-3 border border-accent/10 shadow-premium relative group overflow-hidden"
             >
               <div 
                 className="w-full h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-secondary relative z-10 cursor-pointer group/map"

@@ -132,7 +132,7 @@ export default function UltraPremiumVetPage() {
                   <div className="relative group">
                     <input 
                       type="email" 
-                      placeholder="Twoje e-mail..."
+                      placeholder="Twój e-mail..."
                       className="w-full bg-white/5 border border-white/10 rounded-2xl py-5 px-6 outline-none focus:border-accent/50 transition-all text-sm font-medium pr-32"
                     />
                     <button className="absolute right-2 top-2 bottom-2 bg-accent text-white px-6 rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">

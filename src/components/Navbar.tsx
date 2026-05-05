@@ -78,6 +78,12 @@ export const Navbar = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { name: string, href: string, isHash: boolean }) => {
     if (item.isHash) {
       const id = item.href.replace('#', '');
+      // If not on home page, navigate there first
+      if (!isHome) {
+        e.preventDefault();
+        window.location.href = `/${id !== 'home' ? '#' + id : ''}`;
+        return;
+      }
       const element = document.getElementById(id);
       if (element) {
         e.preventDefault();
@@ -104,13 +110,13 @@ export const Navbar = () => {
             ? "bg-background/80 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-border/40" 
             : "bg-transparent border-transparent"
         )}>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4">
             {!isHome && (
               <Link 
                 href="/" 
-                className="flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 border border-accent/20"
+                className="flex items-center gap-1.5 px-3 md:px-4 py-2 bg-accent/10 text-accent rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 border border-accent/20 whitespace-nowrap"
               >
-                <ArrowLeft size={16} /> Powrót
+                <ArrowLeft size={14} /> <span className="hidden sm:inline">Powrót</span>
               </Link>
             )}
             <Link href="/" className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group">

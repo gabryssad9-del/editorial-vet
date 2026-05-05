@@ -9,7 +9,7 @@ const Badge = dynamic(() => import('./Badge').then(mod => mod.Badge), { ssr: tru
 
 export const Hero = () => {
   return (
-    <section id="home" className="min-h-screen pt-32 pb-20 md:pt-52 md:pb-32 px-4 md:px-8 relative overflow-hidden">
+    <section id="home" className="min-h-screen pt-36 pb-20 md:pt-52 md:pb-32 px-4 md:px-8 relative overflow-hidden">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center">
           <m.div 
