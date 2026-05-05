@@ -5,9 +5,9 @@ import { CheckCircle2 } from 'lucide-react';
 import { Badge } from './Badge';
 
 export const AboutSection = () => (
-  <section id="o-nas" className="py-24 md:py-32 px-4 md:px-8 relative overflow-hidden">
+  <section id="o-nas" className="py-14 md:py-20 px-4 md:px-8 relative overflow-hidden">
     <div className="container mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         <m.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -21,8 +21,8 @@ export const AboutSection = () => (
               src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/history.jpg&w=800&output=webp&q=70" 
               alt="O nas" 
               width="800"
-              height="650"
-              className="w-full h-[450px] md:h-[650px] object-cover transition-transform duration-[5s] group-hover:scale-110" 
+              height="480"
+              className="w-full h-[320px] md:h-[480px] object-cover transition-transform duration-[5s] group-hover:scale-110" 
             />
           </div>
           <div className="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-16 bg-accent p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-glow max-w-[200px] md:max-w-xs text-white">

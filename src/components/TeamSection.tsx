@@ -20,19 +20,19 @@ export const TeamSection = () => {
   ];
 
   return (
-    <section id="zespol" className="py-24 px-4 md:px-8 bg-background relative overflow-hidden">
+    <section id="zespol" className="py-14 md:py-20 px-4 md:px-8 bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="text-center mb-16 md:mb-24">
+        <div className="text-center mb-10 md:mb-14">
             <Badge>Zespół Ekspertów</Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-outfit font-black mb-8 tracking-tighter leading-[0.9]">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-outfit font-black mb-6 tracking-tighter leading-[0.9]">
               Poznaj naszych <span className="text-accent italic">lekarzy</span>.
             </h2>
-            <p className="text-lg md:text-xl text-text-gray max-w-3xl mx-auto leading-relaxed font-medium opacity-80">
+            <p className="text-sm md:text-base text-text-gray max-w-3xl mx-auto leading-relaxed font-medium opacity-80">
               Nasz zespół to wykwalifikowani specjaliści, którzy każdego dnia dbają o zdrowie i komfort Twoich pupili. Łączymy pasję do medycyny z autentyczną troską o każde zwierzę, które trafia pod naszą opiekę.
             </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
           {members.map((member, i) => (
             <m.div
               key={i}
@@ -40,9 +40,9 @@ export const TeamSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-premium border border-accent/10 group bg-secondary"
+              className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-premium border border-accent/10 group bg-secondary"
             >
-              <div className="h-[550px] md:h-[750px] w-full overflow-hidden relative">
+              <div className="h-[380px] md:h-[560px] w-full overflow-hidden relative">
                 <img loading="lazy" decoding="async" src={member.img} alt={`Lek. wet. ${member.name}`} width="600" height="750" className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
                 

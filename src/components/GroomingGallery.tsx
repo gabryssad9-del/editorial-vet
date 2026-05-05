@@ -45,7 +45,7 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
     <div className="relative group">
       <div 
         ref={containerRef}
-        className="relative aspect-[4/5] md:aspect-square rounded-[2.5rem] overflow-hidden cursor-ew-resize shadow-2xl border-4 border-white/10"
+        className="relative aspect-[4/3] md:aspect-square rounded-[2.5rem] overflow-hidden cursor-ew-resize shadow-2xl border-4 border-white/10"
         onMouseDown={(e) => {
           e.preventDefault();
           setIsDragging(true);
@@ -124,17 +124,17 @@ export const GroomingGallery = () => {
   ];
 
   return (
-    <section className="py-32 px-6 bg-background relative" id="pacjenci">
+    <section className="py-16 md:py-24 px-6 bg-background relative" id="pacjenci">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
       <div className="container mx-auto max-w-7xl">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
           <div className="max-w-2xl">
-            <Badge className="mb-6">Salon Piękności</Badge>
-            <h2 className="text-5xl md:text-7xl font-black font-outfit tracking-tighter leading-[0.9] mb-8 text-foreground">
+            <Badge className="mb-4">Salon Piękności</Badge>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-outfit tracking-tighter leading-[0.9] mb-5 text-foreground">
               Zmieniamy <span className="text-accent italic">Styl</span>,<br /> 
               Zachowujemy <span className="underline decoration-accent/30">Duszę</span>.
             </h2>
-            <p className="text-lg text-foreground/60 max-w-lg font-medium">
+            <p className="text-sm md:text-base text-foreground/60 max-w-lg font-medium">
               Przesuń suwak, aby zobaczyć magię profesjonalnej pielęgnacji. Nasi styliści dbają o każdy detal, od kąpieli po finalne cięcie.
             </p>
           </div>

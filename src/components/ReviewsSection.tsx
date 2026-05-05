@@ -35,7 +35,7 @@ const ReviewText = ({ text, isDarkMode }: { text: string, isDarkMode: boolean })
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`text-2xl md:text-4xl font-bold leading-[1.4] tracking-tight mb-16 min-h-[250px] ${isDarkMode ? 'text-white/95' : 'text-black/90'}`}
+      className={`text-xl md:text-3xl font-bold leading-[1.4] tracking-tight mb-10 min-h-[200px] ${isDarkMode ? 'text-white/95' : 'text-black/90'}`}
     >
       {text}
     </m.div>
@@ -82,7 +82,7 @@ export const ReviewsSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-40 relative overflow-hidden bg-background" id="opinie">
+    <section ref={sectionRef} className="py-16 md:py-24 relative overflow-hidden bg-background" id="opinie">
       <m.div 
         animate={{ 
           opacity: [0.03, 0.05, 0.03],

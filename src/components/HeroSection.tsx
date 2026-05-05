@@ -9,9 +9,9 @@ const Badge = dynamic(() => import('./Badge').then(mod => mod.Badge), { ssr: tru
 
 export const Hero = () => {
   return (
-    <section id="home" className="min-h-screen pt-36 pb-20 md:pt-52 md:pb-32 px-4 md:px-8 relative overflow-hidden">
+    <section id="home" className="min-h-screen pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-8 relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
           <m.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -24,10 +24,10 @@ export const Hero = () => {
               className="flex flex-col items-center lg:items-start gap-8 md:gap-10 max-w-4xl"
             >
               <Badge>Klinika Weterynaryjna Olsztyn</Badge>
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-outfit font-black tracking-tighter leading-[0.85] text-foreground">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-outfit font-black tracking-tighter leading-[0.85] text-foreground">
                 Profesjonalna <br /> <span className="text-accent italic">opieka</span> dla pupili.
               </h1>
-              <p className="text-xl md:text-2xl text-text-gray font-medium leading-relaxed max-w-2xl opacity-80 mx-auto lg:mx-0">
+              <p className="text-base md:text-lg text-text-gray font-medium leading-relaxed max-w-2xl opacity-80 mx-auto lg:mx-0">
                 Zapewniamy kompleksową pomoc medyczną, od profilaktyki po zaawansowaną chirurgię. Nasz zespół lekarzy łączy wieloletnie doświadczenie z nowoczesną diagnostyką, aby Twój pupil otrzymał najlepszą możliwą opiekę.
               </p>
             </m.div>
@@ -68,7 +68,7 @@ export const Hero = () => {
                 decoding="sync"
                 width="1200"
                 height="750"
-                className="w-full h-[450px] md:h-[750px] object-cover transition-transform duration-[4s] group-hover:scale-110" 
+                className="w-full h-[380px] md:h-[580px] object-cover transition-transform duration-[4s] group-hover:scale-110" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
               <div className="absolute top-6 right-6 md:top-10 md:right-10 bg-background/20 backdrop-blur-xl px-4 md:px-8 py-2 md:py-4 rounded-full border border-background/30 text-foreground font-black text-[8px] md:text-xs uppercase tracking-widest">
