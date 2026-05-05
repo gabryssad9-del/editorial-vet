@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Heart, Zap, CheckCircle2, Activity, Microscope, Scissors, Sparkles, Star, Clock, Droplets, Smile, ArrowRight, Shield, Syringe } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
@@ -75,7 +75,7 @@ const PawBackground = () => {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
       {paws.map((paw) => (
-        <motion.div
+        <m.div
           key={paw.id}
           initial={{ rotate: paw.rotate, scale: paw.scale }}
           animate={{ 
@@ -108,7 +108,7 @@ const PawBackground = () => {
                M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
               S48.455,16.861,45.727,15.602z"/>
           </svg>
-        </motion.div>
+        </m.div>
       ))}
     </div>
   );
@@ -122,12 +122,12 @@ export default function ServicesPage() {
       
       {/* Brand Bloom - Czerwień i Grafit */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-        <motion.div 
+        <m.div 
           animate={{ opacity: [0.05, 0.15, 0.05] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-accent rounded-full blur-[150px]" 
         />
-        <motion.div 
+        <m.div 
           animate={{ opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
           className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-slate-200 rounded-full blur-[120px]" 
@@ -140,22 +140,22 @@ export default function ServicesPage() {
           <Badge className="mb-8">
             <Sparkles size={14} fill="currentColor" /> Ekspercka Opieka
           </Badge>
-          <motion.h1 
+          <m.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-8xl lg:text-9xl font-outfit font-black tracking-tighter leading-[0.85] mb-8"
           >
             Nasze <br /> <span className="text-accent italic">Usługi</span>.
-          </motion.h1>
-          <motion.p 
+          </m.h1>
+          <m.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="text-lg md:text-2xl text-text-gray max-w-2xl mx-auto font-medium opacity-60 leading-relaxed"
           >
             Od profilaktyki po zaawansowaną chirurgię – zapewniamy kompleksowe wsparcie dla Twojego przyjaciela.
-          </motion.p>
+          </m.p>
         </div>
 
         {/* Decorative Blobs */}
@@ -170,7 +170,7 @@ export default function ServicesPage() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
             {services.map((service, index) => (
-              <motion.div
+              <m.div
                 key={service.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -234,11 +234,11 @@ export default function ServicesPage() {
                     <ArrowRight size={20} />
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
 
             {/* CTA Tile */}
-            <motion.div 
+            <m.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -266,7 +266,7 @@ export default function ServicesPage() {
                  <Syringe size={120} className="absolute -bottom-10 -right-10 -rotate-12" />
                  <Activity size={100} className="absolute top-1/2 left-20 -translate-y-1/2 opacity-20" />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
