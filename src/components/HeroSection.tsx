@@ -18,23 +18,19 @@ export const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center lg:text-left"
           >
-            <Badge>Wyjątkowa Opieka Dla Pupila</Badge>
-            <m.h1 
-              initial={{ opacity: 0, y: 10 }}
+            <m.div 
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="text-5xl md:text-6xl lg:text-[7.5rem] font-outfit font-black leading-[0.85] text-foreground mb-8 md:mb-12 tracking-tighter"
+              className="flex flex-col gap-8 md:gap-10 max-w-4xl"
             >
-              Gdzie Serce <br /> <span className="text-accent italic">Spotyka</span> Wiedzę.
-            </m.h1>
-            <m.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-lg md:text-xl lg:text-2xl text-text-gray max-w-xl mx-auto lg:mx-0 mb-10 md:mb-16 leading-relaxed font-medium opacity-80"
-            >
-              Znajdziemy przyczynę bólu, zanim Twój pupil poczuje stres. Tworzymy domową atmosferę, w której zwierzęta czują się bezpiecznie, a Ty masz pewność, że są w kochających rękach.
-            </m.p>
+              <Badge>Klinika Weterynaryjna Olsztyn</Badge>
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-outfit font-black tracking-tighter leading-[0.85] text-foreground">
+                Profesjonalna <br /> <span className="text-accent italic">opieka</span> dla pupili.
+              </h1>
+              <p className="text-xl md:text-2xl text-text-gray font-medium leading-relaxed max-w-2xl opacity-80 mx-auto lg:mx-0">
+                Zapewniamy kompleksową pomoc medyczną, od profilaktyki po zaawansowaną chirurgię. Nasz zespół lekarzy łączy wieloletnie doświadczenie z nowoczesną diagnostyką, aby Twój pupil otrzymał najlepszą możliwą opiekę.
+              </p>
+            </m.div>
             <m.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

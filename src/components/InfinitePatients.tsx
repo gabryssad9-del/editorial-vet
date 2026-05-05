@@ -1,306 +1,103 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, Suspense, useRef } from 'react';
-import { m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Sparkles, Heart } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { m, AnimatePresence } from 'framer-motion';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Badge } from './Badge';
 
 const patients = [
-  { id: 0, name: "Bruno", breed: "Beagle", story: "Uratowany z schroniska, dziś najszybszy tropiciel.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1543466835-00a7907e9de1&w=600&output=webp&q=80" },
-  { id: 1, name: "Misia", breed: "Tuxedo Cat", story: "Mruczy głośniej niż silnik Ferrari.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1514888286974-6c03e2ca1dba&w=600&output=webp&q=80" },
-  { id: 2, name: "Simba", breed: "Hamster", story: "Mały ciałem, wielki duchem.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1425082661705-1834bfd09dca&w=600&output=webp&q=80" },
-  { id: 3, name: "Bella", breed: "Corgi", story: "Wróciła do biegania po urazie kręgosłupa.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1537151608828-ea2b11777ee8&w=600&output=webp&q=80" },
-  { id: 4, name: "Rocky", breed: "Border Collie", story: "Mistrz frisbee, któremu uratowaliśmy wzrok.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1587300003388-59208cc962cb&w=600&output=webp&q=80" },
-  { id: 5, name: "Sonia", breed: "Frenchie", story: "Nasza najstarsza radosna pacjentka.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1583511655857-d19b40a7a54e&w=600&output=webp&q=80" },
-  { id: 6, name: "Luna", breed: "British Cat", story: "Królowa elegancji po zabiegu.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1533738363-b7f9aef128ce&w=600&output=webp&q=80" },
-  { id: 7, name: "Max", breed: "Pug", story: "Wyleczyliśmy jego alergię na trawę.", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1598133894008-61f7fdb8cc3a&w=600&output=webp&q=80" },
+  { id: 0, name: "Bruno", breed: "Beagle", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1543466835-00a7907e9de1&w=600&output=webp&q=80" },
+  { id: 1, name: "Misia", breed: "Tuxedo Cat", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1514888286974-6c03e2ca1dba&w=600&output=webp&q=80" },
+  { id: 2, name: "Simba", breed: "Hamster", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1425082661705-1834bfd09dca&w=600&output=webp&q=80" },
+  { id: 3, name: "Bella", breed: "Corgi", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1537151608828-ea2b11777ee8&w=600&output=webp&q=80" },
+  { id: 4, name: "Rocky", breed: "Border Collie", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1583337130417-3346a1be7dee&w=600&output=webp&q=80" },
+  { id: 5, name: "Sonia", breed: "Frenchie", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1583511655857-d19b40a7a54e&w=600&output=webp&q=80" },
+  { id: 6, name: "Luna", breed: "British Cat", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1533738363-b7f9aef128ce&w=600&output=webp&q=80" },
+  { id: 7, name: "Max", breed: "Pug", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1598133894008-61f7fdb8cc3a&w=600&output=webp&q=80" },
 ];
 
+const PatientCard = ({ p }: { p: typeof patients[0] }) => (
+  <m.div
+    layout
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.9 }}
+    className="group relative aspect-[3/4] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-secondary shadow-premium border border-accent/5"
+  >
+    <img 
+       loading="lazy"
+       src={`https://images.weserv.nl/?url=${encodeURIComponent(p.img.replace('https://', ''))}&w=800&output=webp&q=80`} 
+       alt={p.name} 
+       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+    />
+    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-12">
+      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-accent/80 mb-1">{p.breed}</p>
+      <h4 className="text-xl md:text-2xl font-black font-outfit text-white uppercase tracking-tighter leading-none">{p.name}</h4>
+    </div>
+  </m.div>
+);
+
 export const InfinitePatients = () => {
-  const [virtualIdx, setVirtualIdx] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [limit, setLimit] = useState(4);
 
   useEffect(() => {
-    const checkTheme = () => {
-      const isDark = document.documentElement.classList.contains('dark') || 
-                    getComputedStyle(document.body).backgroundColor === 'rgb(10, 10, 10)';
-      setIsDarkMode(isDark);
+    const updateLimit = () => {
+      setLimit(window.innerWidth < 640 ? 2 : 4);
     };
-    checkTheme();
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
+    updateLimit();
+    window.addEventListener('resize', updateLimit);
+    return () => window.removeEventListener('resize', updateLimit);
   }, []);
-  
-  const rotationValue = useMotionValue(0);
-  const smoothRotation = useSpring(rotationValue, {
-    stiffness: 150, // Ultra-reaktywność
-    damping: 22,   
-    mass: 0.8       // Jeszcze lżejszy start
-  });
-
-  const activeIdx = ((virtualIdx % patients.length) + patients.length) % patients.length;
-
-  const next = useCallback(() => {
-    const nextVal = virtualIdx + 1;
-    setVirtualIdx(nextVal);
-    rotationValue.set(nextVal); // Natychmiastowa reakcja bez czekania na useEffect
-  }, [virtualIdx, rotationValue]);
-
-  const prev = useCallback(() => {
-    const prevVal = virtualIdx - 1;
-    setVirtualIdx(prevVal);
-    rotationValue.set(prevVal); // Natychmiastowa reakcja
-  }, [virtualIdx, rotationValue]);
-
-  useEffect(() => {
-    const isLighthouse = typeof navigator !== 'undefined' && /Lighthouse|SpeedInsights|Chrome-Lighthouse|PageSpeed|HeadlessChrome|Pingdom|PTST|WebPageTest/.test(navigator.userAgent);
-    if (isHovered || isLighthouse) return;
-    const timer = setInterval(next, 5000);
-    return () => clearInterval(timer);
-  }, [isHovered, next, virtualIdx]);
 
   return (
-    <section id="pacjenci" className="py-32 relative bg-background overflow-hidden flex flex-col items-center">
-      
-      <div className="container mx-auto max-w-7xl px-6 relative z-10 mb-16 text-center">
-        <h2 className={`text-5xl md:text-8xl font-black font-outfit tracking-tighter leading-tight uppercase ${isDarkMode ? 'text-white' : 'text-black'}`}>
-          Nasza <span className="text-accent italic">Galeria</span>.
+    <section id="pacjenci" className="py-24 md:py-32 bg-background relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 text-center">
+        <Badge>Nasza Galeria</Badge>
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-outfit font-black mb-16 md:mb-24 tracking-tighter uppercase leading-none">
+          Nasi <span className="text-accent italic">Pacjenci</span>.
         </h2>
-      </div>
-
-      {/* Main Slider */}
-      <div className="relative h-[550px] md:h-[650px] w-full flex items-center justify-center mb-12">
-        <div className="relative w-full max-w-[1400px] h-full flex items-center justify-center pointer-events-none">
-          {patients.map((p, i) => (
-             <PatientCard 
-               key={p.id} 
-               p={p} 
-               index={i} 
-               smoothRotation={smoothRotation} 
-               activeIdx={activeIdx}
-               isHovered={isHovered}
-               setIsHovered={setIsHovered}
-               isDarkMode={isDarkMode}
-             />
+        
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+          {patients.slice(0, limit).map((p) => (
+             <PatientCard key={p.id} p={p} />
           ))}
         </div>
-      </div>
 
-      {/* Navigation Panel (Minimalist Red Lines) */}
-      <div className="relative z-50 flex items-center gap-2 md:gap-8 w-full justify-center px-4 mt-8">
-        <button onClick={prev} aria-label="Poprzedni pacjent" className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full backdrop-blur-xl border flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all active:scale-90 shadow-2xl ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}><ChevronLeft size={20} /></button>
+        <AnimatePresence>
+          {isExpanded && (
+            <m.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden"
+            >
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mt-4 md:mt-8">
+                {patients.slice(limit).map((p) => (
+                  <PatientCard key={p.id} p={p} />
+                ))}
+              </div>
+            </m.div>
+          )}
+        </AnimatePresence>
         
-        <div className="flex items-center gap-2 md:gap-4 px-2 h-12 overflow-x-auto no-scrollbar max-w-[60vw]">
-          {patients.map((_, i) => {
-            const isActive = i === activeIdx;
-            return (
-              <button
-                key={i}
-                onClick={() => {
-                  const diff = i - activeIdx;
-                  const wrappedDiff = ((diff + patients.length / 2) % patients.length + patients.length) % patients.length - patients.length / 2;
-                  const nextVal = virtualIdx + wrappedDiff;
-                  setVirtualIdx(nextVal);
-                  rotationValue.set(nextVal);
-                }}
-                className="group p-1 md:p-2 flex items-center justify-center shrink-0"
-              >
-                <m.div 
-                  animate={{ 
-                    width: isActive ? 24 : 8,
-                    height: isActive ? 4 : 4,
-                    backgroundColor: isActive ? "#FE4520" : (isDarkMode ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)"),
-                    opacity: isActive ? 1 : 0.5
-                  }}
-                  className="rounded-full transition-shadow duration-300 group-hover:opacity-100 shadow-[0_0_10px_rgba(254,69,32,0)] group-hover:shadow-[0_0_10px_rgba(254,69,32,0.2)]"
-                  style={{ boxShadow: isActive ? "0 0 15px rgba(254,69,32,0.5)" : "none" }}
-                />
-              </button>
-            );
-          })}
-        </div>
-
-        <button onClick={next} aria-label="Następny pacjent" className={`shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full backdrop-blur-xl border flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all active:scale-90 shadow-2xl ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}><ChevronRight size={20} /></button>
+        <m.div layout className="mt-16 md:mt-24">
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="inline-flex items-center gap-4 bg-secondary hover:bg-accent text-foreground hover:text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-[11px] transition-all shadow-premium group active:scale-95 border border-accent/10"
+          >
+            {isExpanded ? (
+              <>Zwiń galerię <ChevronUp className="group-hover:-translate-y-1 transition-transform" size={18} /></>
+            ) : (
+              <>Rozwiń galerię <ChevronDown className="group-hover:translate-y-1 transition-transform" size={18} /></>
+            )}
+          </button>
+        </m.div>
       </div>
+      
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[100px] -translate-x-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3" />
     </section>
   );
 };
-
-// Memoizujemy pojedynczą kartę, aby uniknąć ciężkich re-renderów całej galerii
-const PatientCard = React.memo(({ p, index, smoothRotation, activeIdx, isHovered, setIsHovered, isDarkMode }: any) => {
-  const x = useTransform(smoothRotation, (rot: number) => {
-    const len = patients.length;
-    let diff = index - (rot % len);
-    if (diff > len / 2) diff -= len;
-    if (diff < -len / 2) diff += len;
-    const finalDiff = ((diff + len / 2) % len + len) % len - len / 2;
-    return finalDiff * 360;
-  });
-
-  const scale = useTransform(smoothRotation, (rot: number) => {
-    const len = patients.length;
-    let diff = Math.abs(index - (rot % len));
-    if (diff > len / 2) diff = len - diff;
-    const finalDiff = Math.abs(((diff + len / 2) % len + len) % len - len / 2);
-    
-    // Płynne mapowanie: centrum = 1.0, bok = 0.9, dal = 0.8
-    if (finalDiff <= 1) return 1 - (finalDiff * 0.1);
-    return 0.9 - ((finalDiff - 1) * 0.1);
-  });
-
-  const y = useTransform(smoothRotation, (rot: number) => {
-    const len = patients.length;
-    let diff = Math.abs(index - (rot % len));
-    if (diff > len / 2) diff = len - diff;
-    const finalDiff = Math.abs(((diff + len / 2) % len + len) % len - len / 2);
-    return finalDiff * -25;
-  });
-
-  const opacity = useTransform(smoothRotation, (rot: number) => {
-    const len = patients.length;
-    let diff = Math.abs(index - (rot % len));
-    if (diff > len / 2) diff = len - diff;
-    const finalDiff = Math.abs(((diff + len / 2) % len + len) % len - len / 2);
-    
-    // Płynne mapowanie: centrum = 1.0, bok = 0.8, dal = 0.5
-    if (finalDiff <= 1) return 1 - (finalDiff * 0.2);
-    return 0.8 - ((finalDiff - 1) * 0.3);
-  });
-
-  // Inteligentny zoom zdjęcia: rośnie płynnie w miarę zbliżania się do centrum
-  const imageScale = useTransform(smoothRotation, (rot: number) => {
-    const len = patients.length;
-    let diff = Math.abs(index - (rot % len));
-    if (diff > len / 2) diff = len - diff;
-    const finalDiff = Math.abs(((diff + len / 2) % len + len) % len - len / 2);
-    
-    // Gdy finalDiff = 0 (centrum), skala to 1.12. Gdy finalDiff >= 1, skala to 1.02.
-    const progress = Math.max(0, 1 - finalDiff);
-    const baseZoom = 1.02 + (progress * 0.10);
-    return baseZoom;
-  });
-
-  // Dynamiczny Z-Index i Cień (płynne przejście)
-  const zIndex = useTransform(smoothRotation, (rot: number) => {
-    const len = patients.length;
-    let diff = Math.abs(index - (rot % len));
-    if (diff > len / 2) diff = len - diff;
-    const finalDiff = Math.abs(((diff + len / 2) % len + len) % len - len / 2);
-    return Math.round(30 - (finalDiff * 10));
-  });
-
-  const shadowOpacity = useTransform(smoothRotation, (rot: number) => {
-    const len = patients.length;
-    let diff = Math.abs(index - (rot % len));
-    if (diff > len / 2) diff = len - diff;
-    const finalDiff = Math.abs(((diff + len / 2) % len + len) % len - len / 2);
-    return Math.max(0, 1 - finalDiff);
-  });
-
-  const isActive = index === activeIdx;
-
-  return (
-    <m.div
-      style={{ x, y, scale, opacity, zIndex }}
-      className="absolute w-[280px] md:w-[380px] aspect-[3/4] cursor-pointer pointer-events-auto will-change-transform transform-gpu"
-      onMouseEnter={() => isActive && setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Spatial Background Glow */}
-      {isActive && (
-        <m.div 
-          animate={{ 
-            opacity: isHovered ? 0.4 : 0,
-            scale: isHovered ? 1.2 : 0.8,
-          }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="absolute inset-0 bg-accent/30 blur-[120px] rounded-full -z-10"
-        />
-      )}
-
-      <m.div 
-        style={{ 
-          scale: isActive && isHovered ? 1.05 : 1,
-          boxShadow: useTransform(shadowOpacity, [0, 1], [
-            "0 10px 30px rgba(0,0,0,0.1)",
-            "0 50px 100px rgba(0,0,0,0.5)"
-          ]),
-          perspective: "1000px"
-        }}
-        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-        className={`relative w-full h-full rounded-[2.5rem] overflow-hidden transition-all duration-500 ${isDarkMode ? 'bg-[#141414]' : 'bg-white'} border border-white/5 will-change-transform transform-gpu`}
-      >
-        {/* Internal Image Zoom - teraz zsynchronizowany z ruchem i hoverem */}
-        <m.img 
-          style={{ 
-            scale: isHovered && isActive ? 1.18 : imageScale,
-            transformOrigin: 'center center',
-            WebkitBackfaceVisibility: 'hidden',
-            backfaceVisibility: 'hidden'
-          }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          src={`https://images.weserv.nl/?url=${encodeURIComponent(p.img.replace('https://', ''))}&w=600&output=webp&q=80`} 
-          alt={p.name} 
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover" 
-        />
-
-        <div className={`absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-90 ${isDarkMode ? 'from-black/95 via-black/20' : 'from-black/80'}`} />
-        
-        {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end p-10 z-20">
-          <m.p 
-            animate={{ y: isActive && isHovered ? 0 : 5, opacity: 1 }}
-            className="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-3"
-          >
-            {p.breed}
-          </m.p>
-          
-          <m.h4 
-            animate={{ scale: isActive && isHovered ? 1.05 : 1 }}
-            className="text-5xl font-black font-outfit text-white uppercase tracking-tighter leading-none"
-          >
-            {p.name}
-          </m.h4>
-          
-          <AnimatePresence>
-            {isActive && isHovered && (
-              <m.div 
-                initial={{ opacity: 0, height: 0, y: 20 }} 
-                animate={{ opacity: 1, height: 'auto', y: 0 }} 
-                exit={{ opacity: 0, height: 0, y: 20 }}
-                transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-                className="overflow-hidden"
-              >
-                <div className="mt-6 pt-6 border-t border-white/10">
-                  <p className="text-white/70 text-sm leading-relaxed font-medium italic">
-                    "{p.story}"
-                  </p>
-                  
-                  <m.div 
-                    initial={{ width: 0 }} 
-                    animate={{ width: "40px" }} 
-                    className="h-1 bg-accent mt-4 rounded-full" 
-                  />
-                </div>
-              </m.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* Shimmer Glare Effect */}
-        <m.div 
-          animate={{ 
-            x: isHovered ? ["-100%", "200%"] : "-100%",
-          }}
-          transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0, repeatDelay: 1 }}
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 pointer-events-none"
-        />
-      </m.div>
-    </m.div>
-  );
-});
-
-PatientCard.displayName = 'PatientCard';
