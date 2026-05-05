@@ -40,16 +40,16 @@ export const ContactSection = () => {
   return (
     <section id="kontakt" className="py-24 md:py-32 px-4 md:px-8 bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-center">
           
           {/* Left Column: Info */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6">
             <Badge>Kontakt</Badge>
             <h2 className="text-4xl md:text-6xl font-outfit font-black mb-10 md:mb-16 tracking-tighter leading-none">
               Jesteśmy tu dla <br /> <span className="text-accent italic">Twojego</span> pupila.
             </h2>
             
-            <div className="space-y-8">
+            <div className="space-y-8 md:space-y-10">
               {contactInfo.map((info, i) => (
                 <m.div 
                   key={i}
@@ -82,44 +82,46 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          {/* Right Column: Map */}
-          <m.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="lg:col-span-7 h-[400px] md:h-[600px] bg-secondary rounded-[3rem] md:rounded-[4rem] p-4 md:p-6 border border-accent/10 shadow-premium relative group overflow-hidden"
-          >
-            <div 
-              className="w-full h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-secondary relative z-10 cursor-pointer group/map"
-              onClick={() => setIsMapActive(true)}
+          {/* Right Column: Square Map */}
+          <div className="lg:col-span-6 flex justify-center lg:justify-end">
+            <m.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="w-full max-w-[500px] aspect-square bg-secondary rounded-[2.5rem] md:rounded-[3.5rem] p-2 md:p-3 border border-accent/10 shadow-premium relative group overflow-hidden"
             >
-              {isMapActive ? (
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2357.701168536125!2d20.503363977054665!3d53.77694887340026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e27ed29a4aabe7%3A0x25da1ccc94df0957!2sVet-Med%20Gabinet%20Weterynaryjny!5e0!3m2!1spl!2spl!4v1714866750000!5m2!1spl!2spl" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0, filter: 'grayscale(0.1) contrast(1.05)' }} 
-                  allowFullScreen={true} 
-                  loading="lazy" 
-                ></iframe>
-              ) : (
-                <div className="relative w-full h-full">
-                  <img 
-                    src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/map-placeholder.jpg&w=1000&output=webp&q=80" 
-                    alt="Mapa lokalizacji VETMED"
-                    className="w-full h-full object-cover brightness-90 group-hover/map:scale-105 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <div className="bg-card-bg/95 backdrop-blur-md px-8 py-4 rounded-full shadow-premium text-[11px] font-black uppercase tracking-[0.2em] text-accent border border-accent/20 group-hover/map:scale-110 transition-transform">
-                      Kliknij, aby otworzyć mapę
+              <div 
+                className="w-full h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-secondary relative z-10 cursor-pointer group/map"
+                onClick={() => setIsMapActive(true)}
+              >
+                {isMapActive ? (
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2357.701168536125!2d20.503363977054665!3d53.77694887340026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e27ed29a4aabe7%3A0x25da1ccc94df0957!2sVet-Med%20Gabinet%20Weterynaryjny!5e0!3m2!1spl!2spl!4v1714866750000!5m2!1spl!2spl" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0, filter: 'grayscale(0.1) contrast(1.05)' }} 
+                    allowFullScreen={true} 
+                    loading="lazy" 
+                  ></iframe>
+                ) : (
+                  <div className="relative w-full h-full">
+                    <img 
+                      src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/map-placeholder.jpg&w=1000&output=webp&q=80" 
+                      alt="Mapa lokalizacji VETMED"
+                      className="w-full h-full object-cover brightness-90 group-hover/map:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                      <div className="bg-card-bg/95 backdrop-blur-md px-8 py-4 rounded-full shadow-premium text-[11px] font-black uppercase tracking-[0.2em] text-accent border border-accent/20 group-hover/map:scale-110 transition-transform">
+                        Kliknij, aby otworzyć mapę
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-          </m.div>
+                )}
+              </div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+            </m.div>
+          </div>
 
         </div>
       </div>
