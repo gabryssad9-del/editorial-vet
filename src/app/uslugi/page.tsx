@@ -115,6 +115,10 @@ const PawBackground = () => {
 };
 
 export default function ServicesPage() {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="min-h-screen relative bg-background font-inter overflow-x-hidden selection:bg-accent selection:text-white">
       <Navbar />

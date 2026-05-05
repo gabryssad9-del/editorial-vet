@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Heart, Menu, X, ChevronRight, Phone } from 'lucide-react';
+import { Heart, Menu, X, ChevronRight, Phone, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LiquidButton } from './LiquidButton';
 import { clsx, type ClassValue } from 'clsx';
@@ -13,9 +14,11 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// No Magnetic effect needed for maximum performance
-
 export const Navbar = () => {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+  
+  // ... existing state and effects ...
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Start");
@@ -101,20 +104,30 @@ export const Navbar = () => {
             ? "bg-background/80 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-border/40" 
             : "bg-transparent border-transparent"
         )}>
-          <Link href="/" className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group">
-            <img 
-              src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50" 
-              srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50 120w"
-              sizes="120px"
-              alt="VETMED Logo" 
-              fetchPriority="high"
-              loading="eager"
-              decoding="async"
-              width="80"
-              height="80"
-              className="h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-[0_0_15px_rgba(254,69,32,0.3)] group-hover:scale-105 transition-all duration-500" 
-            />
-          </Link>
+          <div className="flex items-center gap-4">
+            {!isHome && (
+              <Link 
+                href="/" 
+                className="flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 border border-accent/20"
+              >
+                <ArrowLeft size={16} /> Powrót
+              </Link>
+            )}
+            <Link href="/" className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group">
+              <img 
+                src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50" 
+                srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50 120w"
+                sizes="120px"
+                alt="VETMED Logo" 
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+                width="80"
+                height="80"
+                className="h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-[0_0_15px_rgba(254,69,32,0.3)] group-hover:scale-105 transition-all duration-500" 
+              />
+            </Link>
+          </div>
 
           <div className="hidden md:flex items-center gap-4 lg:gap-6">
             <div className="flex items-center gap-1 p-1 bg-black/5 dark:bg-white/5 rounded-full relative" onMouseLeave={() => setHoveredLink(null)}>
