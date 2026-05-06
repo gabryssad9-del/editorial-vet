@@ -120,18 +120,33 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google.com" />
+        
+        {/* Preload critical fonts */}
+        <link 
+          rel="preload" 
+          href="https://fonts.gstatic.com/s/outfit/v11/Qp7fReAnpSsq929S9-M.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossOrigin="anonymous" 
+        />
 
-        {/* LCP Hero Image Preload - EXACT match for the <img> tag in HeroSection */}
+        {/* Responsive LCP Preloads - Tells browser EXACTLY which version to fetch based on screen size */}
+        <link 
+          rel="preload" 
+          as="image"
+          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=390&output=webp&q=40"
+          media="(max-width: 480px)"
+          fetchPriority="high"
+        />
         <link 
           rel="preload" 
           as="image"
           href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=55"
-          imageSrcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=390&output=webp&q=40 390w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=600&output=webp&q=45 600w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=900&output=webp&q=55 900w"
-          imageSizes="(max-width: 480px) 390px, (max-width: 768px) 600px, 900px"
+          media="(min-width: 481px)"
           fetchPriority="high"
         />
 
-        {/* Vetmed logo preload */}
+        {/* Vetmed logo preload - simplified local path */}
         <link
           rel="preload"
           as="image"
@@ -147,7 +162,10 @@ export default function RootLayout({
           .hero-img-container { background: #f0f0f0; border-radius: 3rem; overflow: hidden; position: relative; }
           .dark .hero-img-container { background: #1a1a1a; }
           @media (min-width: 768px) { .hero-img-container { border-radius: 5rem; } }
-          h1 { margin-top: 0; }
+          h1 { margin-top: 0; line-height: 0.85; }
+          .nav-fixed { position: fixed; top: 0; left: 0; right: 0; z-index: 50; }
+          .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
+          .dark .glass-nav { background: rgba(13, 13, 13, 0.85); }
         `}} />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
