@@ -1,11 +1,11 @@
-import type { Metadata, MetadataRoute } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap', variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], display: 'swap', variable: "--font-outfit" });
 
-export const viewport: MetadataRoute.Viewport = {
+export const viewport: Viewport = {
   themeColor: '#FE4520',
   width: 'device-width',
   initialScale: 1,
