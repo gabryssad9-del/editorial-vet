@@ -20,6 +20,18 @@ export const PhoneLink = ({ phone, displayPhone, children, className }: PhoneDia
     setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }, []);
 
+  // Prevent body scroll when open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [open]);
+
   const handleClick = (e: React.MouseEvent) => {
     if (isMobile) {
       e.preventDefault();
@@ -48,7 +60,7 @@ export const PhoneLink = ({ phone, displayPhone, children, className }: PhoneDia
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[200] bg-black/50 backdrop-blur-sm"
+              className="fixed inset-0 z-[200] bg-black/50 backdrop-blur-sm touch-none"
               onClick={() => setOpen(false)}
             />
 
@@ -58,7 +70,7 @@ export const PhoneLink = ({ phone, displayPhone, children, className }: PhoneDia
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: '100%', opacity: 0 }}
               transition={{ type: 'spring', stiffness: 400, damping: 35 }}
-              className="fixed bottom-0 left-0 right-0 z-[210] bg-background rounded-t-[2.5rem] p-8 pb-10 shadow-[0_-20px_60px_rgba(0,0,0,0.3)]"
+              className="fixed bottom-0 left-0 right-0 z-[210] bg-background rounded-t-[2.5rem] p-8 pb-10 shadow-[0_-20px_60px_rgba(0,0,0,0.3)] overscroll-none touch-pan-y"
             >
               {/* Handle bar */}
               <div className="w-12 h-1.5 bg-border rounded-full mx-auto mb-8" />

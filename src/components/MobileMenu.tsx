@@ -14,6 +14,18 @@ interface MobileMenuProps {
 }
 
 export const MobileMenu = ({ isOpen, onClose, navLinks, onNavClick }: MobileMenuProps) => {
+  // Prevent body scroll when open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && (
