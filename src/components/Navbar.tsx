@@ -46,7 +46,7 @@ export const Navbar = () => {
     
     const observerOptions = {
       root: null,
-      rootMargin: '-25% 0px -25% 0px',
+      rootMargin: '-30% 0px -30% 0px',
       threshold: 0
     };
 
@@ -66,14 +66,32 @@ export const Navbar = () => {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     const sections = ["home", "uslugi", "pacjenci", "o-nas", "zespol", "kontakt"];
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    
+    const observedIds = new Set<string>();
+
+    const attachObservers = () => {
+      sections.forEach(id => {
+        if (!observedIds.has(id)) {
+          const el = document.getElementById(id);
+          if (el) {
+            observer.observe(el);
+            observedIds.add(id);
+          }
+        }
+      });
+    };
+
+    // Initial check
+    attachObservers();
+
+    // Retry checks for dynamic content (ssr: false)
+    const intervals = [500, 1500, 3000, 6000];
+    const timers = intervals.map(delay => setTimeout(attachObservers, delay));
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      timers.forEach(clearTimeout);
       observer.disconnect();
     };
   }, []);
