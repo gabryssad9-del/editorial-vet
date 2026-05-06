@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { m, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Sparkles, Smile, Scissors, Droplets, ChevronRight, Heart, Star } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from './Badge';

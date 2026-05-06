@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { m, AnimatePresence, useSpring, useTransform, useMotionValue } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 const REVIEWS = [
@@ -83,14 +83,7 @@ export const ReviewsSection = () => {
 
   return (
     <section ref={sectionRef} className="py-16 md:py-24 relative overflow-hidden bg-background" id="opinie">
-      <m.div 
-        animate={{ 
-          opacity: [0.03, 0.05, 0.03],
-          scale: [1, 1.05, 1]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent rounded-full blur-[140px] pointer-events-none z-0"
-      />
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent rounded-full blur-[140px] pointer-events-none z-0 opacity-[0.04]" />
       
       <div className="container mx-auto max-w-[1400px] px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-20 items-center">

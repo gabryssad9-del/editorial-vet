@@ -104,13 +104,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google.com" />
 
-        {/* LCP Hero Image Preload - responsive */}
+        {/* LCP Hero Image Preload - matches srcSet exactly */}
         <link 
           rel="preload" 
           as="image"
-          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=70"
-          imageSrcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=450&output=webp&q=50 450w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=60 800w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=1200&output=webp&q=70 1200w"
-          imageSizes="(max-width: 640px) 450px, (max-width: 1024px) 800px, 1000px"
+          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=390&output=webp&q=40"
+          imageSrcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=390&output=webp&q=40 390w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=600&output=webp&q=45 600w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=900&output=webp&q=55 900w"
+          imageSizes="(max-width: 480px) 390px, (max-width: 768px) 600px, 900px"
           fetchPriority="high"
         />
 

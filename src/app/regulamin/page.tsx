@@ -23,20 +23,15 @@ const PawBackground = () => {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15">
       {paws.map((paw) => (
-        <m.div
+        <div
           key={paw.id}
-          initial={{ rotate: paw.rotate, scale: paw.scale }}
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [paw.rotate, paw.rotate + 10, paw.rotate]
-          }}
-          transition={{ 
-            duration: 8 + paw.id, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
           className="absolute"
-          style={{ left: paw.left, top: paw.top, color: '#FE4520' }}
+          style={{ 
+            left: paw.left, 
+            top: paw.top, 
+            color: '#FE4520',
+            transform: `rotate(${paw.rotate}deg) scale(${paw.scale})`
+          }}
         >
           <svg width="70" height="70" viewBox="0 0 48.839 48.839" fill="currentColor">
             <path d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252
@@ -50,7 +45,7 @@ const PawBackground = () => {
                M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
               S48.455,16.861,45.727,15.602z"/>
           </svg>
-        </m.div>
+        </div>
       ))}
     </div>
   );
@@ -62,18 +57,10 @@ export default function Regulamin() {
     <main className="min-h-screen bg-background font-inter selection:bg-accent selection:text-white pb-20 md:pb-32 relative">
       <PawBackground />
 
-      {/* Brand Bloom Background */}
+      {/* Brand Bloom Background - static to reduce TBT */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-        <m.div 
-          animate={{ opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-accent/10 rounded-full blur-[150px]" 
-        />
-        <m.div 
-          animate={{ opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-500/5 rounded-full blur-[120px]" 
-        />
+        <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-accent/10 rounded-full blur-[150px] opacity-40" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-500/5 rounded-full blur-[120px] opacity-40" />
       </div>
 
       <Navbar />

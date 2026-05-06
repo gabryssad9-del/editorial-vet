@@ -127,16 +127,8 @@ export default function ServicesPage() {
       
       {/* Brand Bloom - Czerwień i Grafit */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-        <m.div 
-          animate={{ opacity: [0.05, 0.15, 0.05] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-accent rounded-full blur-[150px]" 
-        />
-        <m.div 
-          animate={{ opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-slate-200 rounded-full blur-[120px]" 
-        />
+        <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-accent rounded-full blur-[150px] opacity-[0.08]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-slate-200 rounded-full blur-[120px] opacity-40" />
       </div>
 
       {/* Hero Section */}
