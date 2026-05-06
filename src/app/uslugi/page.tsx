@@ -74,30 +74,19 @@ const PawBackground = () => {
   ];
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15">
       {paws.map((paw) => (
-        <m.div
+        <div
           key={paw.id}
-          initial={{ rotate: paw.rotate, scale: paw.scale }}
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [paw.rotate, paw.rotate + 10, paw.rotate]
-          }}
-          transition={{ 
-            duration: 8 + paw.id, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
           className="absolute will-change-transform transform-gpu"
           style={{ 
             left: paw.left, 
             top: paw.top, 
             color: '#FE4520',
-            WebkitBackfaceVisibility: 'hidden',
-            backfaceVisibility: 'hidden'
+            transform: `rotate(${paw.rotate}deg) scale(${paw.scale})`,
           }}
         >
-          <svg width="70" height="70" viewBox="0 0 48.839 48.839" fill="currentColor" style={{ display: 'block' }}>
+          <svg width="70" height="70" viewBox="0 0 48.839 48.839" fill="currentColor">
             <path d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252
               c-1.56,0-2.567-0.002-5.112-1.326c0,0-1.649-1.509-5.508-1.354c-3.895-0.154-5.545,1.373-5.545,1.373
               c-2.545,1.323-3.516,1.309-5.074,1.309c-3.539,0-6.168-1.713-6.168-5.252c0-1.791,0.971-3.506,3.024-6.742
@@ -109,7 +98,7 @@ const PawBackground = () => {
                M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
               S48.455,16.861,45.727,15.602z"/>
           </svg>
-        </m.div>
+        </div>
       ))}
     </div>
   );

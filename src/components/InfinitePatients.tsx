@@ -18,11 +18,10 @@ const patients = [
 
 const PatientCard = ({ p }: { p: typeof patients[0] }) => (
   <m.div
-    layout
     initial={{ opacity: 0, scale: 0.9 }}
-    animate={{ opacity: 1, scale: 1 }}
-    exit={{ opacity: 0, scale: 0.9 }}
-    className="group relative h-48 sm:h-56 lg:h-60 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-secondary shadow-premium border border-accent/5"
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    className="group relative h-48 sm:h-56 lg:h-60 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-secondary shadow-premium border border-accent/5 transform-gpu"
   >
     <img 
        loading="lazy"

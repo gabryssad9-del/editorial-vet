@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
-import { m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Heart, Menu, X, ChevronRight, Phone, ArrowLeft } from 'lucide-react';
+import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { Heart, Menu, X, Phone, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { ThemeToggle } from './ThemeToggle';
 import { LiquidButton } from './LiquidButton';
 import { PhoneLink } from './PhoneDialog';
@@ -12,11 +13,12 @@ import { PhoneCardTooltip } from './PhoneCardTooltip';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
+const MobileMenu = dynamic(() => import('./MobileMenu').then(mod => mod.MobileMenu), { ssr: false });
+
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// Desktop-only phone card tooltip (no tel: link on desktop)
 const DesktopPhoneTooltip = () => (
   <PhoneCardTooltip 
     className="w-10 h-10 flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 text-foreground rounded-2xl border border-border/40 transition-all active:scale-95"
@@ -29,7 +31,6 @@ export const Navbar = () => {
   const pathname = usePathname();
   const isHome = pathname === '/';
   
-  // ... existing state and effects ...
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Start");
@@ -43,7 +44,6 @@ export const Navbar = () => {
       }
     };
     
-    // High-performance Intersection Observer for scroll spy
     const observerOptions = {
       root: null,
       rootMargin: '-25% 0px -25% 0px',
@@ -89,7 +89,6 @@ export const Navbar = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { name: string, href: string, isHash: boolean }) => {
     if (item.isHash) {
       const id = item.href.replace('#', '');
-      // If not on home page, navigate there first
       if (!isHome) {
         e.preventDefault();
         window.location.href = `/editorial-vet/${id !== 'home' ? '#' + id : ''}`;
@@ -103,13 +102,11 @@ export const Navbar = () => {
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
         setIsMenuOpen(false);
-        // Update URL hash without jumping
         window.history.pushState(null, '', `#${id}`);
       }
     }
   };
 
-  // Refs for the magic sliding pill
   const navContainerRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const [pillStyle, setPillStyle] = useState({ x: 0, width: 0, ready: false });
@@ -167,13 +164,11 @@ export const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4 lg:gap-6">
-            {/* Magic sliding pill nav */}
             <div
               ref={navContainerRef}
               className="relative flex items-center gap-1 p-1 bg-black/5 dark:bg-white/5 rounded-full"
               onMouseLeave={() => setHoveredLink(null)}
             >
-              {/* Single sliding pill — always in DOM, positioned via measured refs */}
               {pillStyle.ready && (
                 <m.div
                   className="absolute top-1 bottom-1 bg-black dark:bg-white rounded-full z-0 shadow-xl shadow-black/10 dark:shadow-white/5 pointer-events-none"
@@ -219,7 +214,6 @@ export const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-2 md:hidden">
             <PhoneLink
               phone="+48519619141"
@@ -240,74 +234,12 @@ export const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <m.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed inset-0 z-[110] bg-background lg:hidden flex flex-col p-6 pt-24 overflow-y-auto"
-          >
-            <button 
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-accent/10 rounded-full text-accent"
-              aria-label="Zamknij menu"
-            >
-              <X size={28} />
-            </button>
-
-            <div className="flex flex-col gap-5 flex-1">
-              {navLinks.map((item, i) => (
-                <m.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.07 }}
-                >
-                  <Link 
-                    href={item.href}
-                    onClick={(e) => {
-                      handleNavClick(e, item);
-                      setIsMenuOpen(false);
-                    }}
-                    className="text-3xl font-black font-outfit tracking-tighter text-foreground hover:text-accent transition-colors flex items-center justify-between group"
-                  >
-                    {item.name}
-                    <ChevronRight size={32} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all text-accent" />
-                  </Link>
-                </m.div>
-              ))}
-              
-              <m.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35 }}
-                className="pt-6 border-t border-border mt-2 flex flex-col gap-3"
-              >
-                <LiquidButton href="https://vetmed.nakiedy.pl/" className="w-full text-sm py-4">
-                  Umów wizytę online
-                </LiquidButton>
-              </m.div>
-
-              <div className="flex items-center gap-4 py-4">
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent shrink-0">
-                  <Heart size={20} fill="currentColor" />
-                </div>
-                <div>
-                  <p className="text-[9px] font-black uppercase tracking-[0.3em] text-accent mb-0.5">Recepcja</p>
-                  <PhoneLink
-                    phone="+48519619141"
-                    displayPhone="519 619 141"
-                    className="text-xl font-black hover:text-accent transition-colors block leading-none"
-                  >519 619 141</PhoneLink>
-                </div>
-              </div>
-            </div>
-          </m.div>
-        )}
-      </AnimatePresence>
+      <MobileMenu 
+        isOpen={isMenuOpen} 
+        onClose={() => setIsMenuOpen(false)} 
+        navLinks={navLinks} 
+        onNavClick={handleNavClick} 
+      />
     </>
   );
 };

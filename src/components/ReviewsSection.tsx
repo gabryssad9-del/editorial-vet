@@ -186,11 +186,11 @@ export const ReviewsSection = () => {
                     <div className="relative h-2 w-48 bg-white/5 rounded-full overflow-hidden">
                       <div className="absolute inset-0 bg-accent/10" />
                       <m.div 
-                        initial={{ width: 0 }}
-                        animate={{ width: "100%" }}
-                        key={`progress-${index}`}
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        style={{ originX: 0 }}
                         transition={{ duration: 12, ease: "linear" }}
-                        className="h-full bg-accent shadow-[0_0_20px_#FE4520]"
+                        className="h-full w-full bg-accent shadow-[0_0_20px_#FE4520]"
                       />
                     </div>
                   </m.div>
