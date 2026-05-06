@@ -121,23 +121,34 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google.com" />
 
-        {/* LCP Hero Image Preload - matches srcSet exactly */}
+        {/* LCP Hero Image Preload - EXACT match for the <img> tag in HeroSection */}
         <link 
           rel="preload" 
           as="image"
-          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=390&output=webp&q=40"
+          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=800&output=webp&q=55"
           imageSrcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=390&output=webp&q=40 390w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=600&output=webp&q=45 600w, https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/hero-emotional.jpg&w=900&output=webp&q=55 900w"
           imageSizes="(max-width: 480px) 390px, (max-width: 768px) 600px, 900px"
           fetchPriority="high"
         />
 
-        {/* Vetmed logo preload (above the fold) */}
+        {/* Vetmed logo preload */}
         <link
           rel="preload"
           as="image"
           href="/editorial-vet/emotional-vet/vetmed2.png" 
           fetchPriority="high"
         />
+
+        {/* Critical CSS to prevent layout shift and show Hero immediately */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          :root { --accent: #FE4520; --background: #ffffff; }
+          .dark { --background: #0a0a0a; }
+          body { background: var(--background); margin: 0; }
+          .hero-img-container { background: #f0f0f0; border-radius: 3rem; overflow: hidden; position: relative; }
+          .dark .hero-img-container { background: #1a1a1a; }
+          @media (min-width: 768px) { .hero-img-container { border-radius: 5rem; } }
+          h1 { margin-top: 0; }
+        `}} />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="msapplication-TileColor" content="#FE4520" />
