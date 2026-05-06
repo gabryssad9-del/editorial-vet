@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"], display: 'swap', variable: "--font-int
 const outfit = Outfit({ subsets: ["latin"], display: 'swap', variable: "--font-outfit" });
 
 export const viewport: Viewport = {
-  themeColor: '#C5A992',
+  themeColor: '#F67451',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -169,7 +169,7 @@ export default function RootLayout({
         `}} />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="msapplication-TileColor" content="#C5A992" />
+        <meta name="msapplication-TileColor" content="#F67451" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
