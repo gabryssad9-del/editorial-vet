@@ -171,7 +171,7 @@ export const Navbar = () => {
               className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group"
             >
               <img 
-                src="/editorial-vet/emotional-vet/og-image.png" 
+                src="/editorial-vet/emotional-vet/vetmed1.png" 
                 alt="VETMED Logo" 
                 fetchPriority="high"
                 loading="eager"

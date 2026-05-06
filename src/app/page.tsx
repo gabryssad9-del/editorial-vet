@@ -28,7 +28,7 @@ export default function UltraPremiumVetPage() {
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="flex items-center gap-4 font-outfit text-3xl md:text-4xl font-black tracking-tighter text-accent mb-8 md:mb-10">
                 <img 
-                  src="/editorial-vet/emotional-vet/og-image.png" 
+                  src="/editorial-vet/emotional-vet/vetmed1.png" 
                   alt="VETMED Logo" 
                   width="400"
                   height="200"
