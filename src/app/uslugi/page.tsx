@@ -124,7 +124,7 @@ export default function ServicesPage() {
       <section className="pt-48 pb-20 px-4 md:px-8 relative overflow-hidden">
         <div className="container mx-auto text-center relative z-10">
           <Badge className="mb-8">
-            <Sparkles size={14} fill="currentColor" /> Ekspercka Opieka
+            Ekspercka Opieka
           </Badge>
           <m.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -178,46 +178,39 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Content Overlay */}
-                <div className="absolute inset-0 z-10 p-6 md:p-12 flex flex-col justify-end transition-all duration-700">
-                  <div className="mb-auto">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl flex items-center justify-center text-accent mb-6 group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-500">
-                      <service.icon size={index === 0 || index === 3 ? 32 : 24} />
-                    </div>
+                <div className="absolute inset-0 z-10 p-6 md:p-12 flex flex-col transition-all duration-700">
+                  {/* Top Badges - Improved Mobile Layout */}
+                  <div className="flex flex-wrap items-center gap-2 mb-4">
+                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-white px-3 md:px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
+                      {service.tag}
+                    </span>
+                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-accent italic bg-accent/10 backdrop-blur-md px-3 py-1 rounded-full border border-accent/20 shadow-sm">
+                      {service.stats}
+                    </span>
                   </div>
 
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-white px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
-                        {service.tag}
-                      </span>
-                      <span className="text-[10px] font-black uppercase tracking-widest text-white/70 italic bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 shadow-sm">
-                        {service.stats}
-                      </span>
+                  <div className="mt-auto">
+                    <div className="w-10 h-10 md:w-16 md:h-16 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl flex items-center justify-center text-accent mb-4 md:6 group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-500">
+                      <service.icon size={index === 0 || index === 3 ? 32 : 24} />
                     </div>
-                    <h3 className="text-3xl md:text-5xl font-outfit font-black tracking-tighter mb-4 text-white group-hover:text-accent transition-colors drop-shadow-2xl">
+                    
+                    <h3 className="text-3xl md:text-5xl font-outfit font-black tracking-tighter mb-3 md:mb-4 text-white group-hover:text-accent transition-colors drop-shadow-2xl leading-none">
                       {service.title}
                     </h3>
-                    <p className="text-sm md:text-base text-white/90 font-medium mb-8 max-w-md leading-relaxed drop-shadow-lg">
+                    <p className="text-[13px] md:text-base text-white/80 font-medium mb-6 md:mb-8 max-w-md leading-relaxed drop-shadow-lg">
                       {service.desc}
                     </p>
                     
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3 md:gap-4">
                       {service.features.map((feature, fIdx) => (
                         <div key={fIdx} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-accent rounded-full shadow-[0_0_10px_rgba(254,69,32,0.5)]" />
-                          <span className="text-[11px] font-black uppercase tracking-widest text-white/60 group-hover:text-white transition-all duration-300">
+                          <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-accent rounded-full shadow-[0_0_10px_rgba(254,69,32,0.5)]" />
+                          <span className="text-[10px] md:text-[11px] font-black uppercase tracking-widest text-white/50 group-hover:text-white transition-all duration-300">
                             {feature}
                           </span>
                         </div>
                       ))}
                     </div>
-                  </div>
-                </div>
-
-                {/* Corner Link */}
-                <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500">
-                  <div className="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-glow">
-                    <ArrowRight size={20} />
                   </div>
                 </div>
               </m.div>
