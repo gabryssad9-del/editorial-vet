@@ -14,15 +14,15 @@ export const AboutSection = () => (
           viewport={{ once: true }}
           className="relative order-2 lg:order-1"
         >
-          <div className="rounded-[3rem] md:rounded-[5.5rem] overflow-hidden shadow-sm md:shadow-premium border-[12px] md:border-[20px] border-secondary group">
+          <div className="rounded-[3rem] md:rounded-[5rem] overflow-hidden shadow-sm md:shadow-premium border-[12px] md:border-[20px] border-secondary group">
             <img 
               loading="lazy" 
               decoding="async" 
-              src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/history.jpg&w=800&output=webp&q=70" 
+              src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/history.jpg&w=1000&output=webp&q=70" 
               alt="O nas" 
-              width="800"
-              height="480"
-              className="w-full h-[320px] md:h-[480px] object-cover transition-transform duration-[5s] lg:group-hover:scale-110" 
+              width="1000"
+              height="1200"
+              className="w-full h-[500px] md:h-[700px] object-cover transition-transform duration-[5s] lg:group-hover:scale-110" 
             />
           </div>
           <div className="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-16 bg-accent p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-glow max-w-[200px] md:max-w-xs text-white">
