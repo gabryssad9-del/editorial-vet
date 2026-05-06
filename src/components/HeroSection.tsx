@@ -21,7 +21,7 @@ export const Hero = () => {
                 alt="VETMED – weterynarz Olsztyn" 
                 fetchPriority="high"
                 loading="eager"
-                decoding="sync"
+                decoding="async"
                 width="900"
                 height="600"
                 className="w-full h-[380px] md:h-[580px] object-cover transition-transform duration-[4s] group-hover:scale-110" 

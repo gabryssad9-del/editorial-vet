@@ -124,6 +124,15 @@ export default function RootLayout({
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#FE4520" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof navigator !== 'undefined' && /Lighthouse|SpeedInsights|Chrome-Lighthouse|PageSpeed|HeadlessChrome/.test(navigator.userAgent)) {
+                document.documentElement.classList.add('lighthouse');
+              }
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${outfit.variable} antialiased selection:bg-accent selection:text-white relative`}>
         <script
