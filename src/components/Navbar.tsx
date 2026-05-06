@@ -8,12 +8,22 @@ import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LiquidButton } from './LiquidButton';
 import { PhoneLink } from './PhoneDialog';
+import { PhoneCardTooltip } from './PhoneCardTooltip';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+// Desktop-only phone card tooltip (no tel: link on desktop)
+const DesktopPhoneTooltip = () => (
+  <PhoneCardTooltip 
+    className="w-10 h-10 flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 text-foreground rounded-2xl border border-border/40 transition-all active:scale-95"
+  >
+    <Phone size={18} />
+  </PhoneCardTooltip>
+);
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -201,15 +211,7 @@ export const Navbar = () => {
             </div>
             
             <div className="flex items-center gap-3 lg:gap-4 ml-2 lg:ml-4">
-              <PhoneLink
-                phone="+48519619141"
-                displayPhone="519 619 141"
-                className="flex items-center gap-2 bg-[#ff3b3b]/10 text-[#ff3b3b] hover:bg-[#ff3b3b] hover:text-white border border-[#ff3b3b]/20 px-4 py-2 lg:px-5 lg:py-2.5 rounded-full transition-all duration-300 font-black uppercase tracking-widest text-xs md:text-sm group shadow-[0_0_15px_rgba(255,59,59,0.2)] hover:shadow-[0_0_25px_rgba(255,59,59,0.4)]"
-              >
-                <span className="w-2 h-2 rounded-full bg-current animate-ping opacity-75"></span>
-                <span className="w-2 h-2 rounded-full bg-current absolute"></span>
-                Nagły Przypadek
-              </PhoneLink>
+              <DesktopPhoneTooltip />
               <ThemeToggle />
               <LiquidButton href="https://vetmed.nakiedy.pl/" variant="dark" className="px-6 py-3 text-xs md:text-sm uppercase tracking-widest font-black">
                 Umów wizytę

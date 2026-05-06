@@ -4,6 +4,7 @@ import { m } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, ChevronRight } from 'lucide-react';
 import { Badge } from './Badge';
 import { PhoneLink } from './PhoneDialog';
+import { PhoneCardTooltip } from './PhoneCardTooltip';
 
 export const ContactSection = () => {
   const [isMapActive, setIsMapActive] = useState(false);
@@ -71,13 +72,21 @@ export const ContactSection = () => {
                       {info.subValue && <p className="text-sm font-medium opacity-50">{info.subValue}</p>}
                       {info.action && (
                         info.isPhone ? (
-                          <PhoneLink
-                            phone="+48519619141"
-                            displayPhone="519 619 141"
-                            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-accent/60 hover:text-accent transition-colors"
-                          >
-                            {info.actionLabel} <ChevronRight size={14} />
-                          </PhoneLink>
+                          <>
+                            <PhoneLink
+                              phone="+48519619141"
+                              displayPhone="519 619 141"
+                              className="inline-flex lg:hidden items-center gap-2 text-xs font-black uppercase tracking-widest text-accent/60 hover:text-accent transition-colors"
+                            >
+                              {info.actionLabel} <ChevronRight size={14} />
+                            </PhoneLink>
+                            <PhoneCardTooltip 
+                              align="left"
+                              className="hidden lg:inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-accent/60 hover:text-accent transition-colors"
+                            >
+                              {info.actionLabel} <ChevronRight size={14} />
+                            </PhoneCardTooltip>
+                          </>
                         ) : (
                           <a 
                             href={info.action} 

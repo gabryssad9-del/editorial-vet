@@ -7,6 +7,7 @@ import React from 'react';
 import { Navbar } from '@/components/Navbar';
 import { LiquidButton } from '@/components/LiquidButton';
 import { Badge } from '@/components/Badge';
+import { PhoneCardTooltip } from '@/components/PhoneCardTooltip';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -258,8 +259,13 @@ export default function ServicesPage() {
                     Umów wizytę online
                   </LiquidButton>
                   <div className="flex flex-col items-center sm:items-start">
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em] opacity-40 mb-1">Lub zadzwoń bezpośrednio</span>
-                    <a href="tel:519619141" className="text-2xl font-black hover:text-accent transition-colors">519 619 141</a>
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] opacity-40 mb-1 lg:hidden">Lub zadzwoń bezpośrednio</span>
+                    <a href="tel:519619141" className="text-2xl font-black hover:text-accent transition-colors lg:hidden">519 619 141</a>
+                    
+                    <PhoneCardTooltip align="left" className="hidden lg:flex flex-col items-start">
+                      <span className="text-[10px] font-black uppercase tracking-[0.3em] opacity-40 mb-1">Lub zadzwoń bezpośrednio</span>
+                      <span className="text-2xl font-black hover:text-accent transition-colors">519 619 141</span>
+                    </PhoneCardTooltip>
                   </div>
                 </div>
               </div>
