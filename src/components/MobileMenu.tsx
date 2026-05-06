@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { LiquidButton } from './LiquidButton';
 import { PhoneLink } from './PhoneDialog';
 
+import { createPortal } from 'react-dom';
+
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
@@ -14,6 +16,12 @@ interface MobileMenuProps {
 }
 
 export const MobileMenu = ({ isOpen, onClose, navLinks, onNavClick }: MobileMenuProps) => {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Prevent body scroll when open
   React.useEffect(() => {
     if (isOpen) {
@@ -26,7 +34,9 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onNavClick }: MobileMenu
     };
   }, [isOpen]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <m.div
@@ -93,6 +103,7 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onNavClick }: MobileMenu
           </div>
         </m.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
