@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"], display: 'swap', variable: "--font-int
 const outfit = Outfit({ subsets: ["latin"], display: 'swap', variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://vetmed-olsztyn.pl'), // Zakładana domena produkcyjna
+  metadataBase: new URL('https://gabryssad9-del.github.io/editorial-vet'),
   title: {
     default: "VETMED | Profesjonalna Opieka Weterynaryjna Olsztyn",
     template: "%s | VETMED Olsztyn"
@@ -15,6 +15,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Gabriel Sadowski" }],
   creator: "Gabriel Sadowski",
   publisher: "VETMED",
+  icons: {
+    icon: [
+      { url: '/emotional-vet/vetmed1.png', type: 'image/png' },
+      { url: '/emotional-vet/vetmed1.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/emotional-vet/vetmed1.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -23,11 +32,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "VETMED | Profesjonalna Opieka Weterynaryjna Olsztyn",
     description: "Najwyższej jakości profesjonalna opieka weterynaryjna w Olsztynie. Zobacz nasze specjalizacje.",
-    url: "https://vetmed-olsztyn.pl",
+    url: "https://gabryssad9-del.github.io/editorial-vet",
     siteName: "VETMED",
     images: [
       {
-        url: "/emotional-vet/vetmed.png",
+        url: "/emotional-vet/vetmed1.png",
         width: 1200,
         height: 630,
         alt: "VETMED Olsztyn",
@@ -51,10 +60,10 @@ export const metadata: Metadata = {
     title: "VETMED | Profesjonalna Opieka Weterynaryjna",
     description: "Najwyższej jakości opieka weterynaryjna w Olsztynie.",
     card: "summary_large_image",
-    images: ["/emotional-vet/vetmed.png"],
+    images: ["/emotional-vet/vetmed1.png"],
   },
   alternates: {
-    canonical: 'https://vetmed-olsztyn.pl',
+    canonical: 'https://gabryssad9-del.github.io/editorial-vet',
   },
 };
 
