@@ -138,7 +138,7 @@ export default function AboutPage() {
       <footer className="py-12 border-t border-border/50 px-4 md:px-8">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <img
-            src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50"
+            src="/editorial-vet/emotional-vet/og-image.png"
             alt="VETMED Logo"
             className="h-16 w-auto object-contain"
           />

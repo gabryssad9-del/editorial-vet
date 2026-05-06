@@ -165,9 +165,13 @@ export const Navbar = () => {
                 <ArrowLeft size={14} /> <span className="hidden sm:inline">Powrót</span>
               </Link>
             )}
-            <Link href="/" className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group">
+            <Link 
+              href="#home" 
+              onClick={(e) => handleNavClick(e, { name: "Start", href: "#home", isHash: true })}
+              className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group"
+            >
               <img 
-                src="/editorial-vet/emotional-vet/vetmed2.png" 
+                src="/editorial-vet/emotional-vet/og-image.png" 
                 alt="VETMED Logo" 
                 fetchPriority="high"
                 loading="eager"

@@ -254,7 +254,7 @@ export default function ServicesPage() {
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3 font-outfit text-2xl font-black tracking-tighter text-accent">
             <img 
-              src="/editorial-vet/emotional-vet/vetmed2.png" 
+              src="/editorial-vet/emotional-vet/og-image.png" 
               alt="VETMED Logo" 
               className="h-20 w-auto object-contain drop-shadow-[0_0_10px_rgba(254,69,32,0.2)]" 
             />
