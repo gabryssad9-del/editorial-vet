@@ -82,7 +82,7 @@ export const Navbar = () => {
       // If not on home page, navigate there first
       if (!isHome) {
         e.preventDefault();
-        window.location.href = `/${id !== 'home' ? '#' + id : ''}`;
+        window.location.href = `/editorial-vet/${id !== 'home' ? '#' + id : ''}`;
         return;
       }
       const element = document.getElementById(id);
@@ -218,7 +218,14 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
+            <PhoneLink
+              phone="+48519619141"
+              displayPhone="519 619 141"
+              className="w-10 h-10 flex items-center justify-center bg-[#ff3b3b]/10 text-[#ff3b3b] rounded-xl active:scale-95 transition-transform border border-[#ff3b3b]/20"
+            >
+              <Phone size={18} />
+            </PhoneLink>
             <ThemeToggle />
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -261,9 +268,7 @@ export const Navbar = () => {
                     href={item.href}
                     onClick={(e) => {
                       handleNavClick(e, item);
-                      if (!item.isHash || window.location.pathname !== '/') {
-                        setIsMenuOpen(false);
-                      }
+                      setIsMenuOpen(false);
                     }}
                     className="text-3xl font-black font-outfit tracking-tighter text-foreground hover:text-accent transition-colors flex items-center justify-between group"
                   >
@@ -279,13 +284,6 @@ export const Navbar = () => {
                 transition={{ delay: 0.35 }}
                 className="pt-6 border-t border-border mt-2 flex flex-col gap-3"
               >
-                <PhoneLink
-                   phone="+48519619141"
-                   displayPhone="519 619 141"
-                   className="w-full flex items-center justify-center gap-3 bg-[#ff3b3b] text-white py-4 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_10px_30px_rgba(255,59,59,0.2)] active:scale-95 transition-transform"
-                >
-                   <Phone size={18} /> Nagły Przypadek
-                </PhoneLink>
                 <LiquidButton href="https://vetmed.nakiedy.pl/" className="w-full text-sm py-4">
                   Umów wizytę online
                 </LiquidButton>

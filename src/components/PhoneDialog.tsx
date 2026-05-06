@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
-import { Phone, Globe, X } from 'lucide-react';
+import { Phone, X } from 'lucide-react';
 
 interface PhoneDialogProps {
   phone: string;       // e.g. "+48519619141"
@@ -81,16 +81,6 @@ export const PhoneLink = ({ phone, displayPhone, children, className }: PhoneDia
                 >
                   <Phone size={20} />
                   Zadzwoń teraz
-                </a>
-                <a
-                  href={`https://www.google.com/search?q=VetMed+Olsztyn+${phone}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                  className="w-full flex items-center gap-4 bg-secondary text-foreground px-6 py-5 rounded-2xl font-black uppercase tracking-widest text-sm border border-border active:scale-95 transition-transform"
-                >
-                  <Globe size={20} />
-                  Otwórz w przeglądarce
                 </a>
                 <button
                   onClick={() => setOpen(false)}
