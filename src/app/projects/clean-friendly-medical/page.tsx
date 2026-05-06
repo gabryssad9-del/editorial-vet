@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Phone, Clock, AlertCircle, Shield, Syringe, Activity, Microscope, HeartPulse, ChevronDown, MapPin, Mail, Share2 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -44,23 +44,23 @@ const Hero = () => (
       style={{ backgroundImage: 'url("/hero-vet.jpg")' }} // Placeholder for now, I'll update with the generated one
     />
     <div className="container mx-auto px-6 relative z-20 text-center text-white">
-      <motion.h1 
+      <m.h1 
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="text-4xl md:text-6xl font-bold font-outfit mb-6"
       >
         Profesjonalna Opieka Weterynaryjna z Sercem
-      </motion.h1>
-      <motion.p 
+      </m.h1>
+      <m.p 
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
         className="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-90"
       >
         Twoi pupile zasługują na to, co najlepsze. Nowoczesna diagnostyka i troskliwy zespół lekarzy dostępny dla Ciebie każdego dnia.
-      </motion.p>
-      <motion.div
+      </m.p>
+      <m.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
@@ -68,7 +68,7 @@ const Hero = () => (
         <a href="#contact" className="bg-accent text-white px-10 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform inline-block">
           Zarezerwuj wizytę
         </a>
-      </motion.div>
+      </m.div>
     </div>
   </section>
 );
@@ -87,7 +87,7 @@ const Services = () => (
           { icon: <Microscope />, title: 'Diagnostyka', desc: 'Badania krwi, USG, RTG - szybka diagnoza na miejscu.' },
           { icon: <AlertCircle />, title: 'Emergency', desc: 'Pomoc doraźna w nagłych wypadkach i stanach krytycznych.' },
         ].map((s, i) => (
-          <motion.div 
+          <m.div 
             key={i}
             whileHover={{ y: -10 }}
             className="p-8 rounded-card glass shadow-premium border-t-4 border-accent hover:border-accent-soft transition-all"
@@ -97,7 +97,7 @@ const Services = () => (
             </div>
             <h3 className="text-xl font-bold mb-4 font-outfit">{s.title}</h3>
             <p className="text-text-gray">{s.desc}</p>
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </div>
@@ -168,7 +168,7 @@ export default function Home() {
               { name: "Piotr Wiśniewski", pet: "Leon (Kot Brytyjski)", text: "Nowoczesny sprzęt i fachowa pomoc. Operacja Leona przebiegła bez komplikacji, a opieka pooperacyjna była wzorowa." },
               { name: "Katarzyna Kowal", pet: "Biały (Królik)", text: "Jedyna klinika w okolicy, która naprawdę zna się na zajęczakach. Profesjonalizm i ogromna wiedza." }
             ].map((t, i) => (
-              <motion.div 
+              <m.div 
                 key={i} 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -184,7 +184,7 @@ export default function Home() {
                   <p className="font-bold font-outfit">{t.name}</p>
                   <p className="text-sm text-accent">{t.pet}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -199,13 +199,13 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-              <motion.div 
+              <m.div 
                 key={n}
                 whileHover={{ scale: 1.02 }}
                 className="aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-sm"
               >
                 {/* Image Placeholder */}
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

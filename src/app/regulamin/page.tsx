@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Heart, ChevronRight, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Navbar } from '@/components/Navbar';
@@ -23,7 +23,7 @@ const PawBackground = () => {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15">
       {paws.map((paw) => (
-        <motion.div
+        <m.div
           key={paw.id}
           initial={{ rotate: paw.rotate, scale: paw.scale }}
           animate={{ 
@@ -50,7 +50,7 @@ const PawBackground = () => {
                M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
               S48.455,16.861,45.727,15.602z"/>
           </svg>
-        </motion.div>
+        </m.div>
       ))}
     </div>
   );
@@ -64,12 +64,12 @@ export default function Regulamin() {
 
       {/* Brand Bloom Background */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-        <motion.div 
+        <m.div 
           animate={{ opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-accent/10 rounded-full blur-[150px]" 
         />
-        <motion.div 
+        <m.div 
           animate={{ opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
           className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-500/5 rounded-full blur-[120px]" 
@@ -81,7 +81,7 @@ export default function Regulamin() {
       {/* Hero Header */}
       <header className="pt-40 md:pt-52 pb-16 md:pb-32 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -93,7 +93,7 @@ export default function Regulamin() {
               Regulamin <br className="sm:hidden" /> <span className="text-accent italic">Kliniki</span>.
             </h1>
             <p className="text-lg md:text-xl text-text-gray font-medium opacity-60">Ostatnia aktualizacja: 25 kwietnia 2026</p>
-          </motion.div>
+          </m.div>
         </div>
       </header>
 

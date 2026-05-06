@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Heart, Zap, ChevronRight, ArrowLeft, CheckCircle2, Shield, Activity, Microscope, Scissors, Sparkles, Star, Clock, Droplets, Smile, Sun, Moon } from 'lucide-react';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
@@ -38,14 +38,14 @@ const ThemeToggle = () => {
   };
 
   return (
-    <motion.button
+    <m.button
       onClick={toggleTheme}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       className="p-3 rounded-2xl bg-accent/10 text-accent border border-accent/20 backdrop-blur-md"
     >
       {isDark ? <Sun size={20} /> : <Moon size={20} />}
-    </motion.button>
+    </m.button>
   );
 };
 
@@ -127,7 +127,7 @@ export default function ServicesThemeV1() {
       {/* Dynamic Background Blobs */}
       <div className="fixed inset-0 pointer-events-none -z-10">
         <AnimatePresence mode="wait">
-          <motion.div 
+          <m.div 
             key={activeTab}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -171,7 +171,7 @@ export default function ServicesThemeV1() {
           activeTab === -1 ? "hidden" : "flex" // Toggle on mobile if we added a list-only mode (but here we always have one active)
         )}>
           <AnimatePresence mode="wait">
-            <motion.div 
+            <m.div 
               key={activeTab}
               initial={{ opacity: 0, x: -20, filter: 'blur(10px)' }}
               animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
@@ -194,14 +194,14 @@ export default function ServicesThemeV1() {
               </div>
 
               <div className="max-w-2xl text-center lg:text-left">
-                <motion.h1 
+                <m.h1 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="text-4xl md:text-6xl font-outfit font-black tracking-tighter mb-4 md:mb-6 leading-none text-foreground"
                 >
                   {services[activeTab].title} <br />
                   <span className="text-accent italic">{services[activeTab].subtitle}</span>
-                </motion.h1>
+                </m.h1>
                 <p className="text-base md:text-lg text-text-gray font-medium opacity-60 leading-relaxed mb-6 md:mb-8">
                   {services[activeTab].desc}
                 </p>
@@ -214,7 +214,7 @@ export default function ServicesThemeV1() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
 
@@ -230,7 +230,7 @@ export default function ServicesThemeV1() {
             </div>
 
           {services.map((s, i) => (
-            <motion.div
+            <m.div
               key={s.id}
               onClick={() => {
                 setActiveTab(i);
@@ -262,13 +262,13 @@ export default function ServicesThemeV1() {
                   )}>{s.subtitle}</p>
                 </div>
                 {activeTab === i && (
-                  <motion.div 
+                  <m.div 
                     layoutId="active-indicator"
                     className="ml-auto w-1.5 h-1.5 rounded-full bg-accent"
                   />
                 )}
               </div>
-            </motion.div>
+            </m.div>
           ))}
 
           {/* Quick Info Sidebar */}
