@@ -4,13 +4,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Scissors, Sparkles, MoveHorizontal } from 'lucide-react';
 import { Badge } from './Badge';
-
-interface ComparisonProps {
-  before: string;
-  after: string;
-  label: string;
-}
-
 import { DynamicMotion } from './DynamicMotion';
 
 interface ComparisonProps {
@@ -170,7 +163,7 @@ export const GroomingGallery = () => {
           <div className="inline-flex items-center gap-2 text-accent font-black uppercase tracking-widest text-xs hover:gap-4 transition-all cursor-pointer">
             Zobacz całe portfolio przemian <Sparkles size={14} />
           </div>
-        </m.div>
+        </DynamicMotion>
       </div>
     </section>
   );

@@ -1,4 +1,21 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { m, AnimatePresence } from 'framer-motion';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Badge } from './Badge';
 import { DynamicMotion } from './DynamicMotion';
+
+const patients = [
+  { id: 0, name: "Bruno", breed: "Beagle", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1543466835-00a7907e9de1&w=600&output=webp&q=80" },
+  { id: 1, name: "Misia", breed: "Tuxedo Cat", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1514888286974-6c03e2ca1dba&w=600&output=webp&q=80" },
+  { id: 2, name: "Simba", breed: "Hamster", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1425082661705-1834bfd09dca&w=600&output=webp&q=80" },
+  { id: 3, name: "Bella", breed: "Corgi", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1537151608828-ea2b11777ee8&w=600&output=webp&q=80" },
+  { id: 4, name: "Rocky", breed: "Border Collie", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1583337130417-3346a1be7dee&w=600&output=webp&q=80" },
+  { id: 5, name: "Sonia", breed: "Frenchie", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1583511655857-d19b40a7a54e&w=600&output=webp&q=80" },
+  { id: 6, name: "Luna", breed: "British Cat", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1533738363-b7f9aef128ce&w=600&output=webp&q=80" },
+  { id: 7, name: "Max", breed: "Pug", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1598133894008-61f7fdb8cc3a&w=600&output=webp&q=80" },
+];
 
 const PatientCard = ({ p }: { p: typeof patients[0] }) => (
   <DynamicMotion
@@ -79,7 +96,7 @@ export const InfinitePatients = () => {
               : <ChevronDown className="group-hover:translate-y-1 transition-transform pointer-events-none" size={18} />
             }
           </button>
-        </m.div>
+        </div>
       </div>
       
       <div className="absolute top-1/2 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[100px] -translate-x-1/2" />

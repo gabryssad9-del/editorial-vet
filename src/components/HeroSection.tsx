@@ -27,7 +27,7 @@ export const Hero = () => {
                 className="w-full h-[380px] md:h-[580px] object-cover transition-transform duration-[4s] group-hover:scale-110" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-              <div className="absolute top-6 right-6 md:top-10 md:right-10 bg-background/20 backdrop-blur-xl px-4 md:px-8 py-2 md:py-4 rounded-full border border-background/30 text-foreground font-black text-[8px] md:text-xs uppercase tracking-widest">
+              <div className="absolute top-6 right-6 md:top-10 md:right-10 bg-background/20 lg:backdrop-blur-xl px-4 md:px-8 py-2 md:py-4 rounded-full border border-background/30 text-foreground font-black text-[8px] md:text-xs uppercase tracking-widest">
                  Premium Care
               </div>
             </div>

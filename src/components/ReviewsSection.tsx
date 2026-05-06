@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { DynamicMotion } from './DynamicMotion';
 
 const REVIEWS = [
   {

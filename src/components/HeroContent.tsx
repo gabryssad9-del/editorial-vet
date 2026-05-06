@@ -1,6 +1,9 @@
 'use client';
 import React from 'react';
 import { DynamicMotion } from './DynamicMotion';
+import { Badge } from './Badge';
+import { LiquidButton } from './LiquidButton';
+import { ChevronRight } from 'lucide-react';
 
 export const HeroContent = () => {
   return (

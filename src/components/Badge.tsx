@@ -6,6 +6,10 @@ import { twMerge } from 'tailwind-merge';
 import { Sparkles } from 'lucide-react';
 import { DynamicMotion } from './DynamicMotion';
 
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 export const Badge = ({ children, className }: { children: React.ReactNode, className?: string }) => (
   <DynamicMotion 
     initial={{ opacity: 0, y: 10 }}

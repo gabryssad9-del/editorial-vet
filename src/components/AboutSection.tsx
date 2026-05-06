@@ -1,6 +1,8 @@
 'use client';
 import React from 'react';
 import { DynamicMotion } from './DynamicMotion';
+import { Badge } from './Badge';
+import { CheckCircle2 } from 'lucide-react';
 
 export const AboutSection = () => (
   <section id="o-nas" className="py-14 md:py-20 px-4 md:px-8 relative overflow-hidden">

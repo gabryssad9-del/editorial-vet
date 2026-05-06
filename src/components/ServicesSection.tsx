@@ -1,6 +1,9 @@
 'use client';
 import React from 'react';
 import { DynamicMotion } from './DynamicMotion';
+import { Badge } from './Badge';
+import Link from 'next/link';
+import { Sparkles, Smile, Scissors, Droplets, Heart, Star, ChevronRight } from 'lucide-react';
 
 export const ServicesSection = () => {
   const services = [

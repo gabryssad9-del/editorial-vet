@@ -2,6 +2,8 @@
 import React from 'react';
 import { DynamicMotion } from './DynamicMotion';
 
+import { Badge } from './Badge';
+
 export const TeamSection = () => {
   const members = [
     { 
@@ -53,7 +55,7 @@ export const TeamSection = () => {
                   </p>
                 </div>
               </div>
-            </m.div>
+            </DynamicMotion>
           ))}
         </div>
       </div>
