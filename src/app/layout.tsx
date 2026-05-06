@@ -132,8 +132,8 @@ export default function RootLayout({
         />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="theme-color" content="#EB5E28" />
-        <meta name="msapplication-TileColor" content="#EB5E28" />
+        <meta name="theme-color" content="#FE4520" />
+        <meta name="msapplication-TileColor" content="#FE4520" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
