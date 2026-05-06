@@ -1,9 +1,6 @@
 'use client';
 import React from 'react';
-import { m } from 'framer-motion';
-import { Sparkles, Smile, Scissors, Droplets, ChevronRight, Heart, Star } from 'lucide-react';
-import Link from 'next/link';
-import { Badge } from './Badge';
+import { DynamicMotion } from './DynamicMotion';
 
 export const ServicesSection = () => {
   const services = [
@@ -15,10 +12,11 @@ export const ServicesSection = () => {
 
   return (
     <section id="uslugi" className="py-16 md:py-32 px-4 md:px-8 relative overflow-hidden bg-secondary/50">
-      <div className="absolute top-10 left-10 opacity-5 -rotate-12 scale-150">
+      {/* Decorative icons - Desktop only */}
+      <div className="hidden lg:block absolute top-10 left-10 opacity-5 -rotate-12 scale-150 pointer-events-none">
         <Heart size={200} fill="currentColor" className="text-accent" />
       </div>
-      <div className="absolute bottom-10 right-10 opacity-5 rotate-12 scale-150">
+      <div className="hidden lg:block absolute bottom-10 right-10 opacity-5 rotate-12 scale-150 pointer-events-none">
         <Star size={200} fill="currentColor" className="text-accent" />
       </div>
 
@@ -32,7 +30,7 @@ export const ServicesSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {services.map((s, i) => {
             return (
-              <m.div
+              <DynamicMotion
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -40,11 +38,8 @@ export const ServicesSection = () => {
                 transition={{ delay: i * 0.1, duration: 0.8, ease: "easeOut" }}
                 className="group h-full"
               >
-                <m.div
-                  whileHover={{ y: -10 }}
-                  className="bg-card-bg h-full p-6 md:p-8 py-10 md:py-12 rounded-[2.5rem] md:rounded-[3.5rem] shadow-[0_40px_100px_-30px_rgba(0,0,0,0.06)] border border-border flex flex-col items-center text-center hover:border-accent/30 hover:shadow-[0_60px_120px_-30px_rgba(254,69,32,0.1)] transition-all duration-500 relative overflow-hidden"
-                >
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-card-bg rounded-full shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] flex items-center justify-center text-accent mb-6 md:mb-8 relative z-10 group-hover:bg-accent group-hover:text-white transition-all duration-500">
+                <div className="bg-card-bg h-full p-6 md:p-8 py-10 md:py-12 rounded-[2.5rem] md:rounded-[3.5rem] shadow-sm md:shadow-premium border border-border flex flex-col items-center text-center lg:hover:border-accent/30 lg:hover:shadow-[0_60px_120px_-30px_rgba(254,69,32,0.1)] transition-all duration-500 relative overflow-hidden">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-card-bg rounded-full shadow-sm md:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] flex items-center justify-center text-accent mb-6 md:mb-8 relative z-10 lg:group-hover:bg-accent lg:group-hover:text-white transition-all duration-500">
                     <s.icon className="w-7 h-7 md:w-9 md:h-9" strokeWidth={1.5} />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black mb-4 md:mb-5 tracking-tighter relative z-10 leading-none">{s.title}</h3>
@@ -52,12 +47,12 @@ export const ServicesSection = () => {
                     {s.desc}
                   </p>
                   <div className="mt-6 md:mt-8">
-                     <Link href="/uslugi" className="text-[10px] font-black uppercase tracking-[0.3em] text-accent flex items-center gap-2 bg-accent/5 px-5 py-3 rounded-full border border-accent/10 hover:bg-accent hover:text-white transition-all duration-300">
+                     <Link href="/uslugi" className="text-[10px] font-black uppercase tracking-[0.3em] text-accent flex items-center gap-2 bg-accent/5 px-5 py-3 rounded-full border border-accent/10 lg:hover:bg-accent lg:hover:text-white transition-all duration-300">
                        Odkryj <ChevronRight size={14} />
                      </Link>
                   </div>
-                </m.div>
-              </m.div>
+                </div>
+              </DynamicMotion>
             );
           })}
         </div>

@@ -89,17 +89,17 @@ export const ReviewsSection = () => {
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           
           {/* Left Side Card */}
-          <m.div 
+          <DynamicMotion 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="w-full lg:w-1/3"
           >
-            <div className={`p-10 md:p-14 rounded-[3.5rem] border backdrop-blur-[30px] relative group overflow-hidden transition-all duration-700 ${isDarkMode ? 'bg-white/5 border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.4)]' : 'bg-white border-transparent shadow-[0_40px_100px_rgba(254,69,32,0.08)]'}`}>
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-1000" />
+            <div className={`p-10 md:p-14 rounded-[3.5rem] border lg:backdrop-blur-[30px] relative group overflow-hidden transition-all duration-700 ${isDarkMode ? 'bg-white/5 border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.4)]' : 'bg-white border-transparent shadow-[0_40px_100px_rgba(254,69,32,0.08)]'}`}>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-30 lg:group-hover:opacity-100 transition-opacity duration-1000" />
               
               <div className="flex items-center gap-6 mb-12">
-                <div className="w-20 h-20 bg-white rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/20 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-20 h-20 bg-white rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/20 lg:group-hover:scale-110 transition-transform duration-500">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" width="40" height="40" className="w-10 h-10" />
                 </div>
                 <div>
@@ -118,10 +118,10 @@ export const ReviewsSection = () => {
               <a 
                 href="https://www.google.com/search?q=vet-med+gabinet+weterynaryjny+opinie" 
                 target="_blank"
-                className={`w-full inline-flex items-center justify-center gap-4 py-6 rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-500 group relative overflow-hidden ${isDarkMode ? 'bg-white text-black hover:bg-accent hover:text-white shadow-lg shadow-white/10' : 'bg-black text-white hover:bg-accent hover:shadow-lg hover:shadow-accent/30'}`}
+                className={`w-full inline-flex items-center justify-center gap-4 py-6 rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-500 group relative overflow-hidden ${isDarkMode ? 'bg-white text-black lg:hover:bg-accent lg:hover:text-white shadow-lg shadow-white/10' : 'bg-black text-white lg:hover:bg-accent lg:hover:shadow-lg lg:hover:shadow-accent/30'}`}
               >
                 <span className="relative z-10">Czytaj wszystkie historie</span>
-                <ExternalLink size={18} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <ExternalLink size={18} className="relative z-10 lg:group-hover:translate-x-1 lg:group-hover:-translate-y-1 transition-transform" />
               </a>
 
               <div className="mt-14 pt-10 border-t border-white/5 flex items-center justify-between">
@@ -129,7 +129,7 @@ export const ReviewsSection = () => {
                   {[1, 2, 3, 4, 5].map(i => (
                     <div 
                       key={i} 
-                      className={`w-12 h-12 rounded-full border-2 ${isDarkMode ? 'border-background bg-white/10' : 'border-white bg-black/10'} overflow-hidden cursor-pointer transition-all hover:-translate-y-1`}
+                      className={`w-12 h-12 rounded-full border-2 ${isDarkMode ? 'border-background bg-white/10' : 'border-white bg-black/10'} overflow-hidden cursor-pointer transition-all lg:hover:-translate-y-1`}
                     >
                       <div className={`w-full h-full flex items-center justify-center text-[12px] font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
                         {String.fromCharCode(64 + i)}
@@ -140,7 +140,7 @@ export const ReviewsSection = () => {
                 <p className={`text-xs md:text-sm font-black uppercase tracking-widest ${isDarkMode ? 'text-white/50' : 'text-black/50'}`}>+200 Pacjentów</p>
               </div>
             </div>
-          </m.div>
+          </DynamicMotion>
 
           {/* Review Reel */}
           <div className="w-full lg:w-2/3 relative">

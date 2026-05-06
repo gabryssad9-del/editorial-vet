@@ -1,27 +1,11 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
-import { m, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import { Badge } from './Badge';
-
-const patients = [
-  { id: 0, name: "Bruno", breed: "Beagle", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1543466835-00a7907e9de1&w=600&output=webp&q=80" },
-  { id: 1, name: "Misia", breed: "Tuxedo Cat", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1514888286974-6c03e2ca1dba&w=600&output=webp&q=80" },
-  { id: 2, name: "Simba", breed: "Hamster", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1425082661705-1834bfd09dca&w=600&output=webp&q=80" },
-  { id: 3, name: "Bella", breed: "Corgi", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1537151608828-ea2b11777ee8&w=600&output=webp&q=80" },
-  { id: 4, name: "Rocky", breed: "Border Collie", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1583337130417-3346a1be7dee&w=600&output=webp&q=80" },
-  { id: 5, name: "Sonia", breed: "Frenchie", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1583511655857-d19b40a7a54e&w=600&output=webp&q=80" },
-  { id: 6, name: "Luna", breed: "British Cat", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1533738363-b7f9aef128ce&w=600&output=webp&q=80" },
-  { id: 7, name: "Max", breed: "Pug", img: "https://images.weserv.nl/?url=images.unsplash.com/photo-1598133894008-61f7fdb8cc3a&w=600&output=webp&q=80" },
-];
+import { DynamicMotion } from './DynamicMotion';
 
 const PatientCard = ({ p }: { p: typeof patients[0] }) => (
-  <m.div
+  <DynamicMotion
     initial={{ opacity: 0, scale: 0.9 }}
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
-    className="group relative h-48 sm:h-56 lg:h-60 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-secondary shadow-premium border border-accent/5 transform-gpu"
+    className="group relative h-48 sm:h-56 lg:h-60 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-secondary shadow-sm md:shadow-premium border border-accent/5 transform-gpu"
   >
     <img 
        loading="lazy"
@@ -30,13 +14,13 @@ const PatientCard = ({ p }: { p: typeof patients[0] }) => (
        alt={p.name}
        width="600"
        height="800"
-       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+       className="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-110"
     />
     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-8">
       <p className="text-[9px] font-black uppercase tracking-[0.2em] text-accent/80 mb-1">{p.breed}</p>
       <h4 className="text-base md:text-lg font-black font-outfit text-white uppercase tracking-tighter leading-none">{p.name}</h4>
     </div>
-  </m.div>
+  </DynamicMotion>
 );
 
 export const InfinitePatients = () => {
@@ -84,7 +68,7 @@ export const InfinitePatients = () => {
           )}
         </AnimatePresence>
         
-        <m.div layout className="mt-10 md:mt-14 flex justify-center relative z-10">
+        <div className="mt-10 md:mt-14 flex justify-center relative z-10">
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex items-center justify-center gap-3 w-full sm:w-auto bg-accent hover:bg-accent/90 text-white px-10 py-4 min-h-[56px] rounded-2xl font-black uppercase tracking-widest text-[11px] transition-all shadow-[0_10px_30px_rgba(254,69,32,0.3)] hover:shadow-[0_15px_40px_rgba(254,69,32,0.4)] group active:scale-[0.97] border border-accent/20 touch-manipulation cursor-pointer select-none"

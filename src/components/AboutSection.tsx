@@ -1,20 +1,18 @@
 'use client';
 import React from 'react';
-import { m } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
-import { Badge } from './Badge';
+import { DynamicMotion } from './DynamicMotion';
 
 export const AboutSection = () => (
   <section id="o-nas" className="py-14 md:py-20 px-4 md:px-8 relative overflow-hidden">
     <div className="container mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-        <m.div
+        <DynamicMotion
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="relative order-2 lg:order-1"
         >
-          <div className="rounded-[3rem] md:rounded-[5.5rem] overflow-hidden shadow-premium border-[12px] md:border-[20px] border-secondary group">
+          <div className="rounded-[3rem] md:rounded-[5.5rem] overflow-hidden shadow-sm md:shadow-premium border-[12px] md:border-[20px] border-secondary group">
             <img 
               loading="lazy" 
               decoding="async" 
@@ -22,14 +20,14 @@ export const AboutSection = () => (
               alt="O nas" 
               width="800"
               height="480"
-              className="w-full h-[320px] md:h-[480px] object-cover transition-transform duration-[5s] group-hover:scale-110" 
+              className="w-full h-[320px] md:h-[480px] object-cover transition-transform duration-[5s] lg:group-hover:scale-110" 
             />
           </div>
           <div className="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-16 bg-accent p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] shadow-glow max-w-[200px] md:max-w-xs text-white">
              <div className="text-4xl md:text-6xl font-outfit font-black mb-2">15</div>
              <p className="text-[8px] md:text-xs font-black uppercase tracking-[0.3em] opacity-80 leading-relaxed">Lat misji i zaufania w sercu Olsztyna.</p>
           </div>
-        </m.div>
+        </DynamicMotion>
         
         <div className="lg:pl-20 order-1 lg:order-2 text-center lg:text-left">
           <Badge>O klinice</Badge>

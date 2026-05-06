@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
-import { m } from 'framer-motion';
-import { Badge } from './Badge';
+import { DynamicMotion } from './DynamicMotion';
 
 export const TeamSection = () => {
   const members = [
@@ -34,13 +33,13 @@ export const TeamSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
           {members.map((member, i) => (
-            <m.div
+            <DynamicMotion
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-premium border border-accent/10 group bg-secondary"
+              className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-sm md:shadow-premium border border-accent/10 group bg-secondary"
             >
               <div className="h-[380px] md:h-[560px] w-full overflow-hidden relative">
                 <img loading="lazy" decoding="async" src={member.img} alt={`Lek. wet. ${member.name}`} width="600" height="750" className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-105" />

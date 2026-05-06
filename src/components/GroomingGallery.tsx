@@ -11,6 +11,14 @@ interface ComparisonProps {
   label: string;
 }
 
+import { DynamicMotion } from './DynamicMotion';
+
+interface ComparisonProps {
+  before: string;
+  after: string;
+  label: string;
+}
+
 const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -84,13 +92,13 @@ const ComparisonSlider = ({ before, after, label }: ComparisonProps) => {
             className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
           />
           {/* Before Label */}
-          <div className="absolute top-6 left-6 z-20 bg-black/40 backdrop-blur-md text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/10">
+          <div className="absolute top-6 left-6 z-20 bg-black/40 lg:backdrop-blur-md text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/10">
             Przed
           </div>
         </m.div>
 
         {/* After Label */}
-        <div className="absolute top-6 right-6 z-0 bg-accent/80 backdrop-blur-md text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
+        <div className="absolute top-6 right-6 z-0 bg-accent/80 lg:backdrop-blur-md text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
           Po wizycie
         </div>
 
@@ -142,7 +150,7 @@ export const GroomingGallery = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {animals.map((animal, i) => (
-            <m.div
+            <DynamicMotion
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -150,11 +158,11 @@ export const GroomingGallery = () => {
               viewport={{ once: true }}
             >
               <ComparisonSlider {...animal} />
-            </m.div>
+            </DynamicMotion>
           ))}
         </div>
 
-        <m.div 
+        <DynamicMotion 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="mt-24 text-center"
