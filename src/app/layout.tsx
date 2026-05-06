@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"], display: 'swap', variable: "--font-int
 const outfit = Outfit({ subsets: ["latin"], display: 'swap', variable: "--font-outfit" });
 
 export const viewport: Viewport = {
-  themeColor: '#F67451',
+  themeColor: '#FE4520',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "VETMED",
     images: [
       {
-        url: "https://gabryssad9-del.github.io/editorial-vet/emotional-vet/og-image.png?v=3",
+        url: "https://gabryssad9-del.github.io/editorial-vet/emotional-vet/og-image.png?v=4",
         width: 1200,
         height: 630,
         alt: "VETMED – Profesjonalna Klinika Weterynaryjna w Olsztynie",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "VETMED | Profesjonalna Opieka Weterynaryjna",
     description: "Najwyższej jakości opieka weterynaryjna w Olsztynie.",
     card: "summary_large_image",
-    images: ["https://gabryssad9-del.github.io/editorial-vet/emotional-vet/og-image.png?v=3"],
+    images: ["https://gabryssad9-del.github.io/editorial-vet/emotional-vet/og-image.png?v=4"],
   },
   alternates: {
     canonical: 'https://gabryssad9-del.github.io/editorial-vet',
@@ -169,7 +169,7 @@ export default function RootLayout({
         `}} />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="msapplication-TileColor" content="#F67451" />
+        <meta name="msapplication-TileColor" content="#FE4520" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
