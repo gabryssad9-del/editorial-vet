@@ -8,6 +8,7 @@ import { Navbar } from '@/components/Navbar';
 import { LiquidButton } from '@/components/LiquidButton';
 import { Badge } from '@/components/Badge';
 import { PhoneCardTooltip } from '@/components/PhoneCardTooltip';
+import { DynamicMotion } from '@/components/DynamicMotion';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -74,7 +75,7 @@ const PawBackground = () => {
   ];
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-15">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-10">
       {paws.map((paw) => (
         <div
           key={paw.id}
@@ -86,17 +87,8 @@ const PawBackground = () => {
             transform: `rotate(${paw.rotate}deg) scale(${paw.scale})`,
           }}
         >
-          <svg width="70" height="70" viewBox="0 0 48.839 48.839" fill="currentColor">
-            <path d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252
-              c-1.56,0-2.567-0.002-5.112-1.326c0,0-1.649-1.509-5.508-1.354c-3.895-0.154-5.545,1.373-5.545,1.373
-              c-2.545,1.323-3.516,1.309-5.074,1.309c-3.539,0-6.168-1.713-6.168-5.252c0-1.791,0.971-3.506,3.024-6.742
-              c0,0,3.881-6.445,7.244-9.477c2.43-2.188,5.973-2.18,5.973-2.18h1.093v-0.001c0,0,3.698-0.009,5.976,2.181
-              C35.059,30.51,39.041,36.844,39.041,36.843z M16.631,20.878c3.7,0,6.699-4.674,6.699-10.439S20.331,0,16.631,0
-              S9.932,4.674,9.932,10.439S12.931,20.878,16.631,20.878z M10.211,30.988c2.727-1.259,3.349-5.723,1.388-9.971
-              s-5.761-6.672-8.488-5.414s-3.348,5.723-1.388,9.971C3.684,29.822,7.484,32.245,10.211,30.988z M32.206,20.878
-              c3.7,0,6.7-4.674,6.7-10.439S35.906,0,32.206,0s-6.699,4.674-6.699,10.439C25.507,16.204,28.506,20.878,32.206,20.878z
-               M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
-              S48.455,16.861,45.727,15.602z"/>
+          <svg width="60" height="60" viewBox="0 0 100 100" fill="currentColor">
+            <path d="M30,40 C35,40 40,35 40,30 C40,25 35,20 30,20 C25,20 20,25 20,30 C20,35 25,40 30,40 Z M50,30 C55,30 60,25 60,20 C60,15 55,10 50,10 C45,10 40,15 40,20 C40,25 45,30 50,30 Z M70,40 C75,40 80,35 80,30 C80,25 75,20 70,20 C65,20 60,25 60,30 C60,35 65,40 70,40 Z M50,70 C60,70 70,60 70,50 C70,40 60,35 50,35 C40,35 30,40 30,50 C30,60 40,70 50,70 Z" />
           </svg>
         </div>
       ))}
@@ -156,7 +148,7 @@ export default function ServicesPage() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
             {services.map((service, index) => (
-              <m.div
+              <DynamicMotion
                 key={service.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -170,8 +162,10 @@ export default function ServicesPage() {
                 {/* Image Background */}
                 <div className="absolute inset-0 z-0">
                   <img 
-                    src={service.image} 
+                    src={`https://images.weserv.nl/?url=gabryssad9-del.github.io${service.image}&w=800&output=webp&q=60`} 
                     alt={service.title} 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-0 opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 transition-all duration-700" />
@@ -213,11 +207,11 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </div>
-              </m.div>
+              </DynamicMotion>
             ))}
 
             {/* CTA Tile */}
-            <m.div 
+            <DynamicMotion 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -250,7 +244,7 @@ export default function ServicesPage() {
                  <Syringe size={120} className="absolute -bottom-10 -right-10 -rotate-12" />
                  <Activity size={100} className="absolute top-1/2 left-20 -translate-y-1/2 opacity-20" />
               </div>
-            </m.div>
+            </DynamicMotion>
           </div>
         </div>
       </section>
@@ -260,9 +254,9 @@ export default function ServicesPage() {
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3 font-outfit text-2xl font-black tracking-tighter text-accent">
             <img 
-              src="/editorial-vet/emotional-vet/vetmed1.png" 
+              src="/editorial-vet/emotional-vet/vetmed2.png" 
               alt="VETMED Logo" 
-              className="h-20 w-auto object-contain brightness-110 drop-shadow-[0_0_10px_rgba(254,69,32,0.2)]" 
+              className="h-20 w-auto object-contain drop-shadow-[0_0_10px_rgba(254,69,32,0.2)]" 
             />
           </div>
           <div className="flex gap-8 text-[10px] font-black uppercase tracking-widest text-text-gray">

@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   publisher: "VETMED",
   icons: {
     icon: [
-      { url: '/emotional-vet/vetmed1.png', type: 'image/png' },
-      { url: '/emotional-vet/vetmed1.png', sizes: '32x32', type: 'image/png' },
+      { url: '/emotional-vet/vetmed2.png', type: 'image/png' },
+      { url: '/emotional-vet/vetmed2.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: [
-      { url: '/emotional-vet/vetmed1.png', sizes: '180x180', type: 'image/png' },
+      { url: '/emotional-vet/vetmed2.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   formatDetection: {
@@ -135,7 +135,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50"
+          href="/editorial-vet/emotional-vet/vetmed2.png" 
           fetchPriority="high"
         />
 

@@ -121,7 +121,7 @@ export const ReviewsSection = () => {
                 target="_blank"
                 className={`w-full inline-flex items-center justify-center gap-4 py-6 rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest transition-all duration-500 group relative overflow-hidden ${isDarkMode ? 'bg-white text-black lg:hover:bg-accent lg:hover:text-white shadow-lg shadow-white/10' : 'bg-black text-white lg:hover:bg-accent lg:hover:shadow-lg lg:hover:shadow-accent/30'}`}
               >
-                <span className="relative z-10">Czytaj wszystkie historie</span>
+                <span className="relative z-10">Czytaj wszystkie opinie</span>
                 <ExternalLink size={18} className="relative z-10 lg:group-hover:translate-x-1 lg:group-hover:-translate-y-1 transition-transform" />
               </a>
 

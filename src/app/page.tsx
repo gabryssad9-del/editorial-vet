@@ -28,13 +28,13 @@ export default function UltraPremiumVetPage() {
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="flex items-center gap-4 font-outfit text-3xl md:text-4xl font-black tracking-tighter text-accent mb-8 md:mb-10">
                 <img 
-                  src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=400&output=webp" 
+                  src="/editorial-vet/emotional-vet/vetmed2.png" 
                   alt="VETMED Logo" 
                   width="400"
                   height="200"
                   loading="lazy"
                   decoding="async"
-                  className="h-24 md:h-32 w-auto object-contain brightness-125 contrast-125 drop-shadow-[0_0_20px_rgba(254,69,32,0.4)]" 
+                  className="h-24 md:h-32 w-auto object-contain drop-shadow-[0_0_20px_rgba(254,69,32,0.4)]" 
                 />
               </div>
               <p className="text-base md:text-lg opacity-40 font-medium leading-relaxed max-w-xs text-white">

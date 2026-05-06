@@ -167,16 +167,14 @@ export const Navbar = () => {
             )}
             <Link href="/" className="flex items-center gap-3 md:gap-4 font-outfit text-2xl md:text-3xl font-black tracking-tighter text-accent group">
               <img 
-                src="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50" 
-                srcSet="https://images.weserv.nl/?url=gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed1.png&w=120&output=webp&q=50 120w"
-                sizes="120px"
+                src="/editorial-vet/emotional-vet/vetmed2.png" 
                 alt="VETMED Logo" 
                 fetchPriority="high"
                 loading="eager"
                 decoding="async"
-                width="80"
-                height="80"
-                className="h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-[0_0_15px_rgba(254,69,32,0.3)] group-hover:scale-105 transition-all duration-500" 
+                width="200"
+                height="100"
+                className="h-16 md:h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(254,69,32,0.3)] group-hover:scale-105 transition-all duration-500" 
               />
             </Link>
           </div>
