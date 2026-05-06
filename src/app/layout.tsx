@@ -44,10 +44,10 @@ export const metadata: Metadata = {
     siteName: "VETMED",
     images: [
       {
-        url: "https://gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed2.png",
+        url: "https://gabryssad9-del.github.io/editorial-vet/emotional-vet/history.jpg",
         width: 1200,
         height: 630,
-        alt: "VETMED Logo",
+        alt: "VETMED – Profesjonalna Klinika Weterynaryjna w Olsztynie",
       },
     ],
     locale: "pl_PL",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "VETMED | Profesjonalna Opieka Weterynaryjna",
     description: "Najwyższej jakości opieka weterynaryjna w Olsztynie.",
     card: "summary_large_image",
-    images: ["https://gabryssad9-del.github.io/editorial-vet/emotional-vet/vetmed2.png"],
+    images: ["https://gabryssad9-del.github.io/editorial-vet/emotional-vet/history.jpg"],
   },
   alternates: {
     canonical: 'https://gabryssad9-del.github.io/editorial-vet',
